@@ -31,16 +31,11 @@ namespace SistemaOrdenes
 
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pnlOrdenes.Visible = false;
-            pnlProveedor.Visible = true;
+
+            ProveedoresVer proveedoresVer = new ProveedoresVer();
+            proveedoresVer.Show();
         }
 
-        private void btnNuevoProveedor_Click(object sender, EventArgs e)
-        {
-            frmNuevoProveedor frmNvoProv = new frmNuevoProveedor();
-            frmNvoProv.Show();
-            
-        }
 
         private void btnEditarProveedor_Click(object sender, EventArgs e)
         {
@@ -77,8 +72,7 @@ namespace SistemaOrdenes
 
         private void consultaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pnlProveedor.Visible = false;
-            pnlOrdenes.Visible = true;
+       
         }
 
         private void nuevaOrdenToolStripMenuItem_Click(object sender, EventArgs e)

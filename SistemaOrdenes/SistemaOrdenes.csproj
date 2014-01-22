@@ -84,8 +84,20 @@
     <Compile Include="frmNuevoProveedor.Designer.cs">
       <DependentUpon>frmNuevoProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrdenesVer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdenesVer.Designer.cs">
+      <DependentUpon>OrdenesVer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProveedoresVer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProveedoresVer.Designer.cs">
+      <DependentUpon>ProveedoresVer.cs</DependentUpon>
+    </Compile>
     <Compile Include="tbbid.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -100,6 +112,9 @@
     <EmbeddedResource Include="frmNuevoProveedor.resx">
       <DependentUpon>frmNuevoProveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OrdenesVer.resx">
+      <DependentUpon>OrdenesVer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -110,6 +125,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ProveedoresVer.resx">
+      <DependentUpon>ProveedoresVer.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="BD_SistemaDataSet.xsc">
       <DependentUpon>BD_SistemaDataSet.xsd</DependentUpon>
