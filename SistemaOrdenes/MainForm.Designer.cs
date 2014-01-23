@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menumain));
             this.menuPrincipal = new System.Windows.Forms.MenuStrip();
             this.catalogoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,22 +40,9 @@
             this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configurarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.proveedoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bD_SistemaDataSet = new SistemaOrdenes.BD_SistemaDataSet();
-            this.proveedoresTableAdapter = new SistemaOrdenes.BD_SistemaDataSetTableAdapters.ProveedoresTableAdapter();
-            this.bDSistemaDataSet3BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bD_SistemaDataSet3 = new SistemaOrdenes.BD_SistemaDataSet3();
-            this.tbbidBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tbbid = new SistemaOrdenes.tbbid();
-            this.ordenesTableAdapter = new SistemaOrdenes.tbbidTableAdapters.OrdenesTableAdapter();
-            this.ordenesTableAdapter1 = new SistemaOrdenes.BD_SistemaDataSet3TableAdapters.OrdenesTableAdapter();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bD_SistemaDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bDSistemaDataSet3BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bD_SistemaDataSet3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbbidBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbbid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuPrincipal
@@ -67,7 +53,7 @@
             this.opcionesToolStripMenuItem});
             this.menuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.menuPrincipal.Name = "menuPrincipal";
-            this.menuPrincipal.Size = new System.Drawing.Size(927, 24);
+            this.menuPrincipal.Size = new System.Drawing.Size(411, 24);
             this.menuPrincipal.TabIndex = 0;
             this.menuPrincipal.Text = "menuStrip1";
             // 
@@ -80,6 +66,7 @@
             this.catalogoToolStripMenuItem.Name = "catalogoToolStripMenuItem";
             this.catalogoToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.catalogoToolStripMenuItem.Text = "Catalogo";
+            this.catalogoToolStripMenuItem.Click += new System.EventHandler(this.catalogoToolStripMenuItem_Click);
             // 
             // proveedoresToolStripMenuItem
             // 
@@ -112,14 +99,14 @@
             // nuevaOrdenToolStripMenuItem
             // 
             this.nuevaOrdenToolStripMenuItem.Name = "nuevaOrdenToolStripMenuItem";
-            this.nuevaOrdenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nuevaOrdenToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.nuevaOrdenToolStripMenuItem.Text = "Nueva Orden";
             this.nuevaOrdenToolStripMenuItem.Click += new System.EventHandler(this.nuevaOrdenToolStripMenuItem_Click);
             // 
             // consultaToolStripMenuItem
             // 
             this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
-            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.consultaToolStripMenuItem.Text = "Consulta";
             this.consultaToolStripMenuItem.Click += new System.EventHandler(this.consultaToolStripMenuItem_Click);
             // 
@@ -144,68 +131,32 @@
             this.informacionToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.informacionToolStripMenuItem.Text = "Informacion";
             // 
-            // proveedoresBindingSource
+            // pictureBox1
             // 
-            this.proveedoresBindingSource.DataMember = "Proveedores";
-            this.proveedoresBindingSource.DataSource = this.bD_SistemaDataSet;
-            // 
-            // bD_SistemaDataSet
-            // 
-            this.bD_SistemaDataSet.DataSetName = "BD_SistemaDataSet";
-            this.bD_SistemaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // proveedoresTableAdapter
-            // 
-            this.proveedoresTableAdapter.ClearBeforeFill = true;
-            // 
-            // bDSistemaDataSet3BindingSource
-            // 
-            this.bDSistemaDataSet3BindingSource.DataMember = "Ordenes";
-            this.bDSistemaDataSet3BindingSource.DataSource = this.bD_SistemaDataSet3;
-            // 
-            // bD_SistemaDataSet3
-            // 
-            this.bD_SistemaDataSet3.DataSetName = "BD_SistemaDataSet3";
-            this.bD_SistemaDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tbbidBindingSource
-            // 
-            this.tbbidBindingSource.DataMember = "Ordenes";
-            this.tbbidBindingSource.DataSource = this.tbbid;
-            // 
-            // tbbid
-            // 
-            this.tbbid.DataSetName = "tbbid";
-            this.tbbid.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ordenesTableAdapter
-            // 
-            this.ordenesTableAdapter.ClearBeforeFill = true;
-            // 
-            // ordenesTableAdapter1
-            // 
-            this.ordenesTableAdapter1.ClearBeforeFill = true;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(39, 50);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(302, 299);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // Menumain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(927, 654);
+            this.ClientSize = new System.Drawing.Size(411, 419);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuPrincipal);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuPrincipal;
             this.MaximizeBox = false;
             this.Name = "Menumain";
             this.Text = "Sistema Ordenes - IRTEC";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Menumain_Load);
             this.menuPrincipal.ResumeLayout(false);
             this.menuPrincipal.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bD_SistemaDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bDSistemaDataSet3BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bD_SistemaDataSet3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbbidBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbbid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,19 +171,11 @@
         private System.Windows.Forms.ToolStripMenuItem ordenesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevaOrdenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem;
-        private BD_SistemaDataSet bD_SistemaDataSet;
-        private System.Windows.Forms.BindingSource proveedoresBindingSource;
-        private BD_SistemaDataSetTableAdapters.ProveedoresTableAdapter proveedoresTableAdapter;
-        private System.Windows.Forms.BindingSource tbbidBindingSource;
-        private tbbid tbbid;
-        private tbbidTableAdapters.OrdenesTableAdapter ordenesTableAdapter;
-        private System.Windows.Forms.BindingSource bDSistemaDataSet3BindingSource;
-        private BD_SistemaDataSet3 bD_SistemaDataSet3;
-        private BD_SistemaDataSet3TableAdapters.OrdenesTableAdapter ordenesTableAdapter1;
         private System.Windows.Forms.ToolStripMenuItem vehiculosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem opcionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configurarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informacionToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

@@ -48,5 +48,45 @@ namespace SistemaOrdenes
         {
 
         }
+
+        private void tbRFC_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbDireccion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

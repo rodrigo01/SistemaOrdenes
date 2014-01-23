@@ -16,69 +16,34 @@ namespace SistemaOrdenes
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'bD_SistemaDataSet3.Ordenes' table. You can move, or remove it, as needed.
-            this.ordenesTableAdapter1.Fill(this.bD_SistemaDataSet3.Ordenes);
-            // TODO: This line of code loads data into the 'tbbid.Ordenes' table. You can move, or remove it, as needed.
-            this.ordenesTableAdapter.Fill(this.tbbid.Ordenes);
-            // TODO: This line of code loads data into the 'bD_SistemaDataSet2.Ordenes' table. You can move, or remove it, as needed.
-       
-            // TODO: This line of code loads data into the 'bD_SistemaDataSet.Proveedores' table. You can move, or remove it, as needed.
-            this.proveedoresTableAdapter.Fill(this.bD_SistemaDataSet.Proveedores);
-
-        }
-
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
             ProveedoresVer proveedoresVer = new ProveedoresVer();
             proveedoresVer.Show();
         }
-
-
-        private void btnEditarProveedor_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void fillByToolStripButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.ordenesTableAdapter1.FillBy(this.bD_SistemaDataSet3.Ordenes);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void consultaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-       
-        }
+      
 
         private void nuevaOrdenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmNuevaOrden frmNvoOrd = new frmNuevaOrden();
             frmNvoOrd.Show();
+        }
+
+        private void consultaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OrdenesVer ordenesVer = new OrdenesVer();
+            ordenesVer.Show();
+        }
+
+        private void Menumain_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void catalogoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
  

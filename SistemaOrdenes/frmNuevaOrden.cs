@@ -18,8 +18,7 @@ namespace SistemaOrdenes
 
         private void frmNuevaOrden_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'bD_SistemaDataSet.Proveedores' table. You can move, or remove it, as needed.
-            this.proveedoresTableAdapter.Fill(this.bD_SistemaDataSet.Proveedores);
+           
 
         }
 

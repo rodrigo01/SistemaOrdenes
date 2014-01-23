@@ -66,11 +66,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BD_SistemaDataSet3.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Conexion.cs" />
+    <Compile Include="frmNuevaOrden.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frmNuevaOrden.Designer.cs">
+      <DependentUpon>frmNuevaOrden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditarProveedor.Designer.cs">
+      <DependentUpon>frmEditarProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -84,6 +91,7 @@
     <Compile Include="frmNuevoProveedor.Designer.cs">
       <DependentUpon>frmNuevoProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="OleDbReader.cs" />
     <Compile Include="OrdenesVer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +100,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proveedores.cs" />
     <Compile Include="ProveedoresVer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,8 +112,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>tbbid.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="frmNuevaOrden.resx">
+      <DependentUpon>frmNuevaOrden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarProveedor.resx">
+      <DependentUpon>frmEditarProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

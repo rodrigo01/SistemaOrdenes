@@ -73,9 +73,10 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(39, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 16);
+            this.label1.Size = new System.Drawing.Size(63, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nombre";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -83,9 +84,10 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(40, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 16);
+            this.label2.Size = new System.Drawing.Size(74, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Direccion";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -93,9 +95,10 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(39, 137);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 16);
+            this.label3.Size = new System.Drawing.Size(38, 16);
             this.label3.TabIndex = 4;
             this.label3.Text = "RFC";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -106,6 +109,7 @@
             this.label4.Size = new System.Drawing.Size(70, 16);
             this.label4.TabIndex = 5;
             this.label4.Text = "Telefono";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // tbNombre
             // 
@@ -114,6 +118,7 @@
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(224, 26);
             this.tbNombre.TabIndex = 6;
+            this.tbNombre.TextChanged += new System.EventHandler(this.tbNombre_TextChanged);
             // 
             // tbDireccion
             // 
@@ -122,6 +127,7 @@
             this.tbDireccion.Name = "tbDireccion";
             this.tbDireccion.Size = new System.Drawing.Size(224, 26);
             this.tbDireccion.TabIndex = 7;
+            this.tbDireccion.TextChanged += new System.EventHandler(this.tbDireccion_TextChanged);
             // 
             // tbRFC
             // 
@@ -130,6 +136,7 @@
             this.tbRFC.Name = "tbRFC";
             this.tbRFC.Size = new System.Drawing.Size(224, 26);
             this.tbRFC.TabIndex = 8;
+            this.tbRFC.TextChanged += new System.EventHandler(this.tbRFC_TextChanged);
             // 
             // tbTelefono
             // 
@@ -138,6 +145,7 @@
             this.tbTelefono.Name = "tbTelefono";
             this.tbTelefono.Size = new System.Drawing.Size(224, 26);
             this.tbTelefono.TabIndex = 9;
+            this.tbTelefono.TextChanged += new System.EventHandler(this.tbTelefono_TextChanged);
             // 
             // dbSource
             // 
