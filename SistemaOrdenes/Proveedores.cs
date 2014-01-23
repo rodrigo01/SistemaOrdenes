@@ -87,9 +87,7 @@ namespace SistemaOrdenes
         public void updateProveedor(Proveedores updProveedor, OleDbConnection con)
         {
             OleDbCommand comand = new OleDbCommand();
-            OleDbDataReader lectura; //lecto de datos
             
-
             //sql de busqueda y realizamos consulta            
             String consulta = "UPDATE Proveedores SET nombre = '" + updProveedor.nombre + "', direccion = '" + updProveedor.direccion + "', rfc = '" + updProveedor.rfc + "', telefono = '" + updProveedor.telefono + "' WHERE Id= " + updProveedor.id + ";";
             comand.Connection = con;

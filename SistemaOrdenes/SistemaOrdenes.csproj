@@ -92,6 +92,7 @@
       <DependentUpon>frmNuevoProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="OleDbReader.cs" />
+    <Compile Include="Ordenes.cs" />
     <Compile Include="OrdenesVer.cs">
       <SubType>Form</SubType>
     </Compile>
