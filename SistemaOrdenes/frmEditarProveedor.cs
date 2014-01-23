@@ -19,6 +19,7 @@ namespace SistemaOrdenes
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+
             this.Close();
         }
 
@@ -44,11 +45,16 @@ namespace SistemaOrdenes
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            Conexion conectar = new Conexion();
             Proveedores actProveedor = new Proveedores();
+            actProveedor.id = _ideditar;
             actProveedor.nombre = tbNombre.Text;
             actProveedor.direccion = tbDireccion.Text;
             actProveedor.rfc = tbRFC.Text;
             actProveedor.telefono = tbTelefono.Text;
+
+            actProveedor.updateProveedor(actProveedor, conectar.con);
+            System.Windows.Forms.MessageBox.Show("Proveedor Actualizado");
         }
 
       

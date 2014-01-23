@@ -88,13 +88,15 @@ namespace SistemaOrdenes
         {
             OleDbCommand comand = new OleDbCommand();
             OleDbDataReader lectura; //lecto de datos
-            comand.Connection = con; //conectamos
-            con.Open();
+            
 
             //sql de busqueda y realizamos consulta            
-            String consulta = "SELECT * FROM Proveedores Where Id = " + _id + "";
+            String consulta = "UPDATE Proveedores SET nombre = '" + updProveedor.nombre + "', direccion = '" + updProveedor.direccion + "', rfc = '" + updProveedor.rfc + "', telefono = '" + updProveedor.telefono + "' WHERE Id= " + updProveedor.id + ";";
+            comand.Connection = con;
             comand.CommandText = consulta;
-
+            con.Open();
+            comand.ExecuteNonQuery();
+            con.Close();
         }
 
         
