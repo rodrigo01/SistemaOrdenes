@@ -136,6 +136,7 @@
             this.dgOrdenes.ReadOnly = true;
             this.dgOrdenes.Size = new System.Drawing.Size(679, 420);
             this.dgOrdenes.TabIndex = 4;
+            this.dgOrdenes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOrdenes_CellContentClick);
             // 
             // btDetalles
             // 

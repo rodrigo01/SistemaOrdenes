@@ -22,6 +22,7 @@ namespace SistemaOrdenes
         public String parauso;
         public String maquina;
         public String obra;
+       
 
         public Ordenes()
         {
@@ -81,50 +82,25 @@ namespace SistemaOrdenes
             return proveedores;
         }
 
-        //Obtener Ordenes por Nombre en 
-        /*
-        public DataTable getProveedoresByNameDG(String Nombre, OleDbConnection con)
+        public DataTable getDetallesOrden(int idorden, OleDbConnection con) 
         {
             con.Open();
 
-            String consulta = "SELECT * FROM Proveedores Where nombre LIKE '%" + Nombre + "%'";
+            String consulta = "SELECT Detalles_Orden.cantidad as Cantidad, Detalles_Orden.descripcion as Descripcion, Detalles_Orden.punitario as [Precio], [punitario]*[cantidad] AS Costo FROM Detalles_Orden Where id_orden = " + idorden;
             OleDbCommand comand = new OleDbCommand();
             comand.Connection = con;
             comand.CommandText = consulta;
 
             OleDbDataAdapter da = new OleDbDataAdapter(comand);
-            DataTable proveedores = new DataTable();
-            da.Fill(proveedores);
+            DataTable detallesorden = new DataTable();
+            da.Fill(detallesorden);
 
             con.Close();
-            return proveedores;
-        }*/
-
-        //Actualizar Orden
-        public void updateOrden(Proveedores updProveedor, OleDbConnection con)
-        {
-            OleDbCommand comand = new OleDbCommand();
-
-            //sql de busqueda y realizamos consulta            
-            String consulta = "UPDATE Proveedores SET nombre = '" + updProveedor.nombre + "', direccion = '" + updProveedor.direccion + "', rfc = '" + updProveedor.rfc + "', telefono = '" + updProveedor.telefono + "' WHERE Id= " + updProveedor.id + ";";
-            comand.Connection = con;
-            comand.CommandText = consulta;
-            con.Open();
-            comand.ExecuteNonQuery();
-            con.Close();
+            return detallesorden;
         }
 
-        public void insertOrden(Proveedores updProveedor, OleDbConnection con)
-        {
-            OleDbCommand comand = new OleDbCommand();
+        
 
-            //sql de insertar y realizamos consulta            
-            String consulta = "UPDATE Proveedores SET nombre = '" + updProveedor.nombre + "', direccion = '" + updProveedor.direccion + "', rfc = '" + updProveedor.rfc + "', telefono = '" + updProveedor.telefono + "' WHERE Id= " + updProveedor.id + ";";
-            comand.Connection = con;
-            comand.CommandText = consulta;
-            con.Open();
-            comand.ExecuteNonQuery();
-            con.Close();
-        }
+        
     }
 }

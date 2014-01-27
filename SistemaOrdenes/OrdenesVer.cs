@@ -35,9 +35,14 @@ namespace SistemaOrdenes
             string valor = dgOrdenes[0, rowi].Value.ToString();
             idedit = Convert.ToInt32(valor);
 
-            frmEditarProveedor frmEditProv = new frmEditarProveedor();
-            frmEditProv._ideditar = idedit;
-            frmEditProv.Show();
+            frmVerOrden frmverorden = new frmVerOrden();
+            frmverorden._idver = idedit;
+            frmverorden.Show();
+        }
+
+        private void dgOrdenes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

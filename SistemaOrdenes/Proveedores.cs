@@ -84,6 +84,7 @@ namespace SistemaOrdenes
             return proveedores;
         }
 
+
         public void updateProveedor(Proveedores updProveedor, OleDbConnection con)
         {
             OleDbCommand comand = new OleDbCommand();

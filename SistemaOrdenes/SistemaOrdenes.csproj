@@ -79,6 +79,12 @@
     <Compile Include="frmEditarProveedor.Designer.cs">
       <DependentUpon>frmEditarProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVerOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerOrden.Designer.cs">
+      <DependentUpon>frmVerOrden.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarProveedor.resx">
       <DependentUpon>frmEditarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerOrden.resx">
+      <DependentUpon>frmVerOrden.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
