@@ -29,27 +29,28 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtFinal = new System.Windows.Forms.DateTimePicker();
+            this.dtInicial = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.cbBPor = new System.Windows.Forms.ComboBox();
+            this.tbValorB = new System.Windows.Forms.TextBox();
+            this.btBuscar = new System.Windows.Forms.Button();
+            this.dgOrdenes = new System.Windows.Forms.DataGridView();
+            this.btDetalles = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgOrdenes)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dtFinal);
+            this.groupBox1.Controls.Add(this.dtInicial);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.cbBPor);
+            this.groupBox1.Controls.Add(this.tbValorB);
+            this.groupBox1.Controls.Add(this.btBuscar);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(351, 96);
@@ -57,23 +58,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar Por";
             // 
-            // dateTimePicker2
+            // dtFinal
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(127, 65);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(107, 20);
-            this.dateTimePicker2.TabIndex = 11;
-            this.dateTimePicker2.Value = new System.DateTime(2014, 1, 16, 9, 59, 49, 0);
+            this.dtFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFinal.Location = new System.Drawing.Point(127, 65);
+            this.dtFinal.Name = "dtFinal";
+            this.dtFinal.Size = new System.Drawing.Size(107, 20);
+            this.dtFinal.TabIndex = 11;
+            this.dtFinal.Value = new System.DateTime(2014, 1, 16, 9, 59, 49, 0);
             // 
-            // dateTimePicker1
+            // dtInicial
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(6, 65);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(103, 20);
-            this.dateTimePicker1.TabIndex = 10;
-            this.dateTimePicker1.Value = new System.DateTime(2009, 1, 1, 0, 0, 0, 0);
+            this.dtInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtInicial.Location = new System.Drawing.Point(6, 65);
+            this.dtInicial.Name = "dtInicial";
+            this.dtInicial.Size = new System.Drawing.Size(103, 20);
+            this.dtInicial.TabIndex = 10;
+            this.dtInicial.Value = new System.DateTime(2009, 1, 1, 0, 0, 0, 0);
             // 
             // label3
             // 
@@ -93,10 +94,10 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Fecha inicial";
             // 
-            // comboBox1
+            // cbBPor
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbBPor.FormattingEnabled = true;
+            this.cbBPor.Items.AddRange(new object[] {
             "Orden",
             "Proveedor",
             "Departamento",
@@ -104,50 +105,62 @@
             "Almacen",
             "Solicito",
             "Maquina"});
-            this.comboBox1.Location = new System.Drawing.Point(6, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 3;
+            this.cbBPor.Location = new System.Drawing.Point(6, 19);
+            this.cbBPor.Name = "cbBPor";
+            this.cbBPor.Size = new System.Drawing.Size(121, 21);
+            this.cbBPor.TabIndex = 3;
             // 
-            // textBox2
+            // tbValorB
             // 
-            this.textBox2.Location = new System.Drawing.Point(147, 19);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(179, 20);
-            this.textBox2.TabIndex = 2;
+            this.tbValorB.Location = new System.Drawing.Point(147, 19);
+            this.tbValorB.Name = "tbValorB";
+            this.tbValorB.Size = new System.Drawing.Size(179, 20);
+            this.tbValorB.TabIndex = 2;
             // 
-            // button1
+            // btBuscar
             // 
-            this.button1.Location = new System.Drawing.Point(251, 62);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btBuscar.Location = new System.Drawing.Point(251, 62);
+            this.btBuscar.Name = "btBuscar";
+            this.btBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btBuscar.TabIndex = 1;
+            this.btBuscar.Text = "Buscar";
+            this.btBuscar.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // dgOrdenes
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(12, 114);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(774, 420);
-            this.dataGridView2.TabIndex = 4;
+            this.dgOrdenes.AllowUserToAddRows = false;
+            this.dgOrdenes.AllowUserToDeleteRows = false;
+            this.dgOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgOrdenes.Location = new System.Drawing.Point(12, 114);
+            this.dgOrdenes.Name = "dgOrdenes";
+            this.dgOrdenes.ReadOnly = true;
+            this.dgOrdenes.Size = new System.Drawing.Size(679, 420);
+            this.dgOrdenes.TabIndex = 4;
+            // 
+            // btDetalles
+            // 
+            this.btDetalles.Location = new System.Drawing.Point(376, 75);
+            this.btDetalles.Name = "btDetalles";
+            this.btDetalles.Size = new System.Drawing.Size(95, 32);
+            this.btDetalles.TabIndex = 6;
+            this.btDetalles.Text = "Detalles Orden";
+            this.btDetalles.UseVisualStyleBackColor = true;
+            this.btDetalles.Click += new System.EventHandler(this.btDetalles_Click);
             // 
             // OrdenesVer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 551);
+            this.ClientSize = new System.Drawing.Size(714, 551);
+            this.Controls.Add(this.btDetalles);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dgOrdenes);
             this.Name = "OrdenesVer";
             this.Text = "OrdenesVer";
+            this.Load += new System.EventHandler(this.OrdenesVer_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgOrdenes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -155,13 +168,14 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtFinal;
+        private System.Windows.Forms.DateTimePicker dtInicial;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.ComboBox cbBPor;
+        private System.Windows.Forms.TextBox tbValorB;
+        private System.Windows.Forms.Button btBuscar;
+        private System.Windows.Forms.DataGridView dgOrdenes;
+        private System.Windows.Forms.Button btDetalles;
     }
 }

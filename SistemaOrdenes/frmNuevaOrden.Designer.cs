@@ -31,15 +31,15 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNuevaOrden));
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.tbOrden = new System.Windows.Forms.TextBox();
+            this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.bD_SistemaDataSet = new SistemaOrdenes.BD_SistemaDataSet();
+            this.cbProveedores = new System.Windows.Forms.ComboBox();
             this.proveedoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bD_SistemaDataSet = new SistemaOrdenes.BD_SistemaDataSet();
             this.proveedoresTableAdapter = new SistemaOrdenes.BD_SistemaDataSetTableAdapters.ProveedoresTableAdapter();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgDetallesOrden = new System.Windows.Forms.DataGridView();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.punitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,26 +47,27 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbSubTotal = new System.Windows.Forms.TextBox();
+            this.tbIva = new System.Windows.Forms.TextBox();
+            this.tbTotal = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbDepartamento = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbVehiculo = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tbUnidad = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.tbMaquina = new System.Windows.Forms.TextBox();
+            this.tbProyecto = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.tbObra = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.bD_SistemaDataSet)).BeginInit();
+            this.btCancelar = new System.Windows.Forms.Button();
+            this.btGuardarOrden = new System.Windows.Forms.Button();
+            this.tbPIva = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bD_SistemaDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDetallesOrden)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -78,20 +79,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Num Orden";
             // 
-            // textBox1
+            // tbOrden
             // 
-            this.textBox1.Location = new System.Drawing.Point(84, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(89, 20);
-            this.textBox1.TabIndex = 1;
+            this.tbOrden.Location = new System.Drawing.Point(84, 38);
+            this.tbOrden.Name = "tbOrden";
+            this.tbOrden.Size = new System.Drawing.Size(89, 20);
+            this.tbOrden.TabIndex = 1;
             // 
-            // dateTimePicker1
+            // dtFecha
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(485, 9);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(97, 20);
-            this.dateTimePicker1.TabIndex = 2;
+            this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFecha.Location = new System.Drawing.Point(485, 9);
+            this.dtFecha.Name = "dtFecha";
+            this.dtFecha.Size = new System.Drawing.Size(97, 20);
+            this.dtFecha.TabIndex = 2;
             // 
             // label2
             // 
@@ -102,27 +103,27 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Fecha";
             // 
-            // comboBox1
+            // cbProveedores
             // 
-            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.proveedoresBindingSource, "nombre", true));
-            this.comboBox1.DataSource = this.proveedoresBindingSource;
-            this.comboBox1.DisplayMember = "nombre";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(84, 6);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(327, 21);
-            this.comboBox1.TabIndex = 4;
-            this.comboBox1.ValueMember = "rfc";
-            // 
-            // bD_SistemaDataSet
-            // 
-            this.bD_SistemaDataSet.DataSetName = "BD_SistemaDataSet";
-            this.bD_SistemaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.cbProveedores.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.proveedoresBindingSource, "nombre", true));
+            this.cbProveedores.DataSource = this.proveedoresBindingSource;
+            this.cbProveedores.DisplayMember = "nombre";
+            this.cbProveedores.FormattingEnabled = true;
+            this.cbProveedores.Location = new System.Drawing.Point(84, 6);
+            this.cbProveedores.Name = "cbProveedores";
+            this.cbProveedores.Size = new System.Drawing.Size(327, 21);
+            this.cbProveedores.TabIndex = 4;
+            this.cbProveedores.ValueMember = "rfc";
             // 
             // proveedoresBindingSource
             // 
             this.proveedoresBindingSource.DataMember = "Proveedores";
             this.proveedoresBindingSource.DataSource = this.bD_SistemaDataSet;
+            // 
+            // bD_SistemaDataSet
+            // 
+            this.bD_SistemaDataSet.DataSetName = "BD_SistemaDataSet";
+            this.bD_SistemaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // proveedoresTableAdapter
             // 
@@ -137,19 +138,19 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Proveedor";
             // 
-            // dataGridView1
+            // dgDetallesOrden
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgDetallesOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgDetallesOrden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cantidad,
             this.Descripcion,
             this.punitario,
             this.costo});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 81);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(570, 290);
-            this.dataGridView1.TabIndex = 6;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgDetallesOrden.Location = new System.Drawing.Point(12, 81);
+            this.dgDetallesOrden.Name = "dgDetallesOrden";
+            this.dgDetallesOrden.Size = new System.Drawing.Size(570, 290);
+            this.dgDetallesOrden.TabIndex = 6;
+            this.dgDetallesOrden.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Cantidad
             // 
@@ -180,9 +181,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(400, 383);
+            this.label4.Location = new System.Drawing.Point(407, 413);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 16);
+            this.label4.Size = new System.Drawing.Size(71, 16);
             this.label4.TabIndex = 7;
             this.label4.Text = "SubTotal";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -191,47 +192,47 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(437, 411);
+            this.label5.Location = new System.Drawing.Point(392, 442);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 16);
+            this.label5.Size = new System.Drawing.Size(49, 16);
             this.label5.TabIndex = 8;
-            this.label5.Text = "IVA";
+            this.label5.Text = "IVA %";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(428, 441);
+            this.label6.Location = new System.Drawing.Point(435, 471);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 16);
             this.label6.TabIndex = 9;
             this.label6.Text = "Total";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // textBox2
+            // tbSubTotal
             // 
-            this.textBox2.Location = new System.Drawing.Point(479, 383);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(99, 20);
-            this.textBox2.TabIndex = 10;
-            this.textBox2.Text = "0.0";
+            this.tbSubTotal.Location = new System.Drawing.Point(486, 413);
+            this.tbSubTotal.Name = "tbSubTotal";
+            this.tbSubTotal.Size = new System.Drawing.Size(99, 20);
+            this.tbSubTotal.TabIndex = 10;
+            this.tbSubTotal.Text = "0.0";
             // 
-            // textBox3
+            // tbIva
             // 
-            this.textBox3.Location = new System.Drawing.Point(479, 411);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 11;
-            this.textBox3.Text = "0.0";
+            this.tbIva.Location = new System.Drawing.Point(486, 441);
+            this.tbIva.Name = "tbIva";
+            this.tbIva.Size = new System.Drawing.Size(100, 20);
+            this.tbIva.TabIndex = 11;
+            this.tbIva.Text = "0.0";
             // 
-            // textBox4
+            // tbTotal
             // 
-            this.textBox4.Location = new System.Drawing.Point(478, 437);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 12;
-            this.textBox4.Text = "0.0";
+            this.tbTotal.Location = new System.Drawing.Point(485, 467);
+            this.tbTotal.Name = "tbTotal";
+            this.tbTotal.Size = new System.Drawing.Size(100, 20);
+            this.tbTotal.TabIndex = 12;
+            this.tbTotal.Text = "0.0";
             // 
             // label7
             // 
@@ -242,12 +243,12 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Departamento";
             // 
-            // textBox5
+            // tbDepartamento
             // 
-            this.textBox5.Location = new System.Drawing.Point(15, 407);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(139, 20);
-            this.textBox5.TabIndex = 14;
+            this.tbDepartamento.Location = new System.Drawing.Point(15, 407);
+            this.tbDepartamento.Name = "tbDepartamento";
+            this.tbDepartamento.Size = new System.Drawing.Size(139, 20);
+            this.tbDepartamento.TabIndex = 14;
             // 
             // label8
             // 
@@ -258,17 +259,17 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "Vehiculo";
             // 
-            // comboBox2
+            // cbVehiculo
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cbVehiculo.FormattingEnabled = true;
+            this.cbVehiculo.Items.AddRange(new object[] {
             "Vehiculo Uno",
             "Vehiculo Dos",
             "Vehiculo Tres"});
-            this.comboBox2.Location = new System.Drawing.Point(15, 452);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(139, 21);
-            this.comboBox2.TabIndex = 16;
+            this.cbVehiculo.Location = new System.Drawing.Point(15, 452);
+            this.cbVehiculo.Name = "cbVehiculo";
+            this.cbVehiculo.Size = new System.Drawing.Size(139, 21);
+            this.cbVehiculo.TabIndex = 16;
             // 
             // label9
             // 
@@ -279,12 +280,12 @@
             this.label9.TabIndex = 19;
             this.label9.Text = "Maquina";
             // 
-            // textBox6
+            // tbUnidad
             // 
-            this.textBox6.Location = new System.Drawing.Point(179, 407);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(139, 20);
-            this.textBox6.TabIndex = 18;
+            this.tbUnidad.Location = new System.Drawing.Point(179, 407);
+            this.tbUnidad.Name = "tbUnidad";
+            this.tbUnidad.Size = new System.Drawing.Size(139, 20);
+            this.tbUnidad.TabIndex = 18;
             // 
             // label10
             // 
@@ -295,20 +296,20 @@
             this.label10.TabIndex = 17;
             this.label10.Text = "Unidad";
             // 
-            // textBox7
+            // tbMaquina
             // 
-            this.textBox7.Location = new System.Drawing.Point(179, 453);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(139, 20);
-            this.textBox7.TabIndex = 20;
+            this.tbMaquina.Location = new System.Drawing.Point(179, 453);
+            this.tbMaquina.Name = "tbMaquina";
+            this.tbMaquina.Size = new System.Drawing.Size(139, 20);
+            this.tbMaquina.TabIndex = 20;
             // 
-            // textBox8
+            // tbProyecto
             // 
-            this.textBox8.Location = new System.Drawing.Point(179, 493);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(139, 20);
-            this.textBox8.TabIndex = 24;
-            this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
+            this.tbProyecto.Location = new System.Drawing.Point(179, 493);
+            this.tbProyecto.Name = "tbProyecto";
+            this.tbProyecto.Size = new System.Drawing.Size(139, 20);
+            this.tbProyecto.TabIndex = 24;
+            this.tbProyecto.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label11
             // 
@@ -320,13 +321,13 @@
             this.label11.Text = "Proyecto";
             this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
-            // textBox9
+            // tbObra
             // 
-            this.textBox9.Location = new System.Drawing.Point(15, 493);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(139, 20);
-            this.textBox9.TabIndex = 22;
-            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
+            this.tbObra.Location = new System.Drawing.Point(15, 493);
+            this.tbObra.Name = "tbObra";
+            this.tbObra.Size = new System.Drawing.Size(139, 20);
+            this.tbObra.TabIndex = 22;
+            this.tbObra.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
             // label12
             // 
@@ -338,64 +339,73 @@
             this.label12.Text = "Obra";
             this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
-            // button1
+            // btCancelar
             // 
-            this.button1.Location = new System.Drawing.Point(510, 493);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(72, 25);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Cancelar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btCancelar.Location = new System.Drawing.Point(510, 493);
+            this.btCancelar.Name = "btCancelar";
+            this.btCancelar.Size = new System.Drawing.Size(72, 25);
+            this.btCancelar.TabIndex = 25;
+            this.btCancelar.Text = "Cancelar";
+            this.btCancelar.UseVisualStyleBackColor = true;
+            this.btCancelar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btGuardarOrden
             // 
-            this.button2.Location = new System.Drawing.Point(492, 47);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(85, 25);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "Generar Orden";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btGuardarOrden.Location = new System.Drawing.Point(492, 47);
+            this.btGuardarOrden.Name = "btGuardarOrden";
+            this.btGuardarOrden.Size = new System.Drawing.Size(85, 25);
+            this.btGuardarOrden.TabIndex = 26;
+            this.btGuardarOrden.Text = "Generar Orden";
+            this.btGuardarOrden.UseVisualStyleBackColor = true;
+            // 
+            // tbPIva
+            // 
+            this.tbPIva.Location = new System.Drawing.Point(438, 441);
+            this.tbPIva.Name = "tbPIva";
+            this.tbPIva.Size = new System.Drawing.Size(34, 20);
+            this.tbPIva.TabIndex = 27;
+            this.tbPIva.Text = "11";
             // 
             // frmNuevaOrden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 530);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.tbPIva);
+            this.Controls.Add(this.btGuardarOrden);
+            this.Controls.Add(this.btCancelar);
+            this.Controls.Add(this.tbProyecto);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.tbObra);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.tbMaquina);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.tbUnidad);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cbVehiculo);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.tbDepartamento);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tbTotal);
+            this.Controls.Add(this.tbIva);
+            this.Controls.Add(this.tbSubTotal);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgDetallesOrden);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbProveedores);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dtFecha);
+            this.Controls.Add(this.tbOrden);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmNuevaOrden";
             this.Text = "Nueva Orden";
             this.Load += new System.EventHandler(this.frmNuevaOrden_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bD_SistemaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bD_SistemaDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDetallesOrden)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -404,15 +414,15 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox tbOrden;
+        private System.Windows.Forms.DateTimePicker dtFecha;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbProveedores;
         private BD_SistemaDataSet bD_SistemaDataSet;
         private System.Windows.Forms.BindingSource proveedoresBindingSource;
         private BD_SistemaDataSetTableAdapters.ProveedoresTableAdapter proveedoresTableAdapter;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgDetallesOrden;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn punitario;
@@ -420,22 +430,23 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbSubTotal;
+        private System.Windows.Forms.TextBox tbIva;
+        private System.Windows.Forms.TextBox tbTotal;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbDepartamento;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbVehiculo;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox tbUnidad;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox tbMaquina;
+        private System.Windows.Forms.TextBox tbProyecto;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox tbObra;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btCancelar;
+        private System.Windows.Forms.Button btGuardarOrden;
+        private System.Windows.Forms.TextBox tbPIva;
     }
 }

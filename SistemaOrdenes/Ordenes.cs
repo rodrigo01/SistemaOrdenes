@@ -68,7 +68,7 @@ namespace SistemaOrdenes
         {
             con.Open();
 
-            String consulta = "SELECT * FROM Proveedores";
+            String consulta = "SELECT Ordenes.Id as [ID], Ordenes.orden as Orden,Proveedores.nombre as Nombre, Sum([punitario]*[cantidad]) AS Total, Ordenes.fecha as Fecha FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Proveedores.nombre, Ordenes.orden, Ordenes.fecha;";
             OleDbCommand comand = new OleDbCommand();
             comand.Connection = con;
             comand.CommandText = consulta;
