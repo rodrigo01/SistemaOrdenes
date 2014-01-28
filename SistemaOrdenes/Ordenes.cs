@@ -29,6 +29,23 @@ namespace SistemaOrdenes
 
         }
 
+        public int insertOrden(Ordenes orden, OleDbConnection con)
+        {
+            OleDbCommand comand = new OleDbCommand();
+            int ID;
+            string query2 = "Select @@Identity";
+            //sql de busqueda y realizamos consulta            
+            String consulta = "INSERT INTO Ordenes (id_proveedor,fecha,orden,departamento,vehiculo,almacen,parauso,maquina,obra,unidad) VALUES ('" + orden.id_proveedor + "','" + orden.fecha + "', '" + orden.orden + "',  '" + orden.departamento + "', '" + orden.vehiculo + "', '" + orden.almacen + "', '" + orden.parauso + "', '" + orden.maquina + "', '" + orden.obra + "', '" + orden.unidad + "');";
+            
+            comand.Connection = con;
+            comand.CommandText = consulta;
+            con.Open();
+            comand.ExecuteNonQuery();
+            comand.CommandText = query2;
+            ID = (int)comand.ExecuteScalar();
+            con.Close();
+            return ID;
+        }
 
         // obtener ordeb por id
         public void getOrden(int _id, OleDbConnection con)

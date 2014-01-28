@@ -35,7 +35,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.tbUso = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.btImprimi = new System.Windows.Forms.Button();
             this.tbPIva = new System.Windows.Forms.TextBox();
             this.btGuardarOrden = new System.Windows.Forms.Button();
             this.btCancelar = new System.Windows.Forms.Button();
@@ -64,6 +63,10 @@
             this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.tbOrden = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Costo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgDetallesOrden)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,18 +98,6 @@
             this.label13.TabIndex = 89;
             this.label13.Text = "Detalles Orden";
             // 
-            // btImprimi
-            // 
-            this.btImprimi.Image = ((System.Drawing.Image)(resources.GetObject("btImprimi.Image")));
-            this.btImprimi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btImprimi.Location = new System.Drawing.Point(457, 24);
-            this.btImprimi.Name = "btImprimi";
-            this.btImprimi.Size = new System.Drawing.Size(114, 34);
-            this.btImprimi.TabIndex = 88;
-            this.btImprimi.Text = "Imprimir Orden";
-            this.btImprimi.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btImprimi.UseVisualStyleBackColor = false;
-            // 
             // tbPIva
             // 
             this.tbPIva.Location = new System.Drawing.Point(590, 464);
@@ -114,6 +105,7 @@
             this.tbPIva.Size = new System.Drawing.Size(31, 20);
             this.tbPIva.TabIndex = 87;
             this.tbPIva.Text = "11";
+            this.tbPIva.TextChanged += new System.EventHandler(this.tbPIva_TextChanged);
             // 
             // btGuardarOrden
             // 
@@ -126,6 +118,7 @@
             this.btGuardarOrden.Text = "Guardar Orden";
             this.btGuardarOrden.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btGuardarOrden.UseVisualStyleBackColor = true;
+            this.btGuardarOrden.Click += new System.EventHandler(this.btGuardarOrden_Click);
             // 
             // btCancelar
             // 
@@ -315,6 +308,11 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgDetallesOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgDetallesOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgDetallesOrden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Cantidad,
+            this.Descripcion,
+            this.Precio,
+            this.Costo});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -335,6 +333,7 @@
             this.dgDetallesOrden.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgDetallesOrden.Size = new System.Drawing.Size(781, 339);
             this.dgDetallesOrden.TabIndex = 66;
+            this.dgDetallesOrden.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgDetallesOrden_CellEndEdit);
             // 
             // label3
             // 
@@ -391,6 +390,26 @@
             this.label1.TabIndex = 60;
             this.label1.Text = "Num Orden";
             // 
+            // Cantidad
+            // 
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            // 
+            // Costo
+            // 
+            this.Costo.HeaderText = "Costo";
+            this.Costo.Name = "Costo";
+            // 
             // frmNuevaOrden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,7 +418,6 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.tbUso);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.btImprimi);
             this.Controls.Add(this.tbPIva);
             this.Controls.Add(this.btGuardarOrden);
             this.Controls.Add(this.btCancelar);
@@ -443,7 +461,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox tbUso;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button btImprimi;
         private System.Windows.Forms.TextBox tbPIva;
         private System.Windows.Forms.Button btGuardarOrden;
         private System.Windows.Forms.Button btCancelar;
@@ -472,6 +489,10 @@
         private System.Windows.Forms.DateTimePicker dtFecha;
         private System.Windows.Forms.TextBox tbOrden;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
 
     }
 }
