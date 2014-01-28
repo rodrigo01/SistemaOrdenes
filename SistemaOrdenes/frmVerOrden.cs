@@ -27,7 +27,7 @@ namespace SistemaOrdenes
 
             
             orden.getOrden(idver, conectar.con);
-            
+            // si encontramos la orden
             if (orden.id != 0)
             {
                 //datos de Proveedor
@@ -35,6 +35,12 @@ namespace SistemaOrdenes
 
                 //cargamos informacion de orden
                 tbOrden.Text = orden.orden.ToString();
+                dtFecha.Value = Convert.ToDateTime(orden.fecha);
+                tbDepartamento.Text = orden.departamento;
+                //tbUnidad.Text
+                tbMaquina.Text = orden.maquina;
+                tbObra.Text = orden.obra;
+                tbProyecto.Text = orden.p
 
                 //no traemos detalles de Orden
                 dgDetallesOrden.DataSource = orden.getDetallesOrden(orden.id, conectar.con);
@@ -128,6 +134,11 @@ namespace SistemaOrdenes
         private void cbProveedores_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
 
