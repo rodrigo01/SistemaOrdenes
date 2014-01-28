@@ -36,16 +36,21 @@ namespace SistemaOrdenes
                 //cargamos informacion de orden
                 tbOrden.Text = orden.orden.ToString();
                 dtFecha.Value = Convert.ToDateTime(orden.fecha);
+                tbUso.Text = orden.parauso;
                 tbDepartamento.Text = orden.departamento;
-                //tbUnidad.Text
-                tbMaquina.Text = orden.maquina;
                 tbObra.Text = orden.obra;
-                tbProyecto.Text = orden.p
+                //cbVehiculo = 
+                tbMaquina.Text = orden.maquina;
+                tbUnidad.Text = orden.unidad;
+                tbAlmacen.Text = orden.almacen;
+                
+                //tbProyecto.Text = orden.p
 
                 //no traemos detalles de Orden
                 dgDetallesOrden.DataSource = orden.getDetallesOrden(orden.id, conectar.con);
                 
-                dgDetallesOrden.Columns["Descripcion"].Width = 300;
+                //detalles de estilo
+                dgDetallesOrden.Columns["Descripcion"].Width = 500;
                 dgDetallesOrden.Columns["Cantidad"].Width = 50;
                 dgDetallesOrden.Columns["Costo"].Width = 80;
                 dgDetallesOrden.Columns["Precio"].Width = 80;
@@ -58,6 +63,8 @@ namespace SistemaOrdenes
                 //cargamos lista de proveedores
                 dtLista = proveedores.getProveedoresDG(conectar.con);
                 cbProveedores.DataSource = dtLista;
+                cbProveedores.DisplayMember = "nombre";
+                cbProveedores.ValueMember = "id";
                 
                 //definimos proveedor de lista
                 cbProveedores.SelectedIndex = cbProveedores.FindString(proveedores.nombre);
@@ -77,8 +84,7 @@ namespace SistemaOrdenes
             float civa = 0;
             float iva = 0;
             float total = 0;
-            int cant = 0;
-            int i = 0;
+
             foreach (DataGridViewRow row in dgDetallesOrden.Rows)
             {
 
@@ -139,6 +145,56 @@ namespace SistemaOrdenes
         private void btCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btGuardarOrden_Click(object sender, EventArgs e)
+        {
+            Conexion conectar = new Conexion();
+            Ordenes Orden = new Ordenes();
+            Proveedores Proveedor = new Proveedores();
+
+            //guardamos datos en Objeto
+            Proveedor.getProveedorByName(cbProveedores.GetItemText(cbProveedores.SelectedItem), conectar.con);
+            Orden.id = _idver;
+            Orden.id_proveedor = Proveedor.id;
+            Orden.orden = Convert.ToInt32(tbOrden.Text);
+            Orden.fecha = dtFecha.Value.ToShortDateString();
+            Orden.departamento = tbDepartamento.Text;
+            Orden.vehiculo = cbVehiculo.SelectedText;
+            Orden.almacen = tbAlmacen.Text;
+            Orden.parauso = tbUso.Text;
+            Orden.maquina = tbMaquina.Text;
+            Orden.obra = tbObra.Text;
+            Orden.unidad = tbUnidad.Text;
+
+            // Actualizamos Orden
+            Orden.updateOrden(Orden, conectar.con);
+            
+            // Tiramos Detalles Orden
+            Orden.deleteDetalles(_idver,conectar.con);
+
+            //Regeneramos Detalles Orden
+            Detalles detalle = new Detalles();
+            detalle.id_orden = _idver;
+            foreach (DataGridViewRow row in dgDetallesOrden.Rows)
+            {
+                if (row.Cells["Cantidad"].Value != null)
+                {
+                    if (row.Cells["Precio"].Value.ToString().Equals("") == false)
+                    {
+                        detalle.cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value.ToString());
+                        detalle.descripcion = row.Cells["Descripcion"].Value.ToString();
+                        detalle.punitario = Convert.ToSingle(row.Cells["Precio"].Value.ToString());
+
+                        //insertamos detalle
+                        Orden.insertDetalle(detalle,conectar.con);
+                    }
+                }
+
+            }
+
+            //finalizado
+            System.Windows.Forms.MessageBox.Show("Orden Actualizada");
         }
 
 

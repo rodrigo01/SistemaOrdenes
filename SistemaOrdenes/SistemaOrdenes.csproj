@@ -70,6 +70,7 @@
       <DependentUpon>BD_SistemaDataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="Conexion.cs" />
+    <Compile Include="Detalles.cs" />
     <Compile Include="ImprimirOrden.cs">
       <SubType>Form</SubType>
     </Compile>

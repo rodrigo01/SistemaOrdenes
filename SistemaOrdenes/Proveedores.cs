@@ -50,6 +50,30 @@ namespace SistemaOrdenes
             con.Close();
         }
 
+        public void getProveedorByName(string name, OleDbConnection con)
+        {
+            OleDbCommand comand = new OleDbCommand();
+            OleDbDataReader lectura; //lecto de datos
+            comand.Connection = con; //conectamos
+            con.Open();
+
+            //sql de busqueda y realizamos consulta            
+            String consulta = "SELECT * FROM Proveedores Where nombre LIKE '" + name + "'";
+            comand.CommandText = consulta;
+            lectura = comand.ExecuteReader();
+
+            while (lectura.Read())
+            {
+                this.id = Convert.ToInt32(lectura["Id"].ToString());
+                this.nombre = lectura["nombre"].ToString();
+                this.direccion = lectura["direccion"].ToString();
+                this.rfc = lectura["rfc"].ToString();
+                this.telefono = lectura["telefono"].ToString();
+            }
+
+            con.Close();
+        }
+
         public DataTable getProveedoresDG(OleDbConnection con)
         {
             con.Open();

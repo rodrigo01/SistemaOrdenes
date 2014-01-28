@@ -22,7 +22,7 @@ namespace SistemaOrdenes
         public String parauso;
         public String maquina;
         public String obra;
-       
+        public String unidad;
 
         public Ordenes()
         {
@@ -58,6 +58,7 @@ namespace SistemaOrdenes
                 this.parauso= lectura["parauso"].ToString();
                 this.maquina = lectura["maquina"].ToString();
                 this.obra = lectura["obra"].ToString();
+                this.unidad = lectura["unidad"].ToString();
                 
             }
 
@@ -97,6 +98,48 @@ namespace SistemaOrdenes
 
             con.Close();
             return detallesorden;
+        }
+
+        public void insertDetalle(Detalles detalle, OleDbConnection con)
+        {
+            OleDbCommand comand = new OleDbCommand();
+
+            //sql de busqueda y realizamos consulta            
+            String consulta = "INSERT INTO Detalles_Orden (id_orden,cantidad,descripcion,punitario) VALUES (" + detalle.id_orden + "," + detalle.cantidad + ",'"+detalle.descripcion+"', "+detalle.punitario+" );";
+            comand.Connection = con;
+            comand.CommandText = consulta;
+            con.Open();
+            comand.ExecuteNonQuery();
+            con.Close();
+
+        }
+
+        public void deleteDetalles(int idorden, OleDbConnection con)
+        {
+            OleDbCommand comand = new OleDbCommand();
+
+            //sql de busqueda y realizamos consulta            
+            String consulta = "DELETE FROM Detalles_Orden WHERE id_orden = " + idorden + ";";
+            comand.Connection = con;
+            comand.CommandText = consulta;
+            con.Open();
+            comand.ExecuteNonQuery();
+            con.Close();
+
+        }
+
+        public void updateOrden(Ordenes updOrden, OleDbConnection con)
+        {
+            OleDbCommand comand = new OleDbCommand();
+
+            //sql de busqueda y realizamos consulta            
+            String consulta = "UPDATE Ordenes SET id_proveedor = '" + updOrden.id_proveedor + "', orden = '" + updOrden.orden + "', fecha = '" + updOrden.fecha + "', departamento = '" + updOrden.departamento + "', vehiculo = '" + updOrden.vehiculo + "', almacen = '" + updOrden.almacen + "', parauso = '" + updOrden.parauso + "', maquina = '" + updOrden.maquina + "', obra = '" + updOrden.obra + "', unidad = '" + updOrden.unidad + "' WHERE Id= " + updOrden.id + ";";
+            comand.Connection = con;
+            comand.CommandText = consulta;
+            con.Open();
+            comand.ExecuteNonQuery();
+            con.Close();
+
         }
 
         
