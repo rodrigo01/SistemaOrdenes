@@ -124,6 +124,11 @@
     <Compile Include="ProveedoresVer.Designer.cs">
       <DependentUpon>ProveedoresVer.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReporteP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteP.xsd</DependentUpon>
+    </Compile>
     <Compile Include="tbbid.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -163,6 +168,7 @@
     <EmbeddedResource Include="ProveedoresVer.resx">
       <DependentUpon>ProveedoresVer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report1.rdlc" />
     <None Include="app.config" />
     <None Include="BD_SistemaDataSet.xsc">
       <DependentUpon>BD_SistemaDataSet.xsd</DependentUpon>
@@ -217,6 +223,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="ReporteP.xsc">
+      <DependentUpon>ReporteP.xsd</DependentUpon>
+    </None>
+    <None Include="ReporteP.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReporteP.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ReporteP.xss">
+      <DependentUpon>ReporteP.xsd</DependentUpon>
+    </None>
     <None Include="tbbid.xsc">
       <DependentUpon>tbbid.xsd</DependentUpon>
     </None>

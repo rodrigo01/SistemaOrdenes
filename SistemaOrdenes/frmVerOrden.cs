@@ -197,6 +197,13 @@ namespace SistemaOrdenes
             System.Windows.Forms.MessageBox.Show("Orden Actualizada");
         }
 
+        private void btImprimi_Click(object sender, EventArgs e)
+        {
+            ImprimirOrden printOrden = new ImprimirOrden();
+
+            printOrden.Show();
+        }
+
 
 
     }
