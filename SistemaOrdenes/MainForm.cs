@@ -46,6 +46,13 @@ namespace SistemaOrdenes
 
         }
 
+        private void departamentosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDepartamentosLista frmDepartamentos = new frmDepartamentosLista();
+
+            frmDepartamentos.Show();
+        }
+
  
 
     }

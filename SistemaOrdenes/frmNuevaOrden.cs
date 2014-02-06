@@ -155,6 +155,11 @@ namespace SistemaOrdenes
             this.Close();
         }
 
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
 
     }
 }
