@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using SistemaOrdenes.Resources;
 
 namespace SistemaOrdenes
 {
@@ -33,9 +34,16 @@ namespace SistemaOrdenes
             string valor = dgDepartamentos[0, rowi].Value.ToString();
             idedit = Convert.ToInt32(valor);
 
+
             frmEditarDepartamento frmEditDep = new frmEditarDepartamento();
             frmEditDep._ideditar = idedit;
             frmEditDep.Show();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            frmNuevoDepartamento nvoDeparta = new frmNuevoDepartamento();
+            nvoDeparta.Show();
         }
     }
 }

@@ -81,6 +81,12 @@
     <Compile Include="frmDepartamentosLista.Designer.cs">
       <DependentUpon>frmDepartamentosLista.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditarDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditarDepartamento.Designer.cs">
+      <DependentUpon>frmEditarDepartamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImprimirOrden.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,13 +145,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteP.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmNuevoDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoDepartamento.Designer.cs">
+      <DependentUpon>frmNuevoDepartamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="tbbid.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>tbbid.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Vehiculos.cs" />
     <EmbeddedResource Include="frmDepartamentosLista.resx">
       <DependentUpon>frmDepartamentosLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarDepartamento.resx">
+      <DependentUpon>frmEditarDepartamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevaOrden.resx">
       <DependentUpon>frmNuevaOrden.cs</DependentUpon>
@@ -182,6 +198,9 @@
       <DependentUpon>ProveedoresVer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="frmNuevoDepartamento.resx">
+      <DependentUpon>frmNuevoDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="BD_SistemaDataSet.xsc">
       <DependentUpon>BD_SistemaDataSet.xsd</DependentUpon>

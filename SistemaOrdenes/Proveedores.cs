@@ -84,7 +84,7 @@ namespace SistemaOrdenes
             comand.CommandText = consulta;
 
             OleDbDataAdapter da = new OleDbDataAdapter(comand);
-            DataTable proveedores = new DataTable();
+            DataTable proveedores = new DataTable();    
             da.Fill(proveedores);
 
             con.Close();

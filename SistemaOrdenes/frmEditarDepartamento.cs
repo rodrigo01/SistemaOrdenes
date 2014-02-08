@@ -20,6 +20,38 @@ namespace SistemaOrdenes
 
         private void frmEditarDepartamento_Load(object sender, EventArgs e)
         {
+            int ideditar = _ideditar;
+            //System.Windows.Forms.MessageBox.Show("ID " + ideditar);
+            Conexion conectar = new Conexion();
+            Departamentos departamento = new Departamentos();
+            departamento.con = conectar.con;
+
+            departamento.getDepartamento(ideditar);
+
+            tbNombre.Text = departamento.nombre;
+            tbEncargado.Text = departamento.encargado;
+
+            
+
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btGuardarOrden_Click(object sender, EventArgs e)
+        {
+            Conexion conectar = new Conexion();
+            Departamentos departamento = new Departamentos();
+            departamento.con = conectar.con;
+
+            departamento.id = _ideditar;
+            departamento.nombre = tbNombre.Text;
+            departamento.encargado = tbEncargado.Text;
+
+            departamento.updateDepartamento(departamento);
+            System.Windows.Forms.MessageBox.Show("Departamento Actualizado");
 
         }
     }

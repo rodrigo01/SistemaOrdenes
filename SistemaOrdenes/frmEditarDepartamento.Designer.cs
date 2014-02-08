@@ -32,7 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbEncargado = new System.Windows.Forms.TextBox();
             this.btGuardarOrden = new System.Windows.Forms.Button();
             this.btCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -62,12 +62,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Encargado";
             // 
-            // textBox1
+            // tbEncargado
             // 
-            this.textBox1.Location = new System.Drawing.Point(9, 90);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(162, 20);
-            this.textBox1.TabIndex = 3;
+            this.tbEncargado.Location = new System.Drawing.Point(9, 90);
+            this.tbEncargado.Name = "tbEncargado";
+            this.tbEncargado.Size = new System.Drawing.Size(162, 20);
+            this.tbEncargado.TabIndex = 3;
             // 
             // btGuardarOrden
             // 
@@ -80,6 +80,7 @@
             this.btGuardarOrden.Text = "Guardar Edicion";
             this.btGuardarOrden.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btGuardarOrden.UseVisualStyleBackColor = true;
+            this.btGuardarOrden.Click += new System.EventHandler(this.btGuardarOrden_Click);
             // 
             // btCancelar
             // 
@@ -92,6 +93,7 @@
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btCancelar.UseVisualStyleBackColor = true;
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
             // frmEditarDepartamento
             // 
@@ -100,7 +102,7 @@
             this.ClientSize = new System.Drawing.Size(351, 144);
             this.Controls.Add(this.btGuardarOrden);
             this.Controls.Add(this.btCancelar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbEncargado);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbNombre);
             this.Controls.Add(this.label1);
@@ -117,7 +119,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbNombre;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbEncargado;
         private System.Windows.Forms.Button btGuardarOrden;
         private System.Windows.Forms.Button btCancelar;
     }
