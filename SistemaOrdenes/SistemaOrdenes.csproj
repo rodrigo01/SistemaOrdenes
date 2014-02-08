@@ -87,6 +87,12 @@
     <Compile Include="frmEditarDepartamento.Designer.cs">
       <DependentUpon>frmEditarDepartamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVehiculosLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVehiculosLista.Designer.cs">
+      <DependentUpon>frmVehiculosLista.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImprimirOrden.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarProveedor.resx">
       <DependentUpon>frmEditarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVehiculosLista.resx">
+      <DependentUpon>frmVehiculosLista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerOrden.resx">
       <DependentUpon>frmVerOrden.cs</DependentUpon>

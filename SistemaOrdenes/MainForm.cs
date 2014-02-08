@@ -53,6 +53,12 @@ namespace SistemaOrdenes
             frmDepartamentos.Show();
         }
 
+        private void vehiculosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmVehiculosLista frmVehiculos = new frmVehiculosLista();
+            frmVehiculos.Show();
+        }
+
  
 
     }

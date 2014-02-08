@@ -87,6 +87,7 @@
             this.vehiculosToolStripMenuItem.Name = "vehiculosToolStripMenuItem";
             this.vehiculosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.vehiculosToolStripMenuItem.Text = "Vehiculos";
+            this.vehiculosToolStripMenuItem.Click += new System.EventHandler(this.vehiculosToolStripMenuItem_Click);
             // 
             // ordenesToolStripMenuItem
             // 
@@ -123,13 +124,13 @@
             // configurarToolStripMenuItem
             // 
             this.configurarToolStripMenuItem.Name = "configurarToolStripMenuItem";
-            this.configurarToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.configurarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.configurarToolStripMenuItem.Text = "Configurar";
             // 
             // informacionToolStripMenuItem
             // 
             this.informacionToolStripMenuItem.Name = "informacionToolStripMenuItem";
-            this.informacionToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.informacionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.informacionToolStripMenuItem.Text = "Informacion";
             // 
             // pictureBox1
