@@ -25,5 +25,23 @@ namespace SistemaOrdenes
             dgVehiculos.DataSource = vehiculos.getVehiculosDG();
             
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            int idedit = 0;
+            int rowi = dgVehiculos.CurrentRow.Index;
+            string valor = dgVehiculos[0, rowi].Value.ToString();
+            idedit = Convert.ToInt32(valor);
+
+            frmEditarVehiculos frmEditVehi= new frmEditarVehiculos();
+            frmEditVehi._idver = idedit;
+            frmEditVehi.Show();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            frmNuevoVehiculo frmNuevoVehi = new frmNuevoVehiculo();
+            frmNuevoVehi.Show();
+        }
     }
 }

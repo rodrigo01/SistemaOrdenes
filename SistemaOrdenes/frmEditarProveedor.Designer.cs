@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditarProveedor));
             this.tbTelefono = new System.Windows.Forms.TextBox();
             this.tbRFC = new System.Windows.Forms.TextBox();
             this.tbDireccion = new System.Windows.Forms.TextBox();
@@ -147,6 +148,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnCancelar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmEditarProveedor";
             this.Text = "Editar Proveedor";
             this.Load += new System.EventHandler(this.frmEditarProveedor_Load);

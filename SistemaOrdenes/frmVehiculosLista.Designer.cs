@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVehiculosLista));
             this.dgVehiculos = new System.Windows.Forms.DataGridView();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
@@ -46,21 +47,23 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(511, 33);
+            this.btnEditar.Location = new System.Drawing.Point(530, 33);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 1;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(382, 33);
+            this.btnNuevo.Location = new System.Drawing.Point(410, 33);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(114, 23);
             this.btnNuevo.TabIndex = 2;
             this.btnNuevo.Text = "Vehiculo Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // label1
             // 
@@ -89,6 +92,7 @@
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.dgVehiculos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmVehiculosLista";
             this.Text = "Vehiculos";
             this.Load += new System.EventHandler(this.frmVehiculosLista_Load);

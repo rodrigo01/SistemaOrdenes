@@ -9,36 +9,11 @@ using System.Windows.Forms;
 
 namespace SistemaOrdenes
 {
-    public partial class frmEditarVehiculos : Form
+    public partial class frmNuevoVehiculo : Form
     {
-        public int _idver;
-        public frmEditarVehiculos()
+        public frmNuevoVehiculo()
         {
             InitializeComponent();
-        }
-
-        private void btCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void frmEditarVehiculos_Load(object sender, EventArgs e)
-        {
-            int ideditar = _idver;
-            //System.Windows.Forms.MessageBox.Show("ID " + ideditar);
-            Conexion conectar = new Conexion();
-            Vehiculos vehiculo= new Vehiculos();
-            vehiculo.con = conectar.con;
-
-            vehiculo.getVehiculo(ideditar);
-
-            tbNoEconomico.Text = vehiculo.noecon;
-            tbMarca.Text = vehiculo.marca;
-            tbModelo.Text = vehiculo.modelo.ToString();
-            tbLinea.Text = vehiculo.linea;
-            tbTipo.Text = vehiculo.tipo;
-            tbClase.Text = vehiculo.clase;
-            tbUsuario.Text = vehiculo.usuario;
         }
 
         private void btGuardarOrden_Click(object sender, EventArgs e)
@@ -47,12 +22,11 @@ namespace SistemaOrdenes
             Vehiculos vehiculo = new Vehiculos();
             vehiculo.con = conectar.con;
 
-            if (tbModelo.Text.CompareTo("") == 0)
+            if (tbModelo.Text.CompareTo("")==0)
             {
                 tbModelo.Text = "" + 0;
             }
 
-            vehiculo.id = _idver;
             vehiculo.noecon = tbNoEconomico.Text;
             vehiculo.marca = tbMarca.Text;
             vehiculo.modelo = Convert.ToInt32(tbModelo.Text);
@@ -61,14 +35,13 @@ namespace SistemaOrdenes
             vehiculo.clase = tbClase.Text;
             vehiculo.usuario = tbUsuario.Text;
 
-            vehiculo.updateVehiculo(vehiculo);
-            System.Windows.Forms.MessageBox.Show("Vehiculo Actualizado");
-
+            vehiculo.insertVehiculo(vehiculo);
+            System.Windows.Forms.MessageBox.Show("Vehiculo Agregado");
         }
 
-        private void tbModelo_TextChanged(object sender, EventArgs e)
+        private void btCancelar_Click(object sender, EventArgs e)
         {
-            
+            this.Close();
         }
 
         private void tbModelo_KeyPress(object sender, KeyPressEventArgs e)
@@ -91,6 +64,9 @@ namespace SistemaOrdenes
             }
         }
 
-      
+        private void tbModelo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

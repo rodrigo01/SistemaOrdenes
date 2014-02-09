@@ -37,9 +37,6 @@
             this.ordenesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaOrdenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.opcionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.configurarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.informacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -49,8 +46,7 @@
             // 
             this.menuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.catalogoToolStripMenuItem,
-            this.ordenesToolStripMenuItem,
-            this.opcionesToolStripMenuItem});
+            this.ordenesToolStripMenuItem});
             this.menuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.menuPrincipal.Name = "menuPrincipal";
             this.menuPrincipal.Size = new System.Drawing.Size(411, 24);
@@ -112,33 +108,12 @@
             this.consultaToolStripMenuItem.Text = "Consulta";
             this.consultaToolStripMenuItem.Click += new System.EventHandler(this.consultaToolStripMenuItem_Click);
             // 
-            // opcionesToolStripMenuItem
-            // 
-            this.opcionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.configurarToolStripMenuItem,
-            this.informacionToolStripMenuItem});
-            this.opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
-            this.opcionesToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.opcionesToolStripMenuItem.Text = "Opciones";
-            // 
-            // configurarToolStripMenuItem
-            // 
-            this.configurarToolStripMenuItem.Name = "configurarToolStripMenuItem";
-            this.configurarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.configurarToolStripMenuItem.Text = "Configurar";
-            // 
-            // informacionToolStripMenuItem
-            // 
-            this.informacionToolStripMenuItem.Name = "informacionToolStripMenuItem";
-            this.informacionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.informacionToolStripMenuItem.Text = "Informacion";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(39, 50);
+            this.pictureBox1.Location = new System.Drawing.Point(32, 50);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(302, 299);
+            this.pictureBox1.Size = new System.Drawing.Size(344, 328);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -154,7 +129,7 @@
             this.MainMenuStrip = this.menuPrincipal;
             this.MaximizeBox = false;
             this.Name = "Menumain";
-            this.Text = "Sistema Ordenes - IRTEC";
+            this.Text = "Departamento de compras";
             this.Load += new System.EventHandler(this.Menumain_Load);
             this.menuPrincipal.ResumeLayout(false);
             this.menuPrincipal.PerformLayout();
@@ -174,9 +149,6 @@
         private System.Windows.Forms.ToolStripMenuItem nuevaOrdenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vehiculosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem opcionesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem configurarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem informacionToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

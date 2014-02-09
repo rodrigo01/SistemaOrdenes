@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrdenesVer));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtFinal = new System.Windows.Forms.DateTimePicker();
             this.dtInicial = new System.Windows.Forms.DateTimePicker();
@@ -156,6 +157,7 @@
             this.Controls.Add(this.btDetalles);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgOrdenes);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OrdenesVer";
             this.Text = "OrdenesVer";
             this.Load += new System.EventHandler(this.OrdenesVer_Load);

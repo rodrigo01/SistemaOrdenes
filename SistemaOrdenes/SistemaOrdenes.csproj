@@ -87,6 +87,18 @@
     <Compile Include="frmEditarDepartamento.Designer.cs">
       <DependentUpon>frmEditarDepartamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditarVehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditarVehiculos.Designer.cs">
+      <DependentUpon>frmEditarVehiculos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNuevoVehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoVehiculo.Designer.cs">
+      <DependentUpon>frmNuevoVehiculo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVehiculosLista.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,11 +181,17 @@
     <EmbeddedResource Include="frmEditarDepartamento.resx">
       <DependentUpon>frmEditarDepartamento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarVehiculos.resx">
+      <DependentUpon>frmEditarVehiculos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNuevaOrden.resx">
       <DependentUpon>frmNuevaOrden.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarProveedor.resx">
       <DependentUpon>frmEditarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoVehiculo.resx">
+      <DependentUpon>frmNuevoVehiculo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVehiculosLista.resx">
       <DependentUpon>frmVehiculosLista.cs</DependentUpon>

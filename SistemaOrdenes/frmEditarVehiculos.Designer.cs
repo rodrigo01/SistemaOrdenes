@@ -50,7 +50,7 @@
             // tbNoEconomico
             // 
             this.tbNoEconomico.Location = new System.Drawing.Point(19, 40);
-            this.tbNoEconomico.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbNoEconomico.Margin = new System.Windows.Forms.Padding(4);
             this.tbNoEconomico.Name = "tbNoEconomico";
             this.tbNoEconomico.Size = new System.Drawing.Size(209, 22);
             this.tbNoEconomico.TabIndex = 0;
@@ -80,7 +80,7 @@
             // tbMarca
             // 
             this.tbMarca.Location = new System.Drawing.Point(249, 40);
-            this.tbMarca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMarca.Margin = new System.Windows.Forms.Padding(4);
             this.tbMarca.Name = "tbMarca";
             this.tbMarca.Size = new System.Drawing.Size(141, 22);
             this.tbMarca.TabIndex = 2;
@@ -99,7 +99,7 @@
             // tbLinea
             // 
             this.tbLinea.Location = new System.Drawing.Point(19, 107);
-            this.tbLinea.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbLinea.Margin = new System.Windows.Forms.Padding(4);
             this.tbLinea.Name = "tbLinea";
             this.tbLinea.Size = new System.Drawing.Size(209, 22);
             this.tbLinea.TabIndex = 4;
@@ -118,7 +118,7 @@
             // tbTipo
             // 
             this.tbTipo.Location = new System.Drawing.Point(249, 107);
-            this.tbTipo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTipo.Margin = new System.Windows.Forms.Padding(4);
             this.tbTipo.Name = "tbTipo";
             this.tbTipo.Size = new System.Drawing.Size(292, 22);
             this.tbTipo.TabIndex = 6;
@@ -137,10 +137,12 @@
             // tbModelo
             // 
             this.tbModelo.Location = new System.Drawing.Point(413, 40);
-            this.tbModelo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbModelo.Margin = new System.Windows.Forms.Padding(4);
             this.tbModelo.Name = "tbModelo";
             this.tbModelo.Size = new System.Drawing.Size(128, 22);
             this.tbModelo.TabIndex = 8;
+            this.tbModelo.TextChanged += new System.EventHandler(this.tbModelo_TextChanged);
+            this.tbModelo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbModelo_KeyPress);
             // 
             // label6
             // 
@@ -156,7 +158,7 @@
             // tbClase
             // 
             this.tbClase.Location = new System.Drawing.Point(19, 170);
-            this.tbClase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbClase.Margin = new System.Windows.Forms.Padding(4);
             this.tbClase.Name = "tbClase";
             this.tbClase.Size = new System.Drawing.Size(104, 22);
             this.tbClase.TabIndex = 10;
@@ -175,7 +177,7 @@
             // tbUsuario
             // 
             this.tbUsuario.Location = new System.Drawing.Point(146, 170);
-            this.tbUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.tbUsuario.Name = "tbUsuario";
             this.tbUsuario.Size = new System.Drawing.Size(159, 22);
             this.tbUsuario.TabIndex = 12;
@@ -191,6 +193,7 @@
             this.btGuardarOrden.Text = "Guardar Edicion";
             this.btGuardarOrden.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btGuardarOrden.UseVisualStyleBackColor = true;
+            this.btGuardarOrden.Click += new System.EventHandler(this.btGuardarOrden_Click);
             // 
             // btCancelar
             // 
@@ -203,6 +206,7 @@
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btCancelar.UseVisualStyleBackColor = true;
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
             // frmEditarVehiculos
             // 
@@ -226,9 +230,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbNoEconomico);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmEditarVehiculos";
             this.Text = "Editar Vehiculo";
+            this.Load += new System.EventHandler(this.frmEditarVehiculos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

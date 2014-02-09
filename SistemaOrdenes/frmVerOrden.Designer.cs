@@ -434,6 +434,7 @@
             this.Controls.Add(this.dtFecha);
             this.Controls.Add(this.tbOrden);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmVerOrden";
             this.Text = "frmVerOrden";
             this.Load += new System.EventHandler(this.frmVerOrden_Load);
