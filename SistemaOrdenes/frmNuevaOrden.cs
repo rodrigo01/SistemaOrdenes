@@ -139,10 +139,10 @@ namespace SistemaOrdenes
                 Orden.orden = Convert.ToInt32(tbOrden.Text);
                 Orden.fecha = dtFecha.Value.ToShortDateString();
                 Orden.departamento = tbDepartamento.Text;
-                Orden.vehiculo = cbVehiculo.SelectedText;
+                Orden.vehiculo = cbVehiculo.GetItemText(cbVehiculo.SelectedItem);
                 Orden.almacen = tbAlmacen.Text;
                 Orden.parauso = tbUso.Text;
-                Orden.maquina = cbMaquina.SelectedText;
+                Orden.maquina = cbMaquina.GetItemText(cbMaquina.SelectedItem); ;
                 Orden.obra = tbObra.Text;
                 Orden.unidad = tbUnidad.Text;
 

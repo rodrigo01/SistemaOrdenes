@@ -24,7 +24,8 @@ namespace SistemaOrdenes
         public String maquina;
         public String obra;
         public String unidad;
-
+        public int iva;
+        
         public Ordenes()
         {
 
@@ -36,7 +37,7 @@ namespace SistemaOrdenes
             int ID;
             string query2 = "Select @@Identity";
             //sql de busqueda y realizamos consulta            
-            String consulta = "INSERT INTO Ordenes (id_proveedor,fecha,orden,departamento,vehiculo,almacen,parauso,maquina,obra,unidad) VALUES ('" + orden.id_proveedor + "','" + orden.fecha + "', '" + orden.orden + "',  '" + orden.departamento + "', '" + orden.vehiculo + "', '" + orden.almacen + "', '" + orden.parauso + "', '" + orden.maquina + "', '" + orden.obra + "', '" + orden.unidad + "');";
+            String consulta = "INSERT INTO Ordenes (id_proveedor,fecha,orden,departamento,vehiculo,almacen,parauso,maquina,obra,unidad,iva) VALUES ('" + orden.id_proveedor + "','" + orden.fecha + "', '" + orden.orden + "',  '" + orden.departamento + "', '" + orden.vehiculo + "', '" + orden.almacen + "', '" + orden.parauso + "', '" + orden.maquina + "', '" + orden.obra + "', '" + orden.unidad + "', " + orden.iva + ");";
             
             comand.Connection = con;
             comand.CommandText = consulta;
@@ -77,6 +78,7 @@ namespace SistemaOrdenes
                 this.maquina = lectura["maquina"].ToString();
                 this.obra = lectura["obra"].ToString();
                 this.unidad = lectura["unidad"].ToString();
+                this.iva = Convert.ToInt32(lectura["iva"].ToString());
                 
             }
 
@@ -88,7 +90,7 @@ namespace SistemaOrdenes
         {
             con.Open();
 
-            String consulta = "SELECT Ordenes.Id as [ID], Ordenes.orden as Orden,Proveedores.nombre as Nombre, Sum([punitario]*[cantidad]) AS Total, Ordenes.fecha as Fecha FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Proveedores.nombre, Ordenes.orden, Ordenes.fecha;";
+            String consulta = "SELECT Ordenes.Id as [ID], Ordenes.orden as Orden,Proveedores.nombre as Nombre, Sum((([punitario]*[cantidad])*([Ordenes.iva]/100)) + ([punitario]*[cantidad]) ) AS Total, Ordenes.fecha as Fecha FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Proveedores.nombre, Ordenes.orden, Ordenes.fecha;";
             OleDbCommand comand = new OleDbCommand();
             comand.Connection = con;
             comand.CommandText = consulta;
@@ -106,6 +108,57 @@ namespace SistemaOrdenes
             con.Open();
 
             String consulta = "SELECT Detalles_Orden.cantidad as Cantidad, Detalles_Orden.descripcion as Descripcion, Detalles_Orden.punitario as [Precio], [punitario]*[cantidad] AS Costo FROM Detalles_Orden Where id_orden = " + idorden;
+            OleDbCommand comand = new OleDbCommand();
+            comand.Connection = con;
+            comand.CommandText = consulta;
+
+            OleDbDataAdapter da = new OleDbDataAdapter(comand);
+            DataTable detallesorden = new DataTable();
+            da.Fill(detallesorden);
+
+            con.Close();
+            return detallesorden;
+        }
+
+        public DataTable getDetallesOrdenRep(int idorden, OleDbConnection con)
+        {
+            con.Open();
+
+            String consulta = "SELECT * FROM Detalles_Orden Where id_orden = " + idorden;
+            OleDbCommand comand = new OleDbCommand();
+            comand.Connection = con;
+            comand.CommandText = consulta;
+
+            OleDbDataAdapter da = new OleDbDataAdapter(comand);
+            DataTable detallesorden = new DataTable();
+            da.Fill(detallesorden);
+
+            con.Close();
+            return detallesorden;
+        }
+
+        public DataTable getOrdenRep(int idorden, OleDbConnection con)
+        {
+            con.Open();
+
+            String consulta = "SELECT * FROM Ordenes Where Id = " + idorden;
+            OleDbCommand comand = new OleDbCommand();
+            comand.Connection = con;
+            comand.CommandText = consulta;
+
+            OleDbDataAdapter da = new OleDbDataAdapter(comand);
+            DataTable detallesorden = new DataTable();
+            da.Fill(detallesorden);
+
+            con.Close();
+            return detallesorden;
+        }
+
+        public DataTable getProveedoresRep(int idorden, OleDbConnection con)
+        {
+            con.Open();
+
+            String consulta = "SELECT * FROM Proveedores Where Id = " + idorden;
             OleDbCommand comand = new OleDbCommand();
             comand.Connection = con;
             comand.CommandText = consulta;
@@ -151,7 +204,7 @@ namespace SistemaOrdenes
             OleDbCommand comand = new OleDbCommand();
 
             //sql de busqueda y realizamos consulta            
-            String consulta = "UPDATE Ordenes SET id_proveedor = '" + updOrden.id_proveedor + "', orden = '" + updOrden.orden + "', fecha = '" + updOrden.fecha + "', departamento = '" + updOrden.departamento + "', vehiculo = '" + updOrden.vehiculo + "', almacen = '" + updOrden.almacen + "', parauso = '" + updOrden.parauso + "', maquina = '" + updOrden.maquina + "', obra = '" + updOrden.obra + "', unidad = '" + updOrden.unidad + "' WHERE Id= " + updOrden.id + ";";
+            String consulta = "UPDATE Ordenes SET id_proveedor = '" + updOrden.id_proveedor + "', orden = '" + updOrden.orden + "', fecha = '" + updOrden.fecha + "', departamento = '" + updOrden.departamento + "', vehiculo = '" + updOrden.vehiculo + "', almacen = '" + updOrden.almacen + "', parauso = '" + updOrden.parauso + "', maquina = '" + updOrden.maquina + "', obra = '" + updOrden.obra + "', unidad = '" + updOrden.unidad + "' , iva = '" + updOrden.iva + "' WHERE Id= " + updOrden.id + ";";
             comand.Connection = con;
             comand.CommandText = consulta;
             con.Open();

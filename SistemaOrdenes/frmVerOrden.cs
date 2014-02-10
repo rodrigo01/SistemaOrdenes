@@ -45,6 +45,7 @@ namespace SistemaOrdenes
                 //tbMaquina.Text = orden.maquina;
                 tbUnidad.Text = orden.unidad;
                 tbAlmacen.Text = orden.almacen;
+                tbPIva.Text = orden.iva.ToString();
                 
                 //tbProyecto.Text = orden.p
 
@@ -80,6 +81,17 @@ namespace SistemaOrdenes
 
                 //definimos vehiculo
                 cbVehiculo.SelectedIndex = cbVehiculo.FindString(orden.vehiculo);
+
+
+                //cargamos lista de maquinaria
+                dtLista = vehiculos.getVehiculosByClase("M");
+
+                cbMaquina.DataSource = dtLista;
+                cbMaquina.DisplayMember = "noecon";
+                cbMaquina.ValueMember = "id";
+
+                //definimos maquinaria
+                cbMaquina.SelectedIndex = cbMaquina.FindString(orden.maquina);
                 
             }
             else
@@ -172,12 +184,13 @@ namespace SistemaOrdenes
             Orden.orden = Convert.ToInt32(tbOrden.Text);
             Orden.fecha = dtFecha.Value.ToShortDateString();
             Orden.departamento = tbDepartamento.Text;
-            Orden.vehiculo = cbVehiculo.SelectedText;
+            Orden.vehiculo = cbVehiculo.GetItemText(cbVehiculo.SelectedItem);
             Orden.almacen = tbAlmacen.Text;
             Orden.parauso = tbUso.Text;
             Orden.maquina = cbMaquina.GetItemText(cbMaquina.SelectedItem);
             Orden.obra = tbObra.Text;
             Orden.unidad = tbUnidad.Text;
+            Orden.iva = Convert.ToInt32(tbPIva.Text);
 
             // Actualizamos Orden
             Orden.updateOrden(Orden, conectar.con);

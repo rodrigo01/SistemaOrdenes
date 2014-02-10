@@ -10,51 +10,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DataSet1">
-      <Fields>
-        <Field Name="Id">
-          <DataField>Id</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="id_orden">
-          <DataField>id_orden</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="cantidad">
-          <DataField>cantidad</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="descripcion">
-          <DataField>descripcion</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="moneda">
-          <DataField>moneda</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="punitario">
-          <DataField>punitario</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="iva">
-          <DataField>iva</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>ReporteP</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <rd:DataSetInfo>
-        <rd:DataSetName>ReporteP</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Outbrakei3\Documents\Visual Studio 2010\Projects\SistemaOrdenes\SistemaOrdenes\ReporteP.xsd</rd:SchemaPath>
-        <rd:TableName>Detalles_Orden</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>Detalles_OrdenTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="DataSet2">
+    <DataSet Name="OrdenInfo">
       <Fields>
         <Field Name="Id">
           <DataField>Id</DataField>
@@ -126,7 +82,51 @@
         <rd:TableAdapterName>OrdenesTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="DataSet3">
+    <DataSet Name="Detalles">
+      <Fields>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="id_orden">
+          <DataField>id_orden</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="cantidad">
+          <DataField>cantidad</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="descripcion">
+          <DataField>descripcion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="moneda">
+          <DataField>moneda</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="punitario">
+          <DataField>punitario</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="iva">
+          <DataField>iva</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>ReporteP</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <rd:DataSetInfo>
+        <rd:DataSetName>BD_SistemaDataSet2</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Outbrakei3\Documents\Visual Studio 2010\Projects\SistemaOrdenes\SistemaOrdenes\BD_SistemaDataSet2.xsd</rd:SchemaPath>
+        <rd:TableName>Detalles_Orden</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>Detalles_OrdenTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="Proveedor">
       <Fields>
         <Field Name="Id">
           <DataField>Id</DataField>
@@ -154,80 +154,12 @@
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <rd:DataSetInfo>
-        <rd:DataSetName>ReporteP</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Outbrakei3\Documents\Visual Studio 2010\Projects\SistemaOrdenes\SistemaOrdenes\ReporteP.xsd</rd:SchemaPath>
+        <rd:DataSetName>BD_SistemaDataSet3</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Outbrakei3\Documents\Visual Studio 2010\Projects\SistemaOrdenes\SistemaOrdenes\BD_SistemaDataSet3.xsd</rd:SchemaPath>
         <rd:TableName>Proveedores</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
         <rd:TableAdapterName>ProveedoresTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="DataSet4">
-      <Fields>
-        <Field Name="Id">
-          <DataField>Id</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="id_proveedor">
-          <DataField>id_proveedor</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="fecha">
-          <DataField>fecha</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="orden">
-          <DataField>orden</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="departamento">
-          <DataField>departamento</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="vehiculo">
-          <DataField>vehiculo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="almacen">
-          <DataField>almacen</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="solicito">
-          <DataField>solicito</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="reviso">
-          <DataField>reviso</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="autorizo">
-          <DataField>autorizo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="parauso">
-          <DataField>parauso</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="maquina">
-          <DataField>maquina</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="obra">
-          <DataField>obra</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>ReporteP</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <rd:DataSetInfo>
-        <rd:DataSetName>tbbid</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Outbrakei3\Documents\Visual Studio 2010\Projects\SistemaOrdenes\SistemaOrdenes\tbbid.xsd</rd:SchemaPath>
-        <rd:TableName>Ordenes</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>OrdenesTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -240,7 +172,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!nombre.Value, "DataSet3")</Value>
+                <Value>=First(Fields!nombre.Value, "Proveedor")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -269,7 +201,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!fecha.Value, "DataSet2")</Value>
+                <Value>=First(Fields!fecha.Value, "OrdenInfo")</Value>
                 <Style>
                   <Format>dd       MM       yyyy</Format>
                 </Style>
@@ -301,7 +233,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!departamento.Value, "DataSet2")</Value>
+                <Value>=First(Fields!departamento.Value, "OrdenInfo")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -331,7 +263,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!unidad.Value, "DataSet2")</Value>
+                <Value>=First(Fields!unidad.Value, "OrdenInfo")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -361,7 +293,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!obra.Value, "DataSet2")</Value>
+                <Value>=First(Fields!obra.Value, "OrdenInfo")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -391,7 +323,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!vehiculo.Value, "DataSet2")</Value>
+                <Value>=First(Fields!vehiculo.Value, "OrdenInfo")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -421,7 +353,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!maquina.Value, "DataSet2")</Value>
+                <Value>=First(Fields!maquina.Value, "OrdenInfo")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -451,7 +383,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!almacen.Value, "DataSet2")</Value>
+                <Value>=First(Fields!almacen.Value, "OrdenInfo")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -649,8 +581,7 @@
                       <rd:DefaultName>cantidad</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -679,8 +610,7 @@
                       <rd:DefaultName>descripcion</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -712,8 +642,7 @@
                       <rd:DefaultName>punitario</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -746,8 +675,7 @@
                       <rd:DefaultName>punitario1</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </Border>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -784,16 +712,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DataSet1</DataSetName>
-        <Filters>
-          <Filter>
-            <FilterExpression>=Fields!id_orden.Value</FilterExpression>
-            <Operator>Equal</Operator>
-            <FilterValues>
-              <FilterValue DataType="Integer">12651</FilterValue>
-            </FilterValues>
-          </Filter>
-        </Filters>
+        <DataSetName>Detalles</DataSetName>
         <Top>6.89716cm</Top>
         <Left>1.40229cm</Left>
         <Height>1.32291cm</Height>

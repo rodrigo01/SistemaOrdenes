@@ -156,6 +156,10 @@ namespace SistemaOrdenes
             DataTable proveedores = new DataTable();
             da.Fill(proveedores);
 
+            DataRow row = proveedores.NewRow();
+            row["noecon"] = ""; //insert a blank row - you can even write something lile  = "Please select bellow...";
+            proveedores.Rows.InsertAt(row, 0);
+
             con.Close();
             return proveedores;
         }
