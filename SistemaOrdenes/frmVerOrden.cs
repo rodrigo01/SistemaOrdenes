@@ -22,6 +22,8 @@ namespace SistemaOrdenes
             int idver = _idver;
             Conexion conectar = new Conexion();
             Ordenes orden = new Ordenes();
+            Vehiculos vehiculos = new Vehiculos();
+            vehiculos.con = conectar.con;
             Proveedores proveedores = new Proveedores();
             DataTable dtLista = new DataTable();
 
@@ -40,7 +42,7 @@ namespace SistemaOrdenes
                 tbDepartamento.Text = orden.departamento;
                 tbObra.Text = orden.obra;
                 //cbVehiculo = 
-                tbMaquina.Text = orden.maquina;
+                //tbMaquina.Text = orden.maquina;
                 tbUnidad.Text = orden.unidad;
                 tbAlmacen.Text = orden.almacen;
                 
@@ -68,6 +70,16 @@ namespace SistemaOrdenes
                 
                 //definimos proveedor de lista
                 cbProveedores.SelectedIndex = cbProveedores.FindString(proveedores.nombre);
+
+                //cargamos lista de Vehiculos
+                dtLista = vehiculos.getVehiculosByClase("V");
+                
+                cbVehiculo.DataSource = dtLista;
+                cbVehiculo.DisplayMember = "noecon";
+                cbVehiculo.ValueMember = "id";
+
+                //definimos vehiculo
+                cbVehiculo.SelectedIndex = cbVehiculo.FindString(orden.vehiculo);
                 
             }
             else
@@ -163,7 +175,7 @@ namespace SistemaOrdenes
             Orden.vehiculo = cbVehiculo.SelectedText;
             Orden.almacen = tbAlmacen.Text;
             Orden.parauso = tbUso.Text;
-            Orden.maquina = tbMaquina.Text;
+            Orden.maquina = cbMaquina.GetItemText(cbMaquina.SelectedItem);
             Orden.obra = tbObra.Text;
             Orden.unidad = tbUnidad.Text;
 

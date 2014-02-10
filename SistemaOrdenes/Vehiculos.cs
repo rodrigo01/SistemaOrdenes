@@ -125,5 +125,40 @@ namespace SistemaOrdenes
             con.Close();
             return proveedores;
         }
+
+        public DataTable getVehiculosByNameDG(String Nombre)
+        {
+            con.Open();
+
+            String consulta = "SELECT Id as ID, noecon as NoEconomico, marca as Marca, tipo as Tipo, modelo as Modelo FROM Vehiculos Where noecon LIKE '%" + Nombre + "%' or linea LIKE '%" + Nombre + "%' or tipo LIKE '%" + Nombre + "%' or marca LIKE '%" + Nombre + "%';";
+            OleDbCommand comand = new OleDbCommand();
+            comand.Connection = con;
+            comand.CommandText = consulta;
+
+            OleDbDataAdapter da = new OleDbDataAdapter(comand);
+            DataTable proveedores = new DataTable();
+            da.Fill(proveedores);
+
+            con.Close();
+            return proveedores;
+        }
+
+        public DataTable getVehiculosByClase(String Nombre)
+        {
+            con.Open();
+
+            String consulta = "SELECT * FROM Vehiculos Where clase LIKE '%" + Nombre + "%';";
+            OleDbCommand comand = new OleDbCommand();
+            comand.Connection = con;
+            comand.CommandText = consulta;
+
+            OleDbDataAdapter da = new OleDbDataAdapter(comand);
+            DataTable proveedores = new DataTable();
+            da.Fill(proveedores);
+
+            con.Close();
+            return proveedores;
+        }
+
     }
 }

@@ -47,21 +47,27 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(530, 33);
+            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
+            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditar.Location = new System.Drawing.Point(519, 12);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.Size = new System.Drawing.Size(86, 44);
             this.btnEditar.TabIndex = 1;
             this.btnEditar.Text = "Editar";
+            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(410, 33);
+            this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
+            this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevo.Location = new System.Drawing.Point(391, 12);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(114, 23);
+            this.btnNuevo.Size = new System.Drawing.Size(122, 44);
             this.btnNuevo.TabIndex = 2;
             this.btnNuevo.Text = "Vehiculo Nuevo";
+            this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
@@ -79,8 +85,9 @@
             // 
             this.tbBuscar.Location = new System.Drawing.Point(12, 32);
             this.tbBuscar.Name = "tbBuscar";
-            this.tbBuscar.Size = new System.Drawing.Size(233, 20);
+            this.tbBuscar.Size = new System.Drawing.Size(334, 20);
             this.tbBuscar.TabIndex = 4;
+            this.tbBuscar.TextChanged += new System.EventHandler(this.tbBuscar_TextChanged);
             // 
             // frmVehiculosLista
             // 
@@ -95,6 +102,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmVehiculosLista";
             this.Text = "Vehiculos";
+            this.Activated += new System.EventHandler(this.frmVehiculosLista_Activated);
             this.Load += new System.EventHandler(this.frmVehiculosLista_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgVehiculos)).EndInit();
             this.ResumeLayout(false);

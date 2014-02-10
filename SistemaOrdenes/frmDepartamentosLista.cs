@@ -25,7 +25,11 @@ namespace SistemaOrdenes
             Departamentos departamentos = new Departamentos();
             departamentos.con = conectar.con;
 
+            
             dgDepartamentos.DataSource = departamentos.getDepartamentosDG();
+            dgDepartamentos.Columns["ID"].Width = 30;
+            dgDepartamentos.Columns["nombre"].Width = 200;
+            dgDepartamentos.Columns["encargado"].Width = 200;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -44,6 +48,16 @@ namespace SistemaOrdenes
         {
             frmNuevoDepartamento nvoDeparta = new frmNuevoDepartamento();
             nvoDeparta.Show();
+        }
+
+        private void frmDepartamentosLista_Activated(object sender, EventArgs e)
+        {
+            Conexion conectar = new Conexion();
+            Departamentos departamentos = new Departamentos();
+            departamentos.con = conectar.con;
+
+
+            dgDepartamentos.DataSource = departamentos.getDepartamentosDG();
         }
     }
 }

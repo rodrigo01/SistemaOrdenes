@@ -44,5 +44,38 @@ namespace SistemaOrdenes
         {
 
         }
+
+        private void btBuscar_Click(object sender, EventArgs e)
+        {
+
+            if (tbValorB.Text.CompareTo("") != 0)
+            {
+                Conexion conectar = new Conexion();
+                Ordenes ordenes = new Ordenes();
+
+                dgOrdenes.DataSource = ordenes.getOrdenesDGCampo(cbBPor.GetItemText(cbBPor.SelectedItem), tbValorB.Text, conectar.con);
+            }
+            else
+            {
+                MessageBox.Show("El Valor de la busqueda no puede estar vacio");
+            }
+            
+        }
+
+        private void OrdenesVer_Activated(object sender, EventArgs e)
+        {
+            Conexion conectar = new Conexion();
+            Ordenes ordenes = new Ordenes();
+
+            dgOrdenes.DataSource = ordenes.getOrdenesDG(conectar.con);
+        }
+
+        private void btTodos_Click(object sender, EventArgs e)
+        {
+            Conexion conectar = new Conexion();
+            Ordenes ordenes = new Ordenes();
+
+            dgOrdenes.DataSource = ordenes.getOrdenesDG(conectar.con);
+        }
     }
 }

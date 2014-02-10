@@ -29,7 +29,10 @@ namespace SistemaOrdenes
             Conexion conectar = new Conexion();
             Proveedores proveedores = new Proveedores();
 
+
             dgProveedores.DataSource = proveedores.getProveedoresDG(conectar.con);
+            dgProveedores.Columns["ID"].Width = 30;
+            dgProveedores.Columns["Nombre"].Width = 250;
             /*proveedores.getProveedor(3, conectar.con);
             textBox2.Text = proveedores.nombre;*/      
         }
@@ -55,6 +58,14 @@ namespace SistemaOrdenes
             
             
             
+        }
+
+        private void ProveedoresVer_Activated(object sender, EventArgs e)
+        {
+            Conexion conectar = new Conexion();
+            Proveedores proveedores = new Proveedores();
+
+            dgProveedores.DataSource = proveedores.getProveedoresDG(conectar.con);
         }
     }
 }

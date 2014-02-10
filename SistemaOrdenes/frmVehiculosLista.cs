@@ -23,6 +23,7 @@ namespace SistemaOrdenes
             vehiculos.con = conectar.con;
 
             dgVehiculos.DataSource = vehiculos.getVehiculosDG();
+            dgVehiculos.Columns["ID"].Width = 40;
             
         }
 
@@ -42,6 +43,24 @@ namespace SistemaOrdenes
         {
             frmNuevoVehiculo frmNuevoVehi = new frmNuevoVehiculo();
             frmNuevoVehi.Show();
+        }
+
+        private void frmVehiculosLista_Activated(object sender, EventArgs e)
+        {
+            Conexion conectar = new Conexion();
+            Vehiculos vehiculos = new Vehiculos();
+            vehiculos.con = conectar.con;
+
+            dgVehiculos.DataSource = vehiculos.getVehiculosDG();
+        }
+
+        private void tbBuscar_TextChanged(object sender, EventArgs e)
+        {
+            Conexion conectar = new Conexion();
+            Vehiculos vehiculos = new Vehiculos();
+            vehiculos.con = conectar.con;
+
+            dgVehiculos.DataSource = vehiculos.getVehiculosByNameDG(tbBuscar.Text);
         }
     }
 }

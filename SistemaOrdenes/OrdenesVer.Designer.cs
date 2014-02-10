@@ -39,6 +39,7 @@
             this.btBuscar = new System.Windows.Forms.Button();
             this.dgOrdenes = new System.Windows.Forms.DataGridView();
             this.btDetalles = new System.Windows.Forms.Button();
+            this.btTodos = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgOrdenes)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +55,7 @@
             this.groupBox1.Controls.Add(this.btBuscar);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(351, 96);
+            this.groupBox1.Size = new System.Drawing.Size(404, 96);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar Por";
@@ -104,7 +105,6 @@
             "Departamento",
             "Vehiculo",
             "Almacen",
-            "Solicito",
             "Maquina"});
             this.cbBPor.Location = new System.Drawing.Point(6, 19);
             this.cbBPor.Name = "cbBPor";
@@ -115,17 +115,21 @@
             // 
             this.tbValorB.Location = new System.Drawing.Point(147, 19);
             this.tbValorB.Name = "tbValorB";
-            this.tbValorB.Size = new System.Drawing.Size(179, 20);
+            this.tbValorB.Size = new System.Drawing.Size(242, 20);
             this.tbValorB.TabIndex = 2;
             // 
             // btBuscar
             // 
-            this.btBuscar.Location = new System.Drawing.Point(251, 62);
+            this.btBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btBuscar.Image")));
+            this.btBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btBuscar.Location = new System.Drawing.Point(303, 53);
             this.btBuscar.Name = "btBuscar";
-            this.btBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btBuscar.Size = new System.Drawing.Size(86, 37);
             this.btBuscar.TabIndex = 1;
             this.btBuscar.Text = "Buscar";
+            this.btBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btBuscar.UseVisualStyleBackColor = true;
+            this.btBuscar.Click += new System.EventHandler(this.btBuscar_Click);
             // 
             // dgOrdenes
             // 
@@ -141,25 +145,40 @@
             // 
             // btDetalles
             // 
-            this.btDetalles.Location = new System.Drawing.Point(376, 75);
+            this.btDetalles.Image = ((System.Drawing.Image)(resources.GetObject("btDetalles.Image")));
+            this.btDetalles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btDetalles.Location = new System.Drawing.Point(572, 65);
             this.btDetalles.Name = "btDetalles";
-            this.btDetalles.Size = new System.Drawing.Size(95, 32);
+            this.btDetalles.Size = new System.Drawing.Size(119, 37);
             this.btDetalles.TabIndex = 6;
             this.btDetalles.Text = "Detalles Orden";
+            this.btDetalles.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btDetalles.UseVisualStyleBackColor = true;
             this.btDetalles.Click += new System.EventHandler(this.btDetalles_Click);
+            // 
+            // btTodos
+            // 
+            this.btTodos.Location = new System.Drawing.Point(422, 66);
+            this.btTodos.Name = "btTodos";
+            this.btTodos.Size = new System.Drawing.Size(119, 35);
+            this.btTodos.TabIndex = 7;
+            this.btTodos.Text = "Ver Todas";
+            this.btTodos.UseVisualStyleBackColor = true;
+            this.btTodos.Click += new System.EventHandler(this.btTodos_Click);
             // 
             // OrdenesVer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 551);
+            this.Controls.Add(this.btTodos);
             this.Controls.Add(this.btDetalles);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgOrdenes);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OrdenesVer";
             this.Text = "OrdenesVer";
+            this.Activated += new System.EventHandler(this.OrdenesVer_Activated);
             this.Load += new System.EventHandler(this.OrdenesVer_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -180,5 +199,6 @@
         private System.Windows.Forms.Button btBuscar;
         private System.Windows.Forms.DataGridView dgOrdenes;
         private System.Windows.Forms.Button btDetalles;
+        private System.Windows.Forms.Button btTodos;
     }
 }

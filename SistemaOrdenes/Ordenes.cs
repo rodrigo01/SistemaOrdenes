@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.OleDb;
 using System.Data;
+using System.Windows.Forms;
 
 namespace SistemaOrdenes
 {
@@ -157,6 +158,97 @@ namespace SistemaOrdenes
             comand.ExecuteNonQuery();
             con.Close();
 
+        }
+
+
+        // Busqueda de ordenes por datos
+
+        public DataTable getOrdenesDGCampo(String campo, String valor, OleDbConnection con)
+        {
+            con.Open();
+
+            String whereclause = "";
+            String consulta = "";
+            OleDbCommand comand = new OleDbCommand();
+            comand.Connection = con;
+            
+            // Para Ordenes
+            if (campo.CompareTo("Orden") == 0) 
+            {
+                if (valor.CompareTo("") == 0){}
+                else{whereclause = "HAVING (((Ordenes.orden) = "+valor+"))";
+                consulta = "SELECT Ordenes.Id as [ID], Ordenes.orden as Orden,Proveedores.nombre as Nombre, Sum([punitario]*[cantidad]) AS Total, Ordenes.fecha as Fecha FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Proveedores.nombre, Ordenes.orden, Ordenes.fecha " + whereclause + ";";
+                comand.CommandText = consulta;
+                } 
+            }
+
+            // Proveedor
+            if (campo.CompareTo("Proveedor") == 0)
+            {
+                if (valor.CompareTo("") == 0) { }
+                else { whereclause = "HAVING (((Proveedores.nombre) Like \"*"+valor+"*\")) ";
+                consulta = "SELECT Ordenes.Id AS ID, Ordenes.orden AS Orden, Proveedores.nombre AS Nombre, Sum([punitario]*[cantidad]) AS Total, Ordenes.fecha AS Fecha FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Ordenes.orden, Proveedores.nombre, Ordenes.fecha HAVING (((Proveedores.nombre) like \"%"+valor+"%\"));";
+                comand.CommandText = consulta;
+                }
+            }
+
+            // 
+            if (campo.CompareTo("Departamento") == 0)
+            {
+                if (valor.CompareTo("") == 0) { }
+                else
+                {
+                    //whereclause = "HAVING (((Proveedores.nombre) Like \"*" + valor + "*\")) ";
+                    consulta = "SELECT Ordenes.Id AS ID, Ordenes.orden AS Orden, Proveedores.nombre AS Nombre, Sum([punitario]*[cantidad]) AS Total, Ordenes.fecha AS Fecha FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Ordenes.orden, Proveedores.nombre, Ordenes.fecha HAVING (((Proveedores.nombre) like \"%" + valor + "%\"));";
+                    comand.CommandText = consulta;
+                }
+            }
+
+            if (campo.CompareTo("Vehiculo") == 0)
+            {
+                if (valor.CompareTo("") == 0) { }
+                else
+                {
+                    //whereclause = "HAVING (((Proveedores.nombre) Like \"*" + valor + "*\")) ";
+                    consulta = "SELECT Ordenes.Id AS ID, Ordenes.orden AS Orden, Proveedores.nombre AS Nombre, Sum([punitario]*[cantidad]) AS Total, Ordenes.fecha AS Fecha FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Ordenes.orden, Proveedores.nombre, Ordenes.fecha, Ordenes.vehiculo HAVING (((Ordenes.vehiculo) like \"%" + valor + "%\"));";
+                    comand.CommandText = consulta;
+                }
+            }
+
+            if (campo.CompareTo("Almacen") == 0)
+            {
+                if (valor.CompareTo("") == 0) { }
+                else
+                {
+                    //whereclause = "HAVING (((Proveedores.nombre) Like \"*" + valor + "*\")) ";
+                    consulta = "SELECT Ordenes.Id AS ID, Ordenes.orden AS Orden, Proveedores.nombre AS Nombre, Sum([punitario]*[cantidad]) AS Total, Ordenes.fecha AS Fecha FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Ordenes.orden, Proveedores.nombre, Ordenes.fecha, Ordenes.almacen HAVING (((Ordenes.almacen) like \"%" + valor + "%\"));";
+                    comand.CommandText = consulta;
+                }
+            }
+
+            if (campo.CompareTo("Maquina") == 0)
+            {
+                if (valor.CompareTo("") == 0) { }
+                else
+                {
+                    //whereclause = "HAVING (((Proveedores.nombre) Like \"*" + valor + "*\")) ";
+                    consulta = "SELECT Ordenes.Id AS ID, Ordenes.orden AS Orden, Proveedores.nombre AS Nombre, Sum([punitario]*[cantidad]) AS Total, Ordenes.fecha AS Fecha FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Ordenes.orden, Proveedores.nombre, Ordenes.fecha, Ordenes.maquina HAVING (((Ordenes.maquina) like \"%" + valor + "%\"));";
+                    comand.CommandText = consulta;
+                }
+            }
+
+            
+            
+            //MessageBox.Show("SQL: "+consulta);
+            
+            
+
+            OleDbDataAdapter da = new OleDbDataAdapter(comand);
+            DataTable proveedores = new DataTable();
+            da.Fill(proveedores);
+
+            con.Close();
+            return proveedores;
         }
 
         

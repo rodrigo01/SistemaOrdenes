@@ -44,7 +44,7 @@
             // tbTelefono
             // 
             this.tbTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbTelefono.Location = new System.Drawing.Point(120, 167);
+            this.tbTelefono.Location = new System.Drawing.Point(108, 155);
             this.tbTelefono.Name = "tbTelefono";
             this.tbTelefono.Size = new System.Drawing.Size(224, 26);
             this.tbTelefono.TabIndex = 19;
@@ -52,7 +52,7 @@
             // tbRFC
             // 
             this.tbRFC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbRFC.Location = new System.Drawing.Point(120, 122);
+            this.tbRFC.Location = new System.Drawing.Point(108, 110);
             this.tbRFC.Name = "tbRFC";
             this.tbRFC.Size = new System.Drawing.Size(224, 26);
             this.tbRFC.TabIndex = 18;
@@ -60,7 +60,7 @@
             // tbDireccion
             // 
             this.tbDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDireccion.Location = new System.Drawing.Point(120, 81);
+            this.tbDireccion.Location = new System.Drawing.Point(108, 69);
             this.tbDireccion.Name = "tbDireccion";
             this.tbDireccion.Size = new System.Drawing.Size(224, 26);
             this.tbDireccion.TabIndex = 17;
@@ -68,7 +68,7 @@
             // tbNombre
             // 
             this.tbNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNombre.Location = new System.Drawing.Point(120, 33);
+            this.tbNombre.Location = new System.Drawing.Point(108, 21);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(224, 26);
             this.tbNombre.TabIndex = 16;
@@ -77,7 +77,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(32, 177);
+            this.label4.Location = new System.Drawing.Point(20, 165);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 16);
             this.label4.TabIndex = 15;
@@ -87,7 +87,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(33, 128);
+            this.label3.Location = new System.Drawing.Point(21, 116);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 16);
             this.label3.TabIndex = 14;
@@ -97,7 +97,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(34, 85);
+            this.label2.Location = new System.Drawing.Point(22, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 16);
             this.label2.TabIndex = 13;
@@ -107,7 +107,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(33, 39);
+            this.label1.Location = new System.Drawing.Point(21, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 16);
             this.label1.TabIndex = 12;
@@ -115,21 +115,27 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(234, 226);
+            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
+            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditar.Location = new System.Drawing.Point(239, 208);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(110, 30);
+            this.btnEditar.Size = new System.Drawing.Size(93, 38);
             this.btnEditar.TabIndex = 11;
             this.btnEditar.Text = "Editar";
+            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(26, 226);
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(25, 208);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(88, 30);
+            this.btnCancelar.Size = new System.Drawing.Size(89, 38);
             this.btnCancelar.TabIndex = 10;
             this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -137,7 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(394, 285);
+            this.ClientSize = new System.Drawing.Size(363, 273);
             this.Controls.Add(this.tbTelefono);
             this.Controls.Add(this.tbRFC);
             this.Controls.Add(this.tbDireccion);
