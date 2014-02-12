@@ -12,6 +12,15 @@ namespace SistemaOrdenes
 {
     public partial class ImprimirOrden : Form
     {
+        public int _iddetalles;
+        public int _idorden;
+        public int _idproveedor;
+        public String _conletra;
+        public float _subtotal;
+        public float _iva;
+        public float _total;
+
+
         public ImprimirOrden()
         {
             InitializeComponent();
@@ -19,33 +28,47 @@ namespace SistemaOrdenes
 
         private void ImprimirOrden_Load(object sender, EventArgs e)
         {
+            int iddetalles = _iddetalles;
+            int idorden = _idorden;
+            int idproveedor = _idproveedor;
+            String conletra = _conletra;
+            float subtotal = _subtotal;
+            float iva = _iva;
+            float total = _total;
+
             // TODO: This line of code loads data into the 'ReporteP.Ordenes' table. You can move, or remove it, as needed.
-            this.OrdenesTableAdapter.Fill(this.ReporteP.Ordenes);
+            //this.OrdenesTableAdapter.Fill(this.ReporteP.Ordenes);
             //this.OrdenesTableAdapter.Fill()
 
             // TODO: This line of code loads data into the 'BD_SistemaDataSet2.Detalles_Orden' table. You can move, or remove it, as needed.
             Conexion conectar = new Conexion();
             Ordenes ordenes = new Ordenes();
 
-
+            
+            
 
             //Detalles_OrdenBindingSource.DataSource = ordenes.getDetallesOrden(9680,conectar.con);
            //Detalles_OrdenBindingSource
             //this.Detalles_OrdenTableAdapter.Fill(this.BD_SistemaDataSet2.Detalles_Orden);
             // TODO: This line of code loads data into the 'bD_SistemaDataSet.Proveedores' table. You can move, or remove it, as needed.
-            this.proveedoresTableAdapter.Fill(this.bD_SistemaDataSet.Proveedores);
+            //this.proveedoresTableAdapter.Fill(this.bD_SistemaDataSet.Proveedores);
 
             this.reportViewer1.LocalReport.DataSources.Clear();
-            ReportDataSource source = new ReportDataSource("Detalles", ordenes.getDetallesOrdenRep(9680, conectar.con));
+            ReportDataSource source = new ReportDataSource("Detalles", ordenes.getDetallesOrdenRep(iddetalles, conectar.con));
             reportViewer1.LocalReport.DataSources.Add(source);
 
-            source = new ReportDataSource("OrdenInfo", ordenes.getDetallesOrdenRep(9680, conectar.con));
+            source = new ReportDataSource("OrdenInfo", ordenes.getOrdenRep(idorden, conectar.con));
             reportViewer1.LocalReport.DataSources.Add(source);
 
-            source = new ReportDataSource("Proveedor", ordenes.getProveedoresRep(725, conectar.con));
+            source = new ReportDataSource("Proveedor", ordenes.getProveedoresRep(idproveedor, conectar.con));
             reportViewer1.LocalReport.DataSources.Add(source);
-            
-            
+
+            ReportParameter[] parameters = new ReportParameter[4];
+            parameters[0] = new ReportParameter("CantidadLetra", conletra);
+            parameters[1] = new ReportParameter("subtotal", subtotal.ToString());
+            parameters[2] = new ReportParameter("iva", iva.ToString());
+            parameters[3] = new ReportParameter("total", total.ToString());
+            this.reportViewer1.LocalReport.SetParameters(parameters);
             
             this.reportViewer1.RefreshReport();
         }

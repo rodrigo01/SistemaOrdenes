@@ -12,6 +12,15 @@ namespace SistemaOrdenes
     public partial class frmVerOrden : Form
     {
         public int _idver = 0;
+        public int _idorden = 0;
+        public int _iddetalles = 0;
+        public int _idproveedor = 0;
+        public float estetotal = 0;
+
+        public float _subtotal;
+        public float _iva;
+        public float _total;
+
         public frmVerOrden()
         {
             InitializeComponent();
@@ -32,6 +41,7 @@ namespace SistemaOrdenes
             // si encontramos la orden
             if (orden.id != 0)
             {
+                _idorden = orden.id; //definimos id para reporte
                 //datos de Proveedor
                 proveedores.getProveedor(orden.id_proveedor, conectar.con);
 
@@ -51,6 +61,7 @@ namespace SistemaOrdenes
 
                 //no traemos detalles de Orden
                 dgDetallesOrden.DataSource = orden.getDetallesOrden(orden.id, conectar.con);
+                _iddetalles = orden.id; //definimos id detalles
                 
                 //detalles de estilo
                 dgDetallesOrden.Columns["Descripcion"].Width = 500;
@@ -64,6 +75,9 @@ namespace SistemaOrdenes
                 actualizartotales();
 
                 //cargamos lista de proveedores
+                proveedores.getProveedorByName(proveedores.nombre, conectar.con);
+                _idproveedor = proveedores.id; //definimos id de proveedor
+
                 dtLista = proveedores.getProveedoresDG(conectar.con);
                 cbProveedores.DataSource = dtLista;
                 cbProveedores.DisplayMember = "nombre";
@@ -71,6 +85,7 @@ namespace SistemaOrdenes
                 
                 //definimos proveedor de lista
                 cbProveedores.SelectedIndex = cbProveedores.FindString(proveedores.nombre);
+                
 
                 //cargamos lista de Vehiculos
                 dtLista = vehiculos.getVehiculosByClase("V");
@@ -121,13 +136,17 @@ namespace SistemaOrdenes
             }
            
             tbSubTotal.Text = subtotal.ToString("C");
+            _subtotal = subtotal;
             if (tbPIva.Text.Length==0)
                 tbPIva.Text = "0";
             civa = Convert.ToInt32(tbPIva.Text);
             iva = subtotal * (civa/100);
+            _iva = iva;
             tbIva.Text = iva.ToString("C");
             total = iva + subtotal;
             tbTotal.Text = total.ToString("C");
+            estetotal = total;
+            _total = total;
         }
 
         public void actualizarmulti()
@@ -225,7 +244,22 @@ namespace SistemaOrdenes
         private void btImprimi_Click(object sender, EventArgs e)
         {
             ImprimirOrden printOrden = new ImprimirOrden();
-
+            printOrden._idorden = _idorden;
+            printOrden._iddetalles = _iddetalles;
+            printOrden._idproveedor = _idproveedor;
+            printOrden._subtotal = _subtotal;
+            printOrden._iva = _iva;
+            printOrden._total = _total;
+            Numalet let = new Numalet();
+            //al uso en México (creo):
+            let.MascaraSalidaDecimal = "00/100 M.N.";
+            let.SeparadorDecimalSalida = "pesos";
+            //observar que sin esta propiedad queda "veintiuno pesos" en vez de "veintiún pesos":
+            let.ApocoparUnoParteEntera = true;
+            
+            //Son: un mil ciento veintiún pesos 24/100 M.N.
+            //float fe = (float)Convert.ToDouble(tbTotal.Text);
+            printOrden._conletra =  let.ToCustomCardinal(estetotal).ToUpper();
             printOrden.Show();
         }
 

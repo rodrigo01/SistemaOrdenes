@@ -73,6 +73,7 @@
       <DependentUpon>BD_SistemaDataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="Conexion.cs" />
+    <Compile Include="Numalet.cs" />
     <Compile Include="Departamentos.cs" />
     <Compile Include="Detalles.cs" />
     <Compile Include="frmDepartamentosLista.cs">
