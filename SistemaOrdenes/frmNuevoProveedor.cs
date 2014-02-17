@@ -27,7 +27,7 @@ namespace SistemaOrdenes
             OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\irtec\BD_Sistema.mdb");
             OleDbCommand cmd = new OleDbCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = @"insert into Proveedores (nombre, direccion,rfc,telefono) VALUES('" + tbNombre.Text + "','" + tbDireccion.Text + "','" + tbRFC.Text + "','" + tbTelefono.Text + "')";
+            cmd.CommandText = @"insert into Proveedores (nombre, direccion,rfc,telefono,contacto,correo,extension) VALUES('" + tbNombre.Text + "','" + tbDireccion.Text + "','" + tbRFC.Text + "','" + tbTelefono.Text + "','" + tbContacto.Text + "','" + tbCorreo.Text + "','" + tbExtension.Text + "')";
             cmd.Connection = con;
             con.Open();
             cmd.ExecuteNonQuery();

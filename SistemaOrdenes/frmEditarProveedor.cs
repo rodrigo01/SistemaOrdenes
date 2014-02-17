@@ -36,6 +36,9 @@ namespace SistemaOrdenes
                 tbDireccion.Text = proveedores.direccion;
                 tbRFC.Text = proveedores.rfc;
                 tbTelefono.Text = proveedores.telefono;
+                tbContacto.Text = proveedores.contacto;
+                tbCorreo.Text = proveedores.correo;
+                tbExtension.Text = proveedores.extension;
             }
             else {
                 System.Windows.Forms.MessageBox.Show("Proveedor Inexistente " + ideditar);
@@ -52,9 +55,13 @@ namespace SistemaOrdenes
             actProveedor.direccion = tbDireccion.Text;
             actProveedor.rfc = tbRFC.Text;
             actProveedor.telefono = tbTelefono.Text;
+            actProveedor.contacto = tbContacto.Text;
+            actProveedor.correo = tbCorreo.Text;
+            actProveedor.extension = tbExtension.Text;
 
             actProveedor.updateProveedor(actProveedor, conectar.con);
-            System.Windows.Forms.MessageBox.Show("Proveedor Actualizado");
+            //System.Windows.Forms.MessageBox.Show("Proveedor Actualizado");
+            this.Close();
         }
 
       

@@ -67,5 +67,24 @@ namespace SistemaOrdenes
 
             dgProveedores.DataSource = proveedores.getProveedoresDG(conectar.con);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Deseas Borrar este registro?", "Aviso!", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int rowi = dgProveedores.CurrentRow.Index;
+                string valor = dgProveedores[0, rowi].Value.ToString();
+                idedit = Convert.ToInt32(valor);
+                Conexion conectar = new Conexion();
+                Proveedores proveedores = new Proveedores();
+                proveedores.deleteProveedor(idedit, conectar.con);
+                MessageBox.Show("Proveedor Eliminado");
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+               
+            }
+        }
     }
 }

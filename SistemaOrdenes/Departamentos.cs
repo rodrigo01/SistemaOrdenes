@@ -94,5 +94,18 @@ namespace SistemaOrdenes
             return proveedores;
         }
 
+        public void deleteDepartamento(int id)
+        {
+            OleDbCommand comand = new OleDbCommand();
+
+            //sql de busqueda y realizamos consulta            
+            String consulta = "Delete From Departamentos WHERE Id= " + id + ";";
+            comand.Connection = con;
+            comand.CommandText = consulta;
+            con.Open();
+            comand.ExecuteNonQuery();
+            con.Close();
+        }
+
     }
 }

@@ -11,6 +11,8 @@ namespace SistemaOrdenes
 {
     public partial class frmVehiculosLista : Form
     {
+        public int idedit;
+
         public frmVehiculosLista()
         {
             InitializeComponent();
@@ -29,7 +31,7 @@ namespace SistemaOrdenes
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            int idedit = 0;
+            
             int rowi = dgVehiculos.CurrentRow.Index;
             string valor = dgVehiculos[0, rowi].Value.ToString();
             idedit = Convert.ToInt32(valor);
@@ -61,6 +63,28 @@ namespace SistemaOrdenes
             vehiculos.con = conectar.con;
 
             dgVehiculos.DataSource = vehiculos.getVehiculosByNameDG(tbBuscar.Text);
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            int rowi = dgVehiculos.CurrentRow.Index;
+            string valor = dgVehiculos[0, rowi].Value.ToString();
+            idedit = Convert.ToInt32(valor);
+            DialogResult dialogResult = MessageBox.Show("Deseas dar de Baja?", "Aviso!", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                Conexion conectar = new Conexion();
+                Vehiculos vehiculos = new Vehiculos();
+                vehiculos.con = conectar.con;
+                //MessageBox.Show("Se dara de baja:" +idedit );
+                vehiculos.deletevehiculo(idedit);
+                MessageBox.Show("Vehiculo dado de baja");
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+
+            }
         }
     }
 }

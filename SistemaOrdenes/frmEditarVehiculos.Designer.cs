@@ -45,6 +45,16 @@
             this.tbUsuario = new System.Windows.Forms.TextBox();
             this.btGuardarOrden = new System.Windows.Forms.Button();
             this.btCancelar = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tbllantas = new System.Windows.Forms.TextBox();
+            this.tbPlacas = new System.Windows.Forms.TextBox();
+            this.tbSerie = new System.Windows.Forms.TextBox();
+            this.tbMotor = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbBaja = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // tbNoEconomico
@@ -179,14 +189,14 @@
             this.tbUsuario.Location = new System.Drawing.Point(146, 170);
             this.tbUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.tbUsuario.Name = "tbUsuario";
-            this.tbUsuario.Size = new System.Drawing.Size(159, 22);
+            this.tbUsuario.Size = new System.Drawing.Size(169, 22);
             this.tbUsuario.TabIndex = 12;
             // 
             // btGuardarOrden
             // 
             this.btGuardarOrden.Image = ((System.Drawing.Image)(resources.GetObject("btGuardarOrden.Image")));
             this.btGuardarOrden.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btGuardarOrden.Location = new System.Drawing.Point(332, 158);
+            this.btGuardarOrden.Location = new System.Drawing.Point(236, 357);
             this.btGuardarOrden.Name = "btGuardarOrden";
             this.btGuardarOrden.Size = new System.Drawing.Size(147, 34);
             this.btGuardarOrden.TabIndex = 90;
@@ -199,7 +209,7 @@
             // 
             this.btCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btCancelar.Image")));
             this.btCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btCancelar.Location = new System.Drawing.Point(485, 158);
+            this.btCancelar.Location = new System.Drawing.Point(459, 357);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(94, 34);
             this.btCancelar.TabIndex = 89;
@@ -208,11 +218,101 @@
             this.btCancelar.UseVisualStyleBackColor = true;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(16, 218);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 16);
+            this.label8.TabIndex = 91;
+            this.label8.Text = "Placas";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(303, 218);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(50, 16);
+            this.label9.TabIndex = 92;
+            this.label9.Text = "# Serie";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(15, 278);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(42, 16);
+            this.label10.TabIndex = 93;
+            this.label10.Text = "Motor";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(340, 150);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(51, 16);
+            this.label11.TabIndex = 94;
+            this.label11.Text = "Llantas";
+            // 
+            // tbllantas
+            // 
+            this.tbllantas.Location = new System.Drawing.Point(343, 170);
+            this.tbllantas.Name = "tbllantas";
+            this.tbllantas.Size = new System.Drawing.Size(198, 22);
+            this.tbllantas.TabIndex = 95;
+            // 
+            // tbPlacas
+            // 
+            this.tbPlacas.Location = new System.Drawing.Point(19, 238);
+            this.tbPlacas.Name = "tbPlacas";
+            this.tbPlacas.Size = new System.Drawing.Size(263, 22);
+            this.tbPlacas.TabIndex = 96;
+            // 
+            // tbSerie
+            // 
+            this.tbSerie.Location = new System.Drawing.Point(306, 238);
+            this.tbSerie.Name = "tbSerie";
+            this.tbSerie.Size = new System.Drawing.Size(235, 22);
+            this.tbSerie.TabIndex = 97;
+            // 
+            // tbMotor
+            // 
+            this.tbMotor.Location = new System.Drawing.Point(19, 298);
+            this.tbMotor.Name = "tbMotor";
+            this.tbMotor.Size = new System.Drawing.Size(263, 22);
+            this.tbMotor.TabIndex = 98;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(306, 280);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(77, 16);
+            this.label12.TabIndex = 99;
+            this.label12.Text = "Fecha Baja";
+            // 
+            // tbBaja
+            // 
+            this.tbBaja.Location = new System.Drawing.Point(309, 299);
+            this.tbBaja.Name = "tbBaja";
+            this.tbBaja.Size = new System.Drawing.Size(155, 22);
+            this.tbBaja.TabIndex = 100;
+            // 
             // frmEditarVehiculos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 218);
+            this.ClientSize = new System.Drawing.Size(586, 403);
+            this.Controls.Add(this.tbBaja);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.tbMotor);
+            this.Controls.Add(this.tbSerie);
+            this.Controls.Add(this.tbPlacas);
+            this.Controls.Add(this.tbllantas);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.btGuardarOrden);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.label7);
@@ -258,5 +358,15 @@
         private System.Windows.Forms.TextBox tbUsuario;
         private System.Windows.Forms.Button btGuardarOrden;
         private System.Windows.Forms.Button btCancelar;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox tbllantas;
+        private System.Windows.Forms.TextBox tbPlacas;
+        private System.Windows.Forms.TextBox tbSerie;
+        private System.Windows.Forms.TextBox tbMotor;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox tbBaja;
     }
 }

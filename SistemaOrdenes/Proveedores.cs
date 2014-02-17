@@ -15,6 +15,9 @@ namespace SistemaOrdenes
         public String direccion;
         public String rfc;
         public String telefono;
+        public String contacto;
+        public String correo;
+        public String extension;
 
         public Proveedores()
         {
@@ -23,6 +26,9 @@ namespace SistemaOrdenes
             direccion = "";
             rfc = "";
             telefono = "";
+            contacto = "";
+            correo = "";
+            extension = "";
         }
 
 
@@ -45,6 +51,9 @@ namespace SistemaOrdenes
                 this.direccion = lectura["direccion"].ToString();
                 this.rfc = lectura["rfc"].ToString();
                 this.telefono = lectura["telefono"].ToString();
+                this.contacto = lectura["contacto"].ToString();
+                this.correo = lectura["correo"].ToString();
+                this.extension = lectura["extension"].ToString();
             }
             
             con.Close();
@@ -69,6 +78,9 @@ namespace SistemaOrdenes
                 this.direccion = lectura["direccion"].ToString();
                 this.rfc = lectura["rfc"].ToString();
                 this.telefono = lectura["telefono"].ToString();
+                this.contacto = lectura["contacto"].ToString();
+                this.correo = lectura["correo"].ToString();
+                this.extension = lectura["extension"].ToString();
             }
 
             con.Close();
@@ -114,7 +126,20 @@ namespace SistemaOrdenes
             OleDbCommand comand = new OleDbCommand();
             
             //sql de busqueda y realizamos consulta            
-            String consulta = "UPDATE Proveedores SET nombre = '" + updProveedor.nombre + "', direccion = '" + updProveedor.direccion + "', rfc = '" + updProveedor.rfc + "', telefono = '" + updProveedor.telefono + "' WHERE Id= " + updProveedor.id + ";";
+            String consulta = "UPDATE Proveedores SET nombre = '" + updProveedor.nombre + "', direccion = '" + updProveedor.direccion + "', rfc = '" + updProveedor.rfc + "', telefono = '" + updProveedor.telefono + "', contacto = '" + updProveedor.contacto + "', correo = '" + updProveedor.correo + "', extension = '" + updProveedor.extension + "' WHERE Id= " + updProveedor.id + ";";
+            comand.Connection = con;
+            comand.CommandText = consulta;
+            con.Open();
+            comand.ExecuteNonQuery();
+            con.Close();
+        }
+
+        public void deleteProveedor(int id, OleDbConnection con)
+        {
+            OleDbCommand comand = new OleDbCommand();
+
+            //sql de busqueda y realizamos consulta            
+            String consulta = "Delete From Proveedores WHERE Id= " + id + ";";
             comand.Connection = con;
             comand.CommandText = consulta;
             con.Open();

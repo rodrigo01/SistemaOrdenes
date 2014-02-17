@@ -38,7 +38,12 @@ namespace SistemaOrdenes
             tbLinea.Text = vehiculo.linea;
             tbTipo.Text = vehiculo.tipo;
             tbClase.Text = vehiculo.clase;
-            tbUsuario.Text = vehiculo.usuario;
+            tbPlacas.Text = vehiculo.placas;
+            tbSerie.Text = vehiculo.numserie;
+            tbMotor.Text = vehiculo.motor;
+            tbllantas.Text = vehiculo.llantas;
+            tbBaja.Text = vehiculo.bajafecha;
+
         }
 
         private void btGuardarOrden_Click(object sender, EventArgs e)
@@ -60,6 +65,11 @@ namespace SistemaOrdenes
             vehiculo.tipo = tbTipo.Text;
             vehiculo.clase = tbClase.Text;
             vehiculo.usuario = tbUsuario.Text;
+            vehiculo.placas = tbPlacas.Text;
+            vehiculo.numserie = tbSerie.Text;
+            vehiculo.motor = tbMotor.Text;
+            vehiculo.llantas = tbllantas.Text;
+            vehiculo.bajafecha = tbBaja.Text;
 
             vehiculo.updateVehiculo(vehiculo);
             System.Windows.Forms.MessageBox.Show("Vehiculo Actualizado");

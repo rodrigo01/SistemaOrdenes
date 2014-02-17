@@ -59,5 +59,27 @@ namespace SistemaOrdenes
 
             dgDepartamentos.DataSource = departamentos.getDepartamentosDG();
         }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Deseas Borrar este registro?", "Aviso!", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                int rowi = dgDepartamentos.CurrentRow.Index;
+                string valor = dgDepartamentos[0, rowi].Value.ToString();
+                idedit = Convert.ToInt32(valor);
+
+                Conexion conectar = new Conexion();
+                Departamentos departamentos = new Departamentos();
+                departamentos.con = conectar.con;
+                departamentos.deleteDepartamento(idedit);
+                MessageBox.Show("Departamento Eliminado");
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+
+            }
+        }
     }
 }

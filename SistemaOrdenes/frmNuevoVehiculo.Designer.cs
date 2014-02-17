@@ -29,6 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNuevoVehiculo));
+            this.btGuardarOrden = new System.Windows.Forms.Button();
+            this.btCancelar = new System.Windows.Forms.Button();
+            this.tbBaja = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbMotor = new System.Windows.Forms.TextBox();
+            this.tbSerie = new System.Windows.Forms.TextBox();
+            this.tbPlacas = new System.Windows.Forms.TextBox();
+            this.tbllantas = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tbUsuario = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -43,150 +55,13 @@
             this.tbMarca = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbNoEconomico = new System.Windows.Forms.TextBox();
-            this.btGuardarOrden = new System.Windows.Forms.Button();
-            this.btCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(140, 152);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 16);
-            this.label7.TabIndex = 104;
-            this.label7.Text = "Usario";
-            // 
-            // tbUsuario
-            // 
-            this.tbUsuario.Location = new System.Drawing.Point(143, 172);
-            this.tbUsuario.Margin = new System.Windows.Forms.Padding(4);
-            this.tbUsuario.Name = "tbUsuario";
-            this.tbUsuario.Size = new System.Drawing.Size(159, 20);
-            this.tbUsuario.TabIndex = 103;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(13, 152);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 16);
-            this.label6.TabIndex = 102;
-            this.label6.Text = "Clase";
-            // 
-            // tbClase
-            // 
-            this.tbClase.Location = new System.Drawing.Point(16, 172);
-            this.tbClase.Margin = new System.Windows.Forms.Padding(4);
-            this.tbClase.Name = "tbClase";
-            this.tbClase.Size = new System.Drawing.Size(104, 20);
-            this.tbClase.TabIndex = 101;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(407, 22);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 16);
-            this.label5.TabIndex = 100;
-            this.label5.Text = "Modelo";
-            // 
-            // tbModelo
-            // 
-            this.tbModelo.Location = new System.Drawing.Point(410, 42);
-            this.tbModelo.Margin = new System.Windows.Forms.Padding(4);
-            this.tbModelo.Name = "tbModelo";
-            this.tbModelo.Size = new System.Drawing.Size(128, 20);
-            this.tbModelo.TabIndex = 99;
-            this.tbModelo.TextChanged += new System.EventHandler(this.tbModelo_TextChanged);
-            this.tbModelo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbModelo_KeyPress);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(243, 79);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 16);
-            this.label4.TabIndex = 98;
-            this.label4.Text = "Tipo";
-            // 
-            // tbTipo
-            // 
-            this.tbTipo.Location = new System.Drawing.Point(246, 109);
-            this.tbTipo.Margin = new System.Windows.Forms.Padding(4);
-            this.tbTipo.Name = "tbTipo";
-            this.tbTipo.Size = new System.Drawing.Size(292, 20);
-            this.tbTipo.TabIndex = 97;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 79);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 16);
-            this.label3.TabIndex = 96;
-            this.label3.Text = "Linea";
-            // 
-            // tbLinea
-            // 
-            this.tbLinea.Location = new System.Drawing.Point(16, 109);
-            this.tbLinea.Margin = new System.Windows.Forms.Padding(4);
-            this.tbLinea.Name = "tbLinea";
-            this.tbLinea.Size = new System.Drawing.Size(209, 20);
-            this.tbLinea.TabIndex = 95;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(243, 22);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 16);
-            this.label2.TabIndex = 94;
-            this.label2.Text = "Marca";
-            // 
-            // tbMarca
-            // 
-            this.tbMarca.Location = new System.Drawing.Point(246, 42);
-            this.tbMarca.Margin = new System.Windows.Forms.Padding(4);
-            this.tbMarca.Name = "tbMarca";
-            this.tbMarca.Size = new System.Drawing.Size(141, 20);
-            this.tbMarca.TabIndex = 93;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 22);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 16);
-            this.label1.TabIndex = 92;
-            this.label1.Text = "NoEconomico";
-            // 
-            // tbNoEconomico
-            // 
-            this.tbNoEconomico.Location = new System.Drawing.Point(16, 42);
-            this.tbNoEconomico.Margin = new System.Windows.Forms.Padding(4);
-            this.tbNoEconomico.Name = "tbNoEconomico";
-            this.tbNoEconomico.Size = new System.Drawing.Size(209, 20);
-            this.tbNoEconomico.TabIndex = 91;
             // 
             // btGuardarOrden
             // 
             this.btGuardarOrden.Image = ((System.Drawing.Image)(resources.GetObject("btGuardarOrden.Image")));
             this.btGuardarOrden.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btGuardarOrden.Location = new System.Drawing.Point(350, 160);
+            this.btGuardarOrden.Location = new System.Drawing.Point(261, 354);
             this.btGuardarOrden.Name = "btGuardarOrden";
             this.btGuardarOrden.Size = new System.Drawing.Size(126, 34);
             this.btGuardarOrden.TabIndex = 106;
@@ -199,7 +74,7 @@
             // 
             this.btCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btCancelar.Image")));
             this.btCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btCancelar.Location = new System.Drawing.Point(482, 160);
+            this.btCancelar.Location = new System.Drawing.Point(444, 354);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(94, 34);
             this.btCancelar.TabIndex = 105;
@@ -208,13 +83,234 @@
             this.btCancelar.UseVisualStyleBackColor = true;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
+            // tbBaja
+            // 
+            this.tbBaja.Location = new System.Drawing.Point(306, 298);
+            this.tbBaja.Name = "tbBaja";
+            this.tbBaja.Size = new System.Drawing.Size(155, 20);
+            this.tbBaja.TabIndex = 130;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(303, 279);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(61, 13);
+            this.label12.TabIndex = 129;
+            this.label12.Text = "Fecha Baja";
+            // 
+            // tbMotor
+            // 
+            this.tbMotor.Location = new System.Drawing.Point(16, 297);
+            this.tbMotor.Name = "tbMotor";
+            this.tbMotor.Size = new System.Drawing.Size(263, 20);
+            this.tbMotor.TabIndex = 128;
+            // 
+            // tbSerie
+            // 
+            this.tbSerie.Location = new System.Drawing.Point(303, 237);
+            this.tbSerie.Name = "tbSerie";
+            this.tbSerie.Size = new System.Drawing.Size(235, 20);
+            this.tbSerie.TabIndex = 127;
+            // 
+            // tbPlacas
+            // 
+            this.tbPlacas.Location = new System.Drawing.Point(16, 237);
+            this.tbPlacas.Name = "tbPlacas";
+            this.tbPlacas.Size = new System.Drawing.Size(263, 20);
+            this.tbPlacas.TabIndex = 126;
+            // 
+            // tbllantas
+            // 
+            this.tbllantas.Location = new System.Drawing.Point(340, 169);
+            this.tbllantas.Name = "tbllantas";
+            this.tbllantas.Size = new System.Drawing.Size(198, 20);
+            this.tbllantas.TabIndex = 125;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(337, 149);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 13);
+            this.label11.TabIndex = 124;
+            this.label11.Text = "Llantas";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(12, 277);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(34, 13);
+            this.label10.TabIndex = 123;
+            this.label10.Text = "Motor";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(300, 217);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(41, 13);
+            this.label9.TabIndex = 122;
+            this.label9.Text = "# Serie";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(13, 217);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(39, 13);
+            this.label8.TabIndex = 121;
+            this.label8.Text = "Placas";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(140, 149);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 16);
+            this.label7.TabIndex = 120;
+            this.label7.Text = "Usario";
+            // 
+            // tbUsuario
+            // 
+            this.tbUsuario.Location = new System.Drawing.Point(143, 169);
+            this.tbUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.tbUsuario.Name = "tbUsuario";
+            this.tbUsuario.Size = new System.Drawing.Size(169, 20);
+            this.tbUsuario.TabIndex = 119;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(13, 149);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 16);
+            this.label6.TabIndex = 118;
+            this.label6.Text = "Clase";
+            // 
+            // tbClase
+            // 
+            this.tbClase.Location = new System.Drawing.Point(16, 169);
+            this.tbClase.Margin = new System.Windows.Forms.Padding(4);
+            this.tbClase.Name = "tbClase";
+            this.tbClase.Size = new System.Drawing.Size(104, 20);
+            this.tbClase.TabIndex = 117;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(407, 19);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(54, 16);
+            this.label5.TabIndex = 116;
+            this.label5.Text = "Modelo";
+            // 
+            // tbModelo
+            // 
+            this.tbModelo.Location = new System.Drawing.Point(410, 39);
+            this.tbModelo.Margin = new System.Windows.Forms.Padding(4);
+            this.tbModelo.Name = "tbModelo";
+            this.tbModelo.Size = new System.Drawing.Size(128, 20);
+            this.tbModelo.TabIndex = 115;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(243, 76);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(36, 16);
+            this.label4.TabIndex = 114;
+            this.label4.Text = "Tipo";
+            // 
+            // tbTipo
+            // 
+            this.tbTipo.Location = new System.Drawing.Point(246, 106);
+            this.tbTipo.Margin = new System.Windows.Forms.Padding(4);
+            this.tbTipo.Name = "tbTipo";
+            this.tbTipo.Size = new System.Drawing.Size(292, 20);
+            this.tbTipo.TabIndex = 113;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(13, 76);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 16);
+            this.label3.TabIndex = 112;
+            this.label3.Text = "Linea";
+            // 
+            // tbLinea
+            // 
+            this.tbLinea.Location = new System.Drawing.Point(16, 106);
+            this.tbLinea.Margin = new System.Windows.Forms.Padding(4);
+            this.tbLinea.Name = "tbLinea";
+            this.tbLinea.Size = new System.Drawing.Size(209, 20);
+            this.tbLinea.TabIndex = 111;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(243, 19);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 16);
+            this.label2.TabIndex = 110;
+            this.label2.Text = "Marca";
+            // 
+            // tbMarca
+            // 
+            this.tbMarca.Location = new System.Drawing.Point(246, 39);
+            this.tbMarca.Margin = new System.Windows.Forms.Padding(4);
+            this.tbMarca.Name = "tbMarca";
+            this.tbMarca.Size = new System.Drawing.Size(141, 20);
+            this.tbMarca.TabIndex = 109;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(13, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 16);
+            this.label1.TabIndex = 108;
+            this.label1.Text = "NoEconomico";
+            // 
+            // tbNoEconomico
+            // 
+            this.tbNoEconomico.Location = new System.Drawing.Point(16, 39);
+            this.tbNoEconomico.Margin = new System.Windows.Forms.Padding(4);
+            this.tbNoEconomico.Name = "tbNoEconomico";
+            this.tbNoEconomico.Size = new System.Drawing.Size(209, 20);
+            this.tbNoEconomico.TabIndex = 107;
+            // 
             // frmNuevoVehiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(598, 216);
-            this.Controls.Add(this.btGuardarOrden);
-            this.Controls.Add(this.btCancelar);
+            this.ClientSize = new System.Drawing.Size(585, 432);
+            this.Controls.Add(this.tbBaja);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.tbMotor);
+            this.Controls.Add(this.tbSerie);
+            this.Controls.Add(this.tbPlacas);
+            this.Controls.Add(this.tbllantas);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tbUsuario);
             this.Controls.Add(this.label6);
@@ -229,6 +325,8 @@
             this.Controls.Add(this.tbMarca);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbNoEconomico);
+            this.Controls.Add(this.btGuardarOrden);
+            this.Controls.Add(this.btCancelar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmNuevoVehiculo";
             this.Text = "Vehiculo Nuevo";
@@ -241,6 +339,16 @@
 
         private System.Windows.Forms.Button btGuardarOrden;
         private System.Windows.Forms.Button btCancelar;
+        private System.Windows.Forms.TextBox tbBaja;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox tbMotor;
+        private System.Windows.Forms.TextBox tbSerie;
+        private System.Windows.Forms.TextBox tbPlacas;
+        private System.Windows.Forms.TextBox tbllantas;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbUsuario;
         private System.Windows.Forms.Label label6;

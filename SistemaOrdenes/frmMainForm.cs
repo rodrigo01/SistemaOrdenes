@@ -39,6 +39,8 @@ namespace SistemaOrdenes
         private void Menumain_Load(object sender, EventArgs e)
         {
 
+            pictureBox1.Left = (this.ClientSize.Width - pictureBox1.Width) / 2;
+            pictureBox1.Top = (this.ClientSize.Height - pictureBox1.Height) / 2;
         }
 
         private void catalogoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -57,6 +59,12 @@ namespace SistemaOrdenes
         {
             frmVehiculosLista frmVehiculos = new frmVehiculosLista();
             frmVehiculos.Show();
+        }
+
+        private void Menumain_SizeChanged(object sender, EventArgs e)
+        {
+            pictureBox1.Left = (this.ClientSize.Width - pictureBox1.Width) / 2;
+            pictureBox1.Top = (this.ClientSize.Height - pictureBox1.Height) / 2;
         }
 
  
