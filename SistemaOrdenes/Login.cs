@@ -57,7 +57,7 @@ namespace SistemaOrdenes
                     Menumain mmain = new Menumain();
 
                     mmain.Show();
-                    this.Visible = false;
+                    
                 }
             }
         }
