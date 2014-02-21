@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbBuscar = new System.Windows.Forms.TextBox();
             this.btnBorrar = new System.Windows.Forms.Button();
+            this.btReporte = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgVehiculos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,14 +44,14 @@
             this.dgVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgVehiculos.Location = new System.Drawing.Point(12, 64);
             this.dgVehiculos.Name = "dgVehiculos";
-            this.dgVehiculos.Size = new System.Drawing.Size(744, 451);
+            this.dgVehiculos.Size = new System.Drawing.Size(800, 451);
             this.dgVehiculos.TabIndex = 0;
             // 
             // btnEditar
             // 
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(519, 12);
+            this.btnEditar.Location = new System.Drawing.Point(497, 12);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(86, 44);
             this.btnEditar.TabIndex = 1;
@@ -63,7 +64,7 @@
             // 
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(391, 12);
+            this.btnNuevo.Location = new System.Drawing.Point(369, 12);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(122, 44);
             this.btnNuevo.TabIndex = 2;
@@ -94,7 +95,7 @@
             // 
             this.btnBorrar.Image = ((System.Drawing.Image)(resources.GetObject("btnBorrar.Image")));
             this.btnBorrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBorrar.Location = new System.Drawing.Point(670, 14);
+            this.btnBorrar.Location = new System.Drawing.Point(726, 517);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(86, 40);
             this.btnBorrar.TabIndex = 12;
@@ -103,11 +104,22 @@
             this.btnBorrar.UseVisualStyleBackColor = true;
             this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
+            // btReporte
+            // 
+            this.btReporte.Location = new System.Drawing.Point(715, 15);
+            this.btReporte.Name = "btReporte";
+            this.btReporte.Size = new System.Drawing.Size(97, 43);
+            this.btReporte.TabIndex = 13;
+            this.btReporte.Text = "Reporte Vehiculos";
+            this.btReporte.UseVisualStyleBackColor = true;
+            this.btReporte.Click += new System.EventHandler(this.btReporte_Click);
+            // 
             // frmVehiculosLista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(768, 540);
+            this.ClientSize = new System.Drawing.Size(824, 569);
+            this.Controls.Add(this.btReporte);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.tbBuscar);
             this.Controls.Add(this.label1);
@@ -133,5 +145,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbBuscar;
         private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.Button btReporte;
     }
 }

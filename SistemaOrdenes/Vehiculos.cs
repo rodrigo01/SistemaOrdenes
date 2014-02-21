@@ -55,7 +55,7 @@ namespace SistemaOrdenes
             int ID;
             string query2 = "Select @@Identity";
             //sql de busqueda y realizamos consulta            
-            String consulta = "INSERT INTO Vehiculos (noecon, marca, linea, tipo, modelo, clase, usuario, placas, numserie, motor, llantas, color) VALUES ('" + vehiculo.noecon + "','" + vehiculo.marca + "','" + vehiculo.linea + "','" + vehiculo.tipo + "'," + vehiculo.modelo + ",'" + vehiculo.clase + "','" + vehiculo.usuario + "','" + vehiculo.placas + "','" + vehiculo.numserie + "','" + vehiculo.motor + "','" + vehiculo.llantas + "','" + vehiculo.color + "');";
+            String consulta = "INSERT INTO Vehiculos (noecon, marca, linea, tipo, modelo, clase, usuario, placas, numserie, motor, llantas, color, departamento) VALUES ('" + vehiculo.noecon + "','" + vehiculo.marca + "','" + vehiculo.linea + "','" + vehiculo.tipo + "'," + vehiculo.modelo + ",'" + vehiculo.clase + "','" + vehiculo.usuario + "','" + vehiculo.placas + "','" + vehiculo.numserie + "','" + vehiculo.motor + "','" + vehiculo.llantas + "','" + vehiculo.color + "','" + vehiculo.departamento + "');";
 
             comand.Connection = con;
             comand.CommandText = consulta;
@@ -74,7 +74,7 @@ namespace SistemaOrdenes
             //sql de busqueda y realizamos consulta            
             //String consulta = "UPDATE Vehiculos SET noecon = \"" + vehiculo.noecon + "\", marca = \"" + vehiculo.marca + "\", linea = \"" + vehiculo.linea + "\", tipo = \"" + vehiculo.tipo + "\", clase = \"" + vehiculo.clase + "', usuario = \"" + vehiculo.usuario + "\", modelo = \"" + vehiculo.modelo + "\" WHERE Id = " + vehiculo.id + ";";
 
-            String consulta = "UPDATE Vehiculos SET Vehiculos.noecon = @noecon, Vehiculos.marca = @marca, Vehiculos.linea = @linea, Vehiculos.tipo = @tipo, Vehiculos.clase = @clase, Vehiculos.usuario = @usuario, Vehiculos.modelo = @modelo , Vehiculos.placas = @placas, Vehiculos.numserie = @numserie, Vehiculos.motor = @motor, Vehiculos.llantas = @llantas, Vehiculos.bajafecha = @bajafecha , Vehiculos.color = @color WHERE Vehiculos.[Id] = " + vehiculo.id + ";";
+            String consulta = "UPDATE Vehiculos SET Vehiculos.noecon = @noecon, Vehiculos.marca = @marca, Vehiculos.linea = @linea, Vehiculos.tipo = @tipo, Vehiculos.clase = @clase, Vehiculos.usuario = @usuario, Vehiculos.modelo = @modelo , Vehiculos.placas = @placas, Vehiculos.numserie = @numserie, Vehiculos.motor = @motor, Vehiculos.llantas = @llantas, Vehiculos.bajafecha = @bajafecha , Vehiculos.color = @color , Vehiculos.departamento = @departamento WHERE Vehiculos.[Id] = " + vehiculo.id + ";";
             comand.Parameters.Add("@noecon", OleDbType.VarChar, 50).Value = vehiculo.noecon;
             comand.Parameters.Add("@marca", OleDbType.VarChar, 50).Value = vehiculo.marca;
             comand.Parameters.Add("@linea", OleDbType.VarChar, 50).Value = vehiculo.linea;
@@ -88,6 +88,7 @@ namespace SistemaOrdenes
             comand.Parameters.Add("@llantas", OleDbType.VarChar, 50).Value = vehiculo.llantas;
             comand.Parameters.Add("@bajafecha", OleDbType.VarChar, 50).Value = vehiculo.bajafecha;
             comand.Parameters.Add("@color", OleDbType.VarChar, 50).Value = vehiculo.color;
+            comand.Parameters.Add("@departamento", OleDbType.VarChar, 50).Value = vehiculo.color;
             
             comand.Connection = con;
             comand.CommandText = consulta;
@@ -133,6 +134,7 @@ namespace SistemaOrdenes
                 this.llantas = lectura["llantas"].ToString();
                 this.bajafecha = lectura["bajafecha"].ToString();
                 this.color = lectura["color"].ToString();
+                this.color = lectura["departamento"].ToString();
             }
 
             con.Close();
@@ -142,7 +144,7 @@ namespace SistemaOrdenes
         {
             con.Open();
 
-            String consulta = "SELECT Id as ID, noecon as NoEconomico, marca as Marca, tipo as Tipo, modelo as Modelo, bajafecha as BajaFecha FROM Vehiculos";
+            String consulta = "SELECT Id as ID, noecon as NoEconomico, marca as Marca, tipo as Tipo, modelo as Modelo, departamento as Departamento, bajafecha as BajaFecha FROM Vehiculos";
             OleDbCommand comand = new OleDbCommand();
             comand.Connection = con;
             comand.CommandText = consulta;
@@ -159,7 +161,24 @@ namespace SistemaOrdenes
         {
             con.Open();
 
-            String consulta = "SELECT Id as ID, noecon as NoEconomico, marca as Marca, tipo as Tipo, modelo as Modelo, bajafecha as BajaFecha FROM Vehiculos Where noecon LIKE '%" + Nombre + "%' or linea LIKE '%" + Nombre + "%' or tipo LIKE '%" + Nombre + "%' or marca LIKE '%" + Nombre + "%';";
+            String consulta = "SELECT Id as ID, noecon as NoEconomico, marca as Marca, tipo as Tipo, modelo as Modelo, departamento as Departamento, bajafecha as BajaFecha FROM Vehiculos Where noecon LIKE '%" + Nombre + "%' or linea LIKE '%" + Nombre + "%' or tipo LIKE '%" + Nombre + "%' or marca LIKE '%" + Nombre + "%';";
+            OleDbCommand comand = new OleDbCommand();
+            comand.Connection = con;
+            comand.CommandText = consulta;
+
+            OleDbDataAdapter da = new OleDbDataAdapter(comand);
+            DataTable proveedores = new DataTable();
+            da.Fill(proveedores);
+
+            con.Close();
+            return proveedores;
+        }
+
+        public DataTable getVehiculosByDepartamentoDG(String Nombre)
+        {
+            con.Open();
+
+            String consulta = "SELECT * FROM Vehiculos Where departamento LIKE '%" + Nombre + "%';";
             OleDbCommand comand = new OleDbCommand();
             comand.Connection = con;
             comand.CommandText = consulta;

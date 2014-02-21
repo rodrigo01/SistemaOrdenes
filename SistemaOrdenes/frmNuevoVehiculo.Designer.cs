@@ -57,13 +57,15 @@
             this.tbNoEconomico = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.tbColor = new System.Windows.Forms.TextBox();
+            this.cbDepartamentos = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btGuardarOrden
             // 
             this.btGuardarOrden.Image = ((System.Drawing.Image)(resources.GetObject("btGuardarOrden.Image")));
             this.btGuardarOrden.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btGuardarOrden.Location = new System.Drawing.Point(261, 354);
+            this.btGuardarOrden.Location = new System.Drawing.Point(340, 354);
             this.btGuardarOrden.Name = "btGuardarOrden";
             this.btGuardarOrden.Size = new System.Drawing.Size(126, 34);
             this.btGuardarOrden.TabIndex = 106;
@@ -76,7 +78,7 @@
             // 
             this.btCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btCancelar.Image")));
             this.btCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btCancelar.Location = new System.Drawing.Point(444, 354);
+            this.btCancelar.Location = new System.Drawing.Point(479, 354);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(94, 34);
             this.btCancelar.TabIndex = 105;
@@ -221,6 +223,8 @@
             this.tbModelo.Name = "tbModelo";
             this.tbModelo.Size = new System.Drawing.Size(128, 20);
             this.tbModelo.TabIndex = 115;
+            this.tbModelo.Text = "2000";
+            this.tbModelo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbModelo_KeyPress_1);
             // 
             // label4
             // 
@@ -317,11 +321,30 @@
             this.tbColor.Size = new System.Drawing.Size(104, 20);
             this.tbColor.TabIndex = 131;
             // 
+            // cbDepartamentos
+            // 
+            this.cbDepartamentos.FormattingEnabled = true;
+            this.cbDepartamentos.Location = new System.Drawing.Point(129, 353);
+            this.cbDepartamentos.Name = "cbDepartamentos";
+            this.cbDepartamentos.Size = new System.Drawing.Size(183, 21);
+            this.cbDepartamentos.TabIndex = 133;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(129, 334);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(74, 13);
+            this.label14.TabIndex = 134;
+            this.label14.Text = "Departamento";
+            // 
             // frmNuevoVehiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(585, 432);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.cbDepartamentos);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.tbColor);
             this.Controls.Add(this.tbBaja);
@@ -353,6 +376,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmNuevoVehiculo";
             this.Text = "Vehiculo Nuevo";
+            this.Load += new System.EventHandler(this.frmNuevoVehiculo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -388,5 +412,7 @@
         private System.Windows.Forms.TextBox tbNoEconomico;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox tbColor;
+        private System.Windows.Forms.ComboBox cbDepartamentos;
+        private System.Windows.Forms.Label label14;
     }
 }

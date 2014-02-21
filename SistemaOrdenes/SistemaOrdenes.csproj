@@ -146,6 +146,12 @@
     <Compile Include="frmReporteOrdenes.Designer.cs">
       <DependentUpon>frmReporteOrdenes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReporteVehDep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteVehDep.Designer.cs">
+      <DependentUpon>frmReporteVehDep.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReporteVehiculos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,6 +267,11 @@
       <DependentUpon>tbbid.xsd</DependentUpon>
     </Compile>
     <Compile Include="Vehiculos.cs" />
+    <Compile Include="VehiculosDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VehiculosDS.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmDepartamentosLista.resx">
       <DependentUpon>frmDepartamentosLista.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteOrdenes.resx">
       <DependentUpon>frmReporteOrdenes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteVehDep.resx">
+      <DependentUpon>frmReporteVehDep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteVehiculos.resx">
       <DependentUpon>frmReporteVehiculos.cs</DependentUpon>
@@ -327,6 +341,7 @@
       <DependentUpon>frmNuevoDepartamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report2.rdlc" />
+    <EmbeddedResource Include="Report3.rdlc" />
     <None Include="app.config" />
     <None Include="BD_SistemaDataSet.xsc">
       <DependentUpon>BD_SistemaDataSet.xsd</DependentUpon>
@@ -425,6 +440,17 @@
     </None>
     <None Include="tbbid.xss">
       <DependentUpon>tbbid.xsd</DependentUpon>
+    </None>
+    <None Include="VehiculosDS.xsc">
+      <DependentUpon>VehiculosDS.xsd</DependentUpon>
+    </None>
+    <None Include="VehiculosDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VehiculosDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VehiculosDS.xss">
+      <DependentUpon>VehiculosDS.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

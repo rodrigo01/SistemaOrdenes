@@ -40,6 +40,7 @@ namespace SistemaOrdenes
             vehiculo.llantas = tbllantas.Text;
             vehiculo.bajafecha = tbBaja.Text;
             vehiculo.color = tbColor.Text;
+            vehiculo.departamento = cbDepartamentos.GetItemText(cbDepartamentos.SelectedItem);
 
             vehiculo.insertVehiculo(vehiculo);
             System.Windows.Forms.MessageBox.Show("Vehiculo Agregado");
@@ -73,6 +74,39 @@ namespace SistemaOrdenes
         private void tbModelo_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmNuevoVehiculo_Load(object sender, EventArgs e)
+        {
+            Conexion conectar = new Conexion();
+            Departamentos departamentos = new Departamentos();
+            departamentos.con = conectar.con;
+            DataTable dtLista = new DataTable();
+
+            dtLista = departamentos.getDepartamentosDG();
+            cbDepartamentos.DataSource = dtLista;
+            cbDepartamentos.DisplayMember = "Nombre";
+            cbDepartamentos.ValueMember = "Id";
+        }
+
+        private void tbModelo_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

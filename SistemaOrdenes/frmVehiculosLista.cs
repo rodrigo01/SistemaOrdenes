@@ -86,5 +86,11 @@ namespace SistemaOrdenes
 
             }
         }
+
+        private void btReporte_Click(object sender, EventArgs e)
+        {
+            frmReporteVehDep frmVD = new frmReporteVehDep();
+            frmVD.Show();
+        }
     }
 }
