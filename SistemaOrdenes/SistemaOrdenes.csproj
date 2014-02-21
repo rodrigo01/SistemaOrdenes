@@ -124,6 +124,34 @@
       <DependentUpon>BD_SistemaDataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="Conexion.cs" />
+    <Compile Include="ConReRS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConReRS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSVehiculos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSVehiculos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmOrdenesSeleccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrdenesSeleccion.Designer.cs">
+      <DependentUpon>frmOrdenesSeleccion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteOrdenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteOrdenes.Designer.cs">
+      <DependentUpon>frmReporteOrdenes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteVehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteVehiculos.Designer.cs">
+      <DependentUpon>frmReporteVehiculos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +279,15 @@
     <EmbeddedResource Include="frmNuevoVehiculo.resx">
       <DependentUpon>frmNuevoVehiculo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmOrdenesSeleccion.resx">
+      <DependentUpon>frmOrdenesSeleccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteOrdenes.resx">
+      <DependentUpon>frmReporteOrdenes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteVehiculos.resx">
+      <DependentUpon>frmReporteVehiculos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmVehiculosLista.resx">
       <DependentUpon>frmVehiculosLista.cs</DependentUpon>
     </EmbeddedResource>
@@ -289,6 +326,7 @@
     <EmbeddedResource Include="frmNuevoDepartamento.resx">
       <DependentUpon>frmNuevoDepartamento.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report2.rdlc" />
     <None Include="app.config" />
     <None Include="BD_SistemaDataSet.xsc">
       <DependentUpon>BD_SistemaDataSet.xsd</DependentUpon>
@@ -333,6 +371,28 @@
     </None>
     <None Include="BD_SistemaDataSet3.xss">
       <DependentUpon>BD_SistemaDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="ConReRS.xsc">
+      <DependentUpon>ConReRS.xsd</DependentUpon>
+    </None>
+    <None Include="ConReRS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ConReRS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ConReRS.xss">
+      <DependentUpon>ConReRS.xsd</DependentUpon>
+    </None>
+    <None Include="DSVehiculos.xsc">
+      <DependentUpon>DSVehiculos.xsd</DependentUpon>
+    </None>
+    <None Include="DSVehiculos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSVehiculos.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DSVehiculos.xss">
+      <DependentUpon>DSVehiculos.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

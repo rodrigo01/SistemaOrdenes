@@ -145,6 +145,7 @@ namespace SistemaOrdenes
                 Orden.maquina = cbMaquina.GetItemText(cbMaquina.SelectedItem); ;
                 Orden.obra = tbObra.Text;
                 Orden.unidad = tbUnidad.Text;
+                Orden.iva = Convert.ToInt32(tbPIva.Text);
 
                 // Insertamos Orden
                 int IDGEN = 0;
@@ -173,6 +174,11 @@ namespace SistemaOrdenes
 
                 //finalizado
                 System.Windows.Forms.MessageBox.Show("Orden Insertada");
+
+                frmVerOrden frmOrden = new frmVerOrden();
+                frmOrden._idver = IDGEN;
+                frmOrden.Show();
+
                 this.Close();
             }
 
@@ -184,6 +190,11 @@ namespace SistemaOrdenes
         private void btCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dgDetallesOrden_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
 

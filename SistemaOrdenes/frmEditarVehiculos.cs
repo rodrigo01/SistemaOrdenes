@@ -43,6 +43,7 @@ namespace SistemaOrdenes
             tbMotor.Text = vehiculo.motor;
             tbllantas.Text = vehiculo.llantas;
             tbBaja.Text = vehiculo.bajafecha;
+            tbColor.Text = vehiculo.color;
 
         }
 
@@ -70,6 +71,7 @@ namespace SistemaOrdenes
             vehiculo.motor = tbMotor.Text;
             vehiculo.llantas = tbllantas.Text;
             vehiculo.bajafecha = tbBaja.Text;
+            vehiculo.color = tbColor.Text;
 
             vehiculo.updateVehiculo(vehiculo);
             System.Windows.Forms.MessageBox.Show("Vehiculo Actualizado");

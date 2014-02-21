@@ -40,6 +40,7 @@
             this.dgOrdenes = new System.Windows.Forms.DataGridView();
             this.btDetalles = new System.Windows.Forms.Button();
             this.btTodos = new System.Windows.Forms.Button();
+            this.btReporte = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgOrdenes)).BeginInit();
             this.SuspendLayout();
@@ -166,11 +167,22 @@
             this.btTodos.UseVisualStyleBackColor = true;
             this.btTodos.Click += new System.EventHandler(this.btTodos_Click);
             // 
+            // btReporte
+            // 
+            this.btReporte.Location = new System.Drawing.Point(572, 17);
+            this.btReporte.Name = "btReporte";
+            this.btReporte.Size = new System.Drawing.Size(118, 35);
+            this.btReporte.TabIndex = 8;
+            this.btReporte.Text = "Reporte Ordenes";
+            this.btReporte.UseVisualStyleBackColor = true;
+            this.btReporte.Click += new System.EventHandler(this.btReporte_Click);
+            // 
             // OrdenesVer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 551);
+            this.Controls.Add(this.btReporte);
             this.Controls.Add(this.btTodos);
             this.Controls.Add(this.btDetalles);
             this.Controls.Add(this.groupBox1);
@@ -200,5 +212,6 @@
         private System.Windows.Forms.DataGridView dgOrdenes;
         private System.Windows.Forms.Button btDetalles;
         private System.Windows.Forms.Button btTodos;
+        private System.Windows.Forms.Button btReporte;
     }
 }

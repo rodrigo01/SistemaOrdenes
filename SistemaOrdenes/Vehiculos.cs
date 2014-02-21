@@ -23,6 +23,8 @@ namespace SistemaOrdenes
         public String motor;
         public String llantas;
         public String bajafecha;
+        public String color;
+        public String departamento;
 
 
 
@@ -43,6 +45,8 @@ namespace SistemaOrdenes
             motor = "";
             llantas = "";
             bajafecha = "";
+            color = "";
+            departamento = "";
         }
 
         public int insertVehiculo(Vehiculos vehiculo)
@@ -51,7 +55,7 @@ namespace SistemaOrdenes
             int ID;
             string query2 = "Select @@Identity";
             //sql de busqueda y realizamos consulta            
-            String consulta = "INSERT INTO Vehiculos (noecon, marca, linea, tipo, modelo, clase, usuario, placas, numserie, motor, llantas) VALUES ('" + vehiculo.noecon + "','" + vehiculo.marca + "','" + vehiculo.linea + "','" + vehiculo.tipo + "'," + vehiculo.modelo + ",'" + vehiculo.clase + "','" + vehiculo.usuario + "','" + vehiculo.placas + "','" + vehiculo.numserie + "','" + vehiculo.motor + "','" + vehiculo.llantas + "');";
+            String consulta = "INSERT INTO Vehiculos (noecon, marca, linea, tipo, modelo, clase, usuario, placas, numserie, motor, llantas, color) VALUES ('" + vehiculo.noecon + "','" + vehiculo.marca + "','" + vehiculo.linea + "','" + vehiculo.tipo + "'," + vehiculo.modelo + ",'" + vehiculo.clase + "','" + vehiculo.usuario + "','" + vehiculo.placas + "','" + vehiculo.numserie + "','" + vehiculo.motor + "','" + vehiculo.llantas + "','" + vehiculo.color + "');";
 
             comand.Connection = con;
             comand.CommandText = consulta;
@@ -70,7 +74,7 @@ namespace SistemaOrdenes
             //sql de busqueda y realizamos consulta            
             //String consulta = "UPDATE Vehiculos SET noecon = \"" + vehiculo.noecon + "\", marca = \"" + vehiculo.marca + "\", linea = \"" + vehiculo.linea + "\", tipo = \"" + vehiculo.tipo + "\", clase = \"" + vehiculo.clase + "', usuario = \"" + vehiculo.usuario + "\", modelo = \"" + vehiculo.modelo + "\" WHERE Id = " + vehiculo.id + ";";
 
-            String consulta = "UPDATE Vehiculos SET Vehiculos.noecon = @noecon, Vehiculos.marca = @marca, Vehiculos.linea = @linea, Vehiculos.tipo = @tipo, Vehiculos.clase = @clase, Vehiculos.usuario = @usuario, Vehiculos.modelo = @modelo , Vehiculos.placas = @placas, Vehiculos.numserie = @numserie, Vehiculos.motor = @motor, Vehiculos.llantas = @llantas, Vehiculos.bajafecha = @bajafecha WHERE Vehiculos.[Id] = " + vehiculo.id + ";";
+            String consulta = "UPDATE Vehiculos SET Vehiculos.noecon = @noecon, Vehiculos.marca = @marca, Vehiculos.linea = @linea, Vehiculos.tipo = @tipo, Vehiculos.clase = @clase, Vehiculos.usuario = @usuario, Vehiculos.modelo = @modelo , Vehiculos.placas = @placas, Vehiculos.numserie = @numserie, Vehiculos.motor = @motor, Vehiculos.llantas = @llantas, Vehiculos.bajafecha = @bajafecha , Vehiculos.color = @color WHERE Vehiculos.[Id] = " + vehiculo.id + ";";
             comand.Parameters.Add("@noecon", OleDbType.VarChar, 50).Value = vehiculo.noecon;
             comand.Parameters.Add("@marca", OleDbType.VarChar, 50).Value = vehiculo.marca;
             comand.Parameters.Add("@linea", OleDbType.VarChar, 50).Value = vehiculo.linea;
@@ -83,6 +87,7 @@ namespace SistemaOrdenes
             comand.Parameters.Add("@motor", OleDbType.VarChar, 50).Value = vehiculo.motor;
             comand.Parameters.Add("@llantas", OleDbType.VarChar, 50).Value = vehiculo.llantas;
             comand.Parameters.Add("@bajafecha", OleDbType.VarChar, 50).Value = vehiculo.bajafecha;
+            comand.Parameters.Add("@color", OleDbType.VarChar, 50).Value = vehiculo.color;
             
             comand.Connection = con;
             comand.CommandText = consulta;
@@ -127,6 +132,7 @@ namespace SistemaOrdenes
                 this.motor = lectura["motor"].ToString();
                 this.llantas = lectura["llantas"].ToString();
                 this.bajafecha = lectura["bajafecha"].ToString();
+                this.color = lectura["color"].ToString();
             }
 
             con.Close();

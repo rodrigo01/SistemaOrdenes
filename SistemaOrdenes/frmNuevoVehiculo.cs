@@ -34,6 +34,12 @@ namespace SistemaOrdenes
             vehiculo.tipo = tbTipo.Text;
             vehiculo.clase = tbClase.Text;
             vehiculo.usuario = tbUsuario.Text;
+            vehiculo.placas = tbPlacas.Text;
+            vehiculo.numserie = tbSerie.Text;
+            vehiculo.motor = tbMotor.Text;
+            vehiculo.llantas = tbllantas.Text;
+            vehiculo.bajafecha = tbBaja.Text;
+            vehiculo.color = tbColor.Text;
 
             vehiculo.insertVehiculo(vehiculo);
             System.Windows.Forms.MessageBox.Show("Vehiculo Agregado");

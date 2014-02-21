@@ -304,6 +304,26 @@ namespace SistemaOrdenes
             return proveedores;
         }
 
+        public DataTable getOrdenesDetallesProveedorDG(int idprov, OleDbConnection con)
+        {
+            
+
+            con.Open();
+
+            String consulta = "SELECT Ordenes.orden AS Orden, Ordenes.fecha, Ordenes.departamento, Ordenes.parauso, Ordenes.vehiculo, Ordenes.maquina, Sum((([punitario]*[cantidad])*([Ordenes.iva]/100))+([punitario]*[cantidad])) AS Total, Ordenes.fecha AS Fecha FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Proveedores.Id, Ordenes.Id, Ordenes.orden, Ordenes.fecha, Ordenes.departamento, Ordenes.parauso, Ordenes.vehiculo, Ordenes.maquina, Proveedores.nombre, Ordenes.fecha HAVING (((Proveedores.Id)=" + idprov + "));";
+            OleDbCommand comand = new OleDbCommand();
+            comand.Connection = con;
+            comand.CommandText = consulta;
+
+            OleDbDataAdapter da = new OleDbDataAdapter(comand);
+            DataTable proveedores = new DataTable();
+            da.Fill(proveedores);
+
+            con.Close();
+            return proveedores;
+
+        }
+
         
 
         

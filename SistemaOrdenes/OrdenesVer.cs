@@ -77,5 +77,11 @@ namespace SistemaOrdenes
 
             dgOrdenes.DataSource = ordenes.getOrdenesDG(conectar.con);
         }
+
+        private void btReporte_Click(object sender, EventArgs e)
+        {
+            frmOrdenesSeleccion frmOrdSele = new frmOrdenesSeleccion();
+            frmOrdSele.Show();
+        }
     }
 }

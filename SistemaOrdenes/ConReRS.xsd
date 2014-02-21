@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ConReRS" targetNamespace="http://tempuri.org/ConReRS.xsd" xmlns:mstns="http://tempuri.org/ConReRS.xsd" xmlns="http://tempuri.org/ConReRS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BD_SistemaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BD_SistemaConnectionString (Settings)" PropertyReference="ApplicationSettings.SistemaOrdenes.Properties.Settings.GlobalReference.Default.BD_SistemaConnectionString" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ConReporteTablaTableAdapter" GeneratorDataComponentClassName="ConReporteTablaTableAdapter" Name="ConReporteTabla" UserDataComponentName="ConReporteTablaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BD_SistemaConnectionString (Settings)" DbObjectName="ConReporteTabla" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Orden, [Ordenes.Fecha], departamento, parauso, vehiculo, maquina, Total, Fecha FROM ConReporteTabla</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Orden" DataSetColumn="Orden" />
+              <Mapping SourceColumn="Ordenes.Fecha" DataSetColumn="Ordenes_Fecha" />
+              <Mapping SourceColumn="departamento" DataSetColumn="departamento" />
+              <Mapping SourceColumn="parauso" DataSetColumn="parauso" />
+              <Mapping SourceColumn="vehiculo" DataSetColumn="vehiculo" />
+              <Mapping SourceColumn="maquina" DataSetColumn="maquina" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="Fecha" DataSetColumn="Fecha" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ConReRS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ConReRS" msprop:Generator_UserDSName="ConReRS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ConReporteTabla" msprop:Generator_TableClassName="ConReporteTablaDataTable" msprop:Generator_TableVarName="tableConReporteTabla" msprop:Generator_TablePropName="ConReporteTabla" msprop:Generator_RowDeletingName="ConReporteTablaRowDeleting" msprop:Generator_UserTableName="ConReporteTabla" msprop:Generator_RowChangingName="ConReporteTablaRowChanging" msprop:Generator_RowEvHandlerName="ConReporteTablaRowChangeEventHandler" msprop:Generator_RowDeletedName="ConReporteTablaRowDeleted" msprop:Generator_RowEvArgName="ConReporteTablaRowChangeEvent" msprop:Generator_RowChangedName="ConReporteTablaRowChanged" msprop:Generator_RowClassName="ConReporteTablaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Orden" msprop:Generator_ColumnVarNameInTable="columnOrden" msprop:Generator_ColumnPropNameInRow="Orden" msprop:Generator_ColumnPropNameInTable="OrdenColumn" msprop:Generator_UserColumnName="Orden" type="xs:int" minOccurs="0" />
+              <xs:element name="Ordenes_Fecha" msprop:Generator_ColumnVarNameInTable="columnOrdenes_Fecha" msprop:Generator_ColumnPropNameInRow="Ordenes_Fecha" msprop:Generator_ColumnPropNameInTable="Ordenes_FechaColumn" msprop:Generator_UserColumnName="Ordenes_Fecha" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="departamento" msprop:Generator_ColumnVarNameInTable="columndepartamento" msprop:Generator_ColumnPropNameInRow="departamento" msprop:Generator_ColumnPropNameInTable="departamentoColumn" msprop:Generator_UserColumnName="departamento" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="parauso" msprop:Generator_ColumnVarNameInTable="columnparauso" msprop:Generator_ColumnPropNameInRow="parauso" msprop:Generator_ColumnPropNameInTable="parausoColumn" msprop:Generator_UserColumnName="parauso" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="vehiculo" msprop:Generator_ColumnVarNameInTable="columnvehiculo" msprop:Generator_ColumnPropNameInRow="vehiculo" msprop:Generator_ColumnPropNameInTable="vehiculoColumn" msprop:Generator_UserColumnName="vehiculo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="maquina" msprop:Generator_ColumnVarNameInTable="columnmaquina" msprop:Generator_ColumnPropNameInRow="maquina" msprop:Generator_ColumnPropNameInTable="maquinaColumn" msprop:Generator_UserColumnName="maquina" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:double" minOccurs="0" />
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

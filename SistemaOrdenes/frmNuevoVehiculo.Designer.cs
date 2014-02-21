@@ -55,6 +55,8 @@
             this.tbMarca = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbNoEconomico = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tbColor = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btGuardarOrden
@@ -296,11 +298,32 @@
             this.tbNoEconomico.Size = new System.Drawing.Size(209, 20);
             this.tbNoEconomico.TabIndex = 107;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(13, 334);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(40, 16);
+            this.label13.TabIndex = 132;
+            this.label13.Text = "Color";
+            // 
+            // tbColor
+            // 
+            this.tbColor.Location = new System.Drawing.Point(16, 354);
+            this.tbColor.Margin = new System.Windows.Forms.Padding(4);
+            this.tbColor.Name = "tbColor";
+            this.tbColor.Size = new System.Drawing.Size(104, 20);
+            this.tbColor.TabIndex = 131;
+            // 
             // frmNuevoVehiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(585, 432);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.tbColor);
             this.Controls.Add(this.tbBaja);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.tbMotor);
@@ -363,5 +386,7 @@
         private System.Windows.Forms.TextBox tbMarca;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbNoEconomico;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox tbColor;
     }
 }

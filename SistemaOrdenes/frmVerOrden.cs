@@ -239,6 +239,9 @@ namespace SistemaOrdenes
 
             //finalizado
             System.Windows.Forms.MessageBox.Show("Orden Actualizada");
+            frmNuevaOrden frmNueva = new frmNuevaOrden();
+            frmNueva.Show();
+            this.Close();
         }
 
         private void btImprimi_Click(object sender, EventArgs e)
@@ -259,8 +262,12 @@ namespace SistemaOrdenes
             
             //Son: un mil ciento veintiún pesos 24/100 M.N.
             //float fe = (float)Convert.ToDouble(tbTotal.Text);
+            frmNuevaOrden frmNueva = new frmNuevaOrden();
+            frmNueva.Show();
             printOrden._conletra =  let.ToCustomCardinal(estetotal).ToUpper();
             printOrden.Show();
+            
+            this.Close();
         }
 
 
