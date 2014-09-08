@@ -339,6 +339,17 @@ namespace SistemaOrdenes
                 }
             }
 
+            if (campo.CompareTo("Articulo") == 0)
+            {
+                if (valor.CompareTo("") == 0) { }
+                else
+                {
+                    //whereclause = "HAVING (((Proveedores.nombre) Like \"*" + valor + "*\")) ";
+                    consulta = "SELECT Ordenes.Id AS ID, Ordenes.orden AS Orden, Proveedores.nombre AS Nombre, Sum([punitario]*[cantidad]) AS Total, Ordenes.fecha AS Fecha, Ordenes.solicito as Estado, Ordenes.departamento as Departamento, Ordenes.vehiculo as Vehiculo, Ordenes.maquina as Maquina FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Ordenes.orden, Proveedores.nombre, Ordenes.fecha, Ordenes.maquina, Ordenes.solicito, Ordenes.departamento, Ordenes.vehiculo, Ordenes.maquina, Detalles_Orden.descripcion HAVING (((Detalles_Orden.descripcion) like \"%" + valor + "%\"));";
+                    comand.CommandText = consulta;
+                }
+            }
+
             
             
             //MessageBox.Show("SQL: "+consulta);

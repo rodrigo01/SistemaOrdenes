@@ -239,7 +239,7 @@ namespace SistemaOrdenes
                 {
                     if (row.Cells["Precio"].Value.ToString().Equals("") == false)
                     {
-                        detalle.cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value.ToString());
+                        detalle.cantidad = Convert.ToDouble(row.Cells["Cantidad"].Value.ToString());
                         detalle.descripcion = row.Cells["Descripcion"].Value.ToString();
                         detalle.punitario = Convert.ToSingle(row.Cells["Precio"].Value.ToString());
                         detalle.moneda = tbMoneda.Text;

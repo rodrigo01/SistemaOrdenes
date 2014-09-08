@@ -69,7 +69,7 @@
             this.dtFinal.Name = "dtFinal";
             this.dtFinal.Size = new System.Drawing.Size(107, 20);
             this.dtFinal.TabIndex = 11;
-            this.dtFinal.Value = new System.DateTime(2014, 1, 16, 9, 59, 49, 0);
+            this.dtFinal.Value = new System.DateTime(2014, 9, 8, 0, 0, 0, 0);
             // 
             // dtInicial
             // 
@@ -107,7 +107,8 @@
             "Departamento",
             "Vehiculo",
             "Almacen",
-            "Maquina"});
+            "Maquina",
+            "Articulo"});
             this.cbBPor.Location = new System.Drawing.Point(6, 19);
             this.cbBPor.Name = "cbBPor";
             this.cbBPor.Size = new System.Drawing.Size(121, 21);
