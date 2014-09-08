@@ -41,6 +41,7 @@
             this.btDetalles = new System.Windows.Forms.Button();
             this.btTodos = new System.Windows.Forms.Button();
             this.btReporte = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgOrdenes)).BeginInit();
             this.SuspendLayout();
@@ -114,6 +115,8 @@
             // 
             // tbValorB
             // 
+            this.tbValorB.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.tbValorB.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.tbValorB.Location = new System.Drawing.Point(147, 19);
             this.tbValorB.Name = "tbValorB";
             this.tbValorB.Size = new System.Drawing.Size(242, 20);
@@ -140,7 +143,7 @@
             this.dgOrdenes.Location = new System.Drawing.Point(12, 114);
             this.dgOrdenes.Name = "dgOrdenes";
             this.dgOrdenes.ReadOnly = true;
-            this.dgOrdenes.Size = new System.Drawing.Size(679, 420);
+            this.dgOrdenes.Size = new System.Drawing.Size(926, 452);
             this.dgOrdenes.TabIndex = 4;
             this.dgOrdenes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgOrdenes_CellContentClick);
             // 
@@ -148,7 +151,7 @@
             // 
             this.btDetalles.Image = ((System.Drawing.Image)(resources.GetObject("btDetalles.Image")));
             this.btDetalles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btDetalles.Location = new System.Drawing.Point(572, 65);
+            this.btDetalles.Location = new System.Drawing.Point(820, 60);
             this.btDetalles.Name = "btDetalles";
             this.btDetalles.Size = new System.Drawing.Size(119, 37);
             this.btDetalles.TabIndex = 6;
@@ -159,7 +162,7 @@
             // 
             // btTodos
             // 
-            this.btTodos.Location = new System.Drawing.Point(422, 66);
+            this.btTodos.Location = new System.Drawing.Point(569, 12);
             this.btTodos.Name = "btTodos";
             this.btTodos.Size = new System.Drawing.Size(119, 35);
             this.btTodos.TabIndex = 7;
@@ -169,7 +172,7 @@
             // 
             // btReporte
             // 
-            this.btReporte.Location = new System.Drawing.Point(572, 17);
+            this.btReporte.Location = new System.Drawing.Point(820, 12);
             this.btReporte.Name = "btReporte";
             this.btReporte.Size = new System.Drawing.Size(118, 35);
             this.btReporte.TabIndex = 8;
@@ -177,11 +180,25 @@
             this.btReporte.UseVisualStyleBackColor = true;
             this.btReporte.Click += new System.EventHandler(this.btReporte_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Brown;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(12, 572);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(107, 35);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Cancelar Orden";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // OrdenesVer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 551);
+            this.ClientSize = new System.Drawing.Size(950, 619);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btReporte);
             this.Controls.Add(this.btTodos);
             this.Controls.Add(this.btDetalles);
@@ -213,5 +230,6 @@
         private System.Windows.Forms.Button btDetalles;
         private System.Windows.Forms.Button btTodos;
         private System.Windows.Forms.Button btReporte;
+        private System.Windows.Forms.Button button1;
     }
 }

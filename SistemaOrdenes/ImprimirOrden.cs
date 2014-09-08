@@ -43,6 +43,7 @@ namespace SistemaOrdenes
             // TODO: This line of code loads data into the 'BD_SistemaDataSet2.Detalles_Orden' table. You can move, or remove it, as needed.
             Conexion conectar = new Conexion();
             Ordenes ordenes = new Ordenes();
+            Vehiculos vehiculos = new Vehiculos();
 
             
             
@@ -63,11 +64,25 @@ namespace SistemaOrdenes
             source = new ReportDataSource("Proveedor", ordenes.getProveedoresRep(idproveedor, conectar.con));
             reportViewer1.LocalReport.DataSources.Add(source);
 
-            ReportParameter[] parameters = new ReportParameter[4];
+            ordenes.getOrden(idorden, conectar.con);
+           String detallevehiculo = "";
+
+           //MessageBox.Show(ordenes.vehiculo, "Aviso!");
+           if (ordenes.vehiculo.ToString().Length>0)
+            {
+                vehiculos.con = conectar.con;
+                vehiculos.getVehiculoNoEcon(ordenes.vehiculo);
+                detallevehiculo = vehiculos.marca + " " + vehiculos.modelo + " " + vehiculos.usuario;
+            }
+           
+            
+
+            ReportParameter[] parameters = new ReportParameter[5];
             parameters[0] = new ReportParameter("CantidadLetra", conletra);
             parameters[1] = new ReportParameter("subtotal", subtotal.ToString());
             parameters[2] = new ReportParameter("iva", iva.ToString());
             parameters[3] = new ReportParameter("total", total.ToString());
+            parameters[4] = new ReportParameter("detallevehiculo", detallevehiculo);
             this.reportViewer1.LocalReport.SetParameters(parameters);
             
             this.reportViewer1.RefreshReport();

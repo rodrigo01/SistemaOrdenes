@@ -5,6 +5,7 @@ using System.Text;
 using System.Data.OleDb;
 using System.Data;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace SistemaOrdenes
 {
@@ -13,15 +14,15 @@ namespace SistemaOrdenes
         public int id;
         public String fecha;
         public int id_proveedor;
-        public int orden;
+        public int orden = 0;
         public String departamento;
-        public String vehiculo;
+        public String vehiculo = "";
         public String almacen;
         public String solicito;
         public String reviso;
         public String autorizo;
         public String parauso;
-        public String maquina;
+        public String maquina = "";
         public String obra;
         public String unidad;
         public int iva;
@@ -90,7 +91,7 @@ namespace SistemaOrdenes
         {
             con.Open();
 
-            String consulta = "SELECT Ordenes.Id as [ID], Ordenes.orden as Orden,Proveedores.nombre as Nombre, Sum((([punitario]*[cantidad])*([Ordenes.iva]/100)) + ([punitario]*[cantidad]) ) AS Total, Ordenes.fecha as Fecha FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Proveedores.nombre, Ordenes.orden, Ordenes.fecha;";
+            String consulta = "SELECT Ordenes.Id as [ID], Ordenes.orden as Orden,Proveedores.nombre as Nombre, Sum((([punitario]*[cantidad])*([Ordenes.iva]/100)) + ([punitario]*[cantidad]) ) AS Total, Ordenes.fecha as Fecha, Ordenes.solicito as Estado, Ordenes.departamento as Departamento, Ordenes.vehiculo as Vehiculo, Ordenes.maquina as Maquina FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Proveedores.nombre, Ordenes.orden, Ordenes.fecha, Ordenes.solicito, Ordenes.departamento, Ordenes.vehiculo, Ordenes.maquina;";
             OleDbCommand comand = new OleDbCommand();
             comand.Connection = con;
             comand.CommandText = consulta;
@@ -137,6 +138,30 @@ namespace SistemaOrdenes
             return detallesorden;
         }
 
+        public String getDetallesMoneda(int _id, OleDbConnection con)
+        {
+            OleDbCommand comand = new OleDbCommand();
+            OleDbDataReader lectura; //lecto de datos
+            comand.Connection = con; //conectamos
+            con.Open();
+
+            //sql de busqueda y realizamos consulta            
+            String consulta = "SELECT * FROM Detalles_Orden Where id_orden = " + _id;
+            comand.CommandText = consulta;
+            lectura = comand.ExecuteReader();
+
+            String monedaD = "";
+            while (lectura.Read())
+            {
+                
+                monedaD = lectura["moneda"].ToString();
+                
+            }
+
+            con.Close();
+            return monedaD;
+        }
+
         public DataTable getOrdenRep(int idorden, OleDbConnection con)
         {
             con.Open();
@@ -171,12 +196,23 @@ namespace SistemaOrdenes
             return detallesorden;
         }
 
+        public static string replace(String input)
+        {
+            return Regex.Replace(input, "('|\")", "\\'");
+        }
+
         public void insertDetalle(Detalles detalle, OleDbConnection con)
         {
             OleDbCommand comand = new OleDbCommand();
 
-            //sql de busqueda y realizamos consulta            
-            String consulta = "INSERT INTO Detalles_Orden (id_orden,cantidad,descripcion,punitario) VALUES (" + detalle.id_orden + "," + detalle.cantidad + ",'"+detalle.descripcion+"', "+detalle.punitario+" );";
+            //sql de busqueda y realizamos consulta
+
+
+            //detalle.descripcion = replace(detalle.descripcion);
+            //String consulta = "INSERT INTO Detalles_Orden (id_orden,cantidad,descripcion,punitario) VALUES (" + detalle.id_orden + "," + detalle.cantidad + ",'"+detalle.descripcion+"', "+detalle.punitario+" );";
+            String consulta = "INSERT INTO Detalles_Orden (id_orden,cantidad,descripcion,punitario,iva,moneda) VALUES (" + detalle.id_orden + "," + detalle.cantidad + ",@desco, " + detalle.punitario + ",16,@moneda);";
+            comand.Parameters.AddWithValue("@desco", detalle.descripcion);
+            comand.Parameters.AddWithValue("@moneda", detalle.moneda);
             comand.Connection = con;
             comand.CommandText = consulta;
             con.Open();
@@ -213,6 +249,19 @@ namespace SistemaOrdenes
 
         }
 
+        public void setCancel(int idcancel, OleDbConnection con)
+        {
+            OleDbCommand comand = new OleDbCommand();
+
+            //sql de busqueda y realizamos consulta            
+            String consulta = "UPDATE Ordenes SET solicito = 'cancelado' WHERE Id= " + idcancel + ";";
+            comand.Connection = con;
+            comand.CommandText = consulta;
+            con.Open();
+            comand.ExecuteNonQuery();
+            con.Close();
+        }
+
 
         // Busqueda de ordenes por datos
 
@@ -230,7 +279,7 @@ namespace SistemaOrdenes
             {
                 if (valor.CompareTo("") == 0){}
                 else{whereclause = "HAVING (((Ordenes.orden) = "+valor+"))";
-                consulta = "SELECT Ordenes.Id as [ID], Ordenes.orden as Orden,Proveedores.nombre as Nombre, Sum([punitario]*[cantidad]) AS Total, Ordenes.fecha as Fecha FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Proveedores.nombre, Ordenes.orden, Ordenes.fecha " + whereclause + ";";
+                consulta = "SELECT Ordenes.Id as [ID], Ordenes.orden as Orden,Proveedores.nombre as Nombre, Sum([punitario]*[cantidad]) AS Total, Ordenes.fecha as Fecha, Ordenes.solicito as Estado, Ordenes.departamento as Departamento, Ordenes.vehiculo as Vehiculo, Ordenes.maquina as Maquina FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Proveedores.nombre, Ordenes.orden, Ordenes.fecha, Ordenes.solicito, Ordenes.departamento, Ordenes.vehiculo, Ordenes.maquina " + whereclause + ";";
                 comand.CommandText = consulta;
                 } 
             }
@@ -240,7 +289,7 @@ namespace SistemaOrdenes
             {
                 if (valor.CompareTo("") == 0) { }
                 else { whereclause = "HAVING (((Proveedores.nombre) Like \"*"+valor+"*\")) ";
-                consulta = "SELECT Ordenes.Id AS ID, Ordenes.orden AS Orden, Proveedores.nombre AS Nombre, Sum([punitario]*[cantidad]) AS Total, Ordenes.fecha AS Fecha FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Ordenes.orden, Proveedores.nombre, Ordenes.fecha HAVING (((Proveedores.nombre) like \"%"+valor+"%\"));";
+                consulta = "SELECT Ordenes.Id AS ID, Ordenes.orden AS Orden, Proveedores.nombre AS Nombre, Sum([punitario]*[cantidad]) AS Total, Ordenes.fecha AS Fecha, Ordenes.solicito as Estado, Ordenes.departamento as Departamento, Ordenes.vehiculo as Vehiculo, Ordenes.maquina as Maquina FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Ordenes.orden, Proveedores.nombre, Ordenes.fecha, Ordenes.solicito, Ordenes.departamento, Ordenes.vehiculo, Ordenes.maquina HAVING (((Proveedores.nombre) like \"%" + valor + "%\"));";
                 comand.CommandText = consulta;
                 }
             }
@@ -252,7 +301,7 @@ namespace SistemaOrdenes
                 else
                 {
                     //whereclause = "HAVING (((Proveedores.nombre) Like \"*" + valor + "*\")) ";
-                    consulta = "SELECT Ordenes.Id AS ID, Ordenes.orden AS Orden, Proveedores.nombre AS Nombre, Sum([punitario]*[cantidad]) AS Total, Ordenes.fecha AS Fecha FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Ordenes.orden, Proveedores.nombre, Ordenes.fecha HAVING (((Proveedores.nombre) like \"%" + valor + "%\"));";
+                    consulta = "SELECT Ordenes.Id AS ID, Ordenes.orden AS Orden, Proveedores.nombre AS Nombre, Sum([punitario]*[cantidad]) AS Total, Ordenes.fecha AS Fecha, Ordenes.solicito as Estado, Ordenes.departamento as Departamento, Ordenes.vehiculo as Vehiculo, Ordenes.maquina as Maquina FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Ordenes.orden, Proveedores.nombre, Ordenes.fecha, Ordenes.solicito, Ordenes.departamento, Ordenes.vehiculo, Ordenes.maquina HAVING (((Proveedores.nombre) like \"%" + valor + "%\"));";
                     comand.CommandText = consulta;
                 }
             }
@@ -263,7 +312,7 @@ namespace SistemaOrdenes
                 else
                 {
                     //whereclause = "HAVING (((Proveedores.nombre) Like \"*" + valor + "*\")) ";
-                    consulta = "SELECT Ordenes.Id AS ID, Ordenes.orden AS Orden, Proveedores.nombre AS Nombre, Sum([punitario]*[cantidad]) AS Total, Ordenes.fecha AS Fecha FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Ordenes.orden, Proveedores.nombre, Ordenes.fecha, Ordenes.vehiculo HAVING (((Ordenes.vehiculo) like \"%" + valor + "%\"));";
+                    consulta = "SELECT Ordenes.Id AS ID, Ordenes.orden AS Orden, Proveedores.nombre AS Nombre, Sum([punitario]*[cantidad]) AS Total, Ordenes.fecha AS Fecha, Ordenes.solicito as Estado, Ordenes.departamento as Departamento, Ordenes.vehiculo as Vehiculo, Ordenes.maquina as Maquina FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Ordenes.orden, Proveedores.nombre, Ordenes.fecha, Ordenes.vehiculo, Ordenes.solicito, Ordenes.departamento, Ordenes.vehiculo, Ordenes.maquina HAVING (((Ordenes.vehiculo) like \"%" + valor + "%\");";
                     comand.CommandText = consulta;
                 }
             }
@@ -274,7 +323,7 @@ namespace SistemaOrdenes
                 else
                 {
                     //whereclause = "HAVING (((Proveedores.nombre) Like \"*" + valor + "*\")) ";
-                    consulta = "SELECT Ordenes.Id AS ID, Ordenes.orden AS Orden, Proveedores.nombre AS Nombre, Sum([punitario]*[cantidad]) AS Total, Ordenes.fecha AS Fecha FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Ordenes.orden, Proveedores.nombre, Ordenes.fecha, Ordenes.almacen HAVING (((Ordenes.almacen) like \"%" + valor + "%\"));";
+                    consulta = "SELECT Ordenes.Id AS ID, Ordenes.orden AS Orden, Proveedores.nombre AS Nombre, Sum([punitario]*[cantidad]) AS Total, Ordenes.fecha AS Fecha, Ordenes.solicito as Estado, Ordenes.departamento as Departamento, Ordenes.vehiculo as Vehiculo, Ordenes.maquina as Maquina FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Ordenes.orden, Proveedores.nombre, Ordenes.fecha, Ordenes.almacen, Ordenes.solicito, Ordenes.departamento, Ordenes.vehiculo, Ordenes.maquina HAVING (((Ordenes.almacen) like \"%" + valor + "%\"));";
                     comand.CommandText = consulta;
                 }
             }
@@ -285,7 +334,7 @@ namespace SistemaOrdenes
                 else
                 {
                     //whereclause = "HAVING (((Proveedores.nombre) Like \"*" + valor + "*\")) ";
-                    consulta = "SELECT Ordenes.Id AS ID, Ordenes.orden AS Orden, Proveedores.nombre AS Nombre, Sum([punitario]*[cantidad]) AS Total, Ordenes.fecha AS Fecha FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Ordenes.orden, Proveedores.nombre, Ordenes.fecha, Ordenes.maquina HAVING (((Ordenes.maquina) like \"%" + valor + "%\"));";
+                    consulta = "SELECT Ordenes.Id AS ID, Ordenes.orden AS Orden, Proveedores.nombre AS Nombre, Sum([punitario]*[cantidad]) AS Total, Ordenes.fecha AS Fecha, Ordenes.solicito as Estado, Ordenes.departamento as Departamento, Ordenes.vehiculo as Vehiculo, Ordenes.maquina as Maquina FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.Id, Ordenes.orden, Proveedores.nombre, Ordenes.fecha, Ordenes.maquina, Ordenes.solicito, Ordenes.departamento, Ordenes.vehiculo, Ordenes.maquina HAVING (((Ordenes.maquina) like \"%" + valor + "%\"));";
                     comand.CommandText = consulta;
                 }
             }
@@ -322,6 +371,57 @@ namespace SistemaOrdenes
             con.Close();
             return proveedores;
 
+        }
+
+        public DataTable getOrdenesDetallesProveedorVehiculo(int idprov,String vehiculo, OleDbConnection con)
+        {
+
+
+            con.Open();
+             String consulta = "" ;
+             if (idprov == 0)
+             {
+                 consulta = "SELECT Proveedores.nombre as Proveedor, Ordenes.orden AS Orden, Ordenes.fecha, Ordenes.departamento, Ordenes.parauso, Ordenes.vehiculo, Ordenes.maquina, Sum((([punitario]*[cantidad])*([Ordenes.iva]/100))+([punitario]*[cantidad])) AS Total, Ordenes.fecha AS Fecha FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.orden, Ordenes.fecha, Ordenes.departamento, Ordenes.parauso, Ordenes.vehiculo, Ordenes.maquina, Ordenes.fecha, Proveedores.Id, Ordenes.Id, Proveedores.nombre HAVING (((Ordenes.vehiculo)=\"" + vehiculo + "\"));";
+
+             }
+             else
+             {
+                 consulta = "SELECT Ordenes.orden AS Orden, Ordenes.fecha, Ordenes.departamento, Ordenes.parauso, Ordenes.vehiculo, Ordenes.maquina, Sum((([punitario]*[cantidad])*([Ordenes.iva]/100))+([punitario]*[cantidad])) AS Total, Ordenes.fecha AS Fecha FROM Proveedores INNER JOIN (Ordenes INNER JOIN Detalles_Orden ON Ordenes.Id = Detalles_Orden.id_orden) ON Proveedores.Id = Ordenes.id_proveedor GROUP BY Ordenes.orden, Ordenes.fecha, Ordenes.departamento, Ordenes.parauso, Ordenes.vehiculo, Ordenes.maquina, Ordenes.fecha, Proveedores.Id, Ordenes.Id, Proveedores.nombre HAVING (((Ordenes.vehiculo)=\"" + vehiculo + "\") AND ((Proveedores.Id)=" + idprov + "));";
+             }
+             OleDbCommand comand = new OleDbCommand();
+            comand.Connection = con;
+            comand.CommandText = consulta;
+
+            OleDbDataAdapter da = new OleDbDataAdapter(comand);
+            DataTable proveedores = new DataTable();
+            da.Fill(proveedores);
+
+            con.Close();
+            return proveedores;
+
+        }
+
+        public int getLastNoOrden(OleDbConnection con){
+            
+
+            OleDbCommand comand = new OleDbCommand();
+            OleDbDataReader lectura; //lecto de datos
+            comand.Connection = con; //conectamos
+            con.Open();
+
+            //sql de busqueda y realizamos consulta            
+            String consulta = "SELECT TOP 1 Ordenes.Id, Ordenes.orden FROM Ordenes ORDER BY Ordenes.Id DESC;";
+            comand.CommandText = consulta;
+            lectura = comand.ExecuteReader();
+
+            while (lectura.Read())
+            {
+                this.id = Convert.ToInt32(lectura["Id"].ToString());    
+                this.orden = Convert.ToInt32(lectura["orden"].ToString());          
+            }
+
+            con.Close();
+            return this.orden;
         }
 
         

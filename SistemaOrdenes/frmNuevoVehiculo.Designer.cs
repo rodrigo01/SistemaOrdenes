@@ -59,6 +59,8 @@
             this.tbColor = new System.Windows.Forms.TextBox();
             this.cbDepartamentos = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btGuardarOrden
@@ -196,14 +198,16 @@
             this.label6.Size = new System.Drawing.Size(43, 16);
             this.label6.TabIndex = 118;
             this.label6.Text = "Clase";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // tbClase
             // 
-            this.tbClase.Location = new System.Drawing.Point(16, 169);
+            this.tbClase.Location = new System.Drawing.Point(15, 399);
             this.tbClase.Margin = new System.Windows.Forms.Padding(4);
             this.tbClase.Name = "tbClase";
             this.tbClase.Size = new System.Drawing.Size(104, 20);
             this.tbClase.TabIndex = 117;
+            this.tbClase.Visible = false;
             // 
             // label5
             // 
@@ -338,11 +342,36 @@
             this.label14.TabIndex = 134;
             this.label14.Text = "Departamento";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Vehiculo",
+            "Maquinaria"});
+            this.comboBox1.Location = new System.Drawing.Point(16, 167);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(120, 21);
+            this.comboBox1.TabIndex = 135;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.OliveDrab;
+            this.label15.Location = new System.Drawing.Point(13, 193);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(143, 13);
+            this.label15.TabIndex = 136;
+            this.label15.Text = "V : Vehiculo - M : Maquinaria";
+            // 
             // frmNuevoVehiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(585, 432);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.cbDepartamentos);
             this.Controls.Add(this.label13);
@@ -414,5 +443,7 @@
         private System.Windows.Forms.TextBox tbColor;
         private System.Windows.Forms.ComboBox cbDepartamentos;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label15;
     }
 }

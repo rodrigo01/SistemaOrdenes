@@ -10,19 +10,18 @@ using Microsoft.Reporting.WinForms;
 
 namespace SistemaOrdenes
 {
-    public partial class frmReporteOrdenes : Form
+    public partial class frmReporteOrdenesVehiculos : Form
     {
         public int _idver = 0;
         public String _vehiculo = "";
 
-        public frmReporteOrdenes()
+        public frmReporteOrdenesVehiculos()
         {
             InitializeComponent();
         }
 
-        private void frmReporteOrdenes_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-
             int idprov = _idver;
             String vehiculo = _vehiculo;
 
@@ -31,7 +30,7 @@ namespace SistemaOrdenes
 
 
             this.reportViewer1.LocalReport.DataSources.Clear();
-            ReportDataSource source =  new ReportDataSource();
+            ReportDataSource source = new ReportDataSource();
 
             if (vehiculo.Equals(""))
             {
@@ -39,9 +38,9 @@ namespace SistemaOrdenes
             }
             else
             {
-                source = new ReportDataSource("ConReporteTabla", ordenes.getOrdenesDetallesProveedorVehiculo(idprov,vehiculo, conectar.con));
+                source = new ReportDataSource("ConReporteTabla", ordenes.getOrdenesDetallesProveedorVehiculo(idprov, vehiculo, conectar.con));
             }
-            
+
             reportViewer1.LocalReport.DataSources.Add(source);
 
             source = new ReportDataSource("Proveedor", ordenes.getProveedoresRep(idprov, conectar.con));

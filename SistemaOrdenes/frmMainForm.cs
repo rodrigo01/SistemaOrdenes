@@ -67,6 +67,12 @@ namespace SistemaOrdenes
             pictureBox1.Top = (this.ClientSize.Height - pictureBox1.Height) / 2;
         }
 
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReportesPre frmReportespre = new frmReportesPre();
+            frmReportespre.Show();
+        }
+
  
 
     }

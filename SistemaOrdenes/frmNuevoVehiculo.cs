@@ -44,6 +44,7 @@ namespace SistemaOrdenes
 
             vehiculo.insertVehiculo(vehiculo);
             System.Windows.Forms.MessageBox.Show("Vehiculo Agregado");
+            this.Close();
         }
 
         private void btCancelar_Click(object sender, EventArgs e)
@@ -107,6 +108,22 @@ namespace SistemaOrdenes
             {
                 e.Handled = true;
             }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox comboBox = (ComboBox) sender;
+
+		    // Save the selected employee's name, because we will remove 
+		    // the employee's name from the list. 
+		    string selectedEmployee = (string) comboBox.SelectedItem;
+            char let = selectedEmployee[0];
+            tbClase.Text = let.ToString();
         }
     }
 }

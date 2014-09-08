@@ -11,6 +11,7 @@ namespace SistemaOrdenes
 {
     public partial class frmNuevaOrden : Form
     {
+        int isloaded = 0;
         public frmNuevaOrden()
         {
             InitializeComponent();
@@ -30,11 +31,30 @@ namespace SistemaOrdenes
             vehiculos.con = conectar.con;
             DataTable dtLista = new DataTable();
 
+            Ordenes ordenes = new Ordenes();
+            Departamentos departamentos = new Departamentos();
+            departamentos.con = conectar.con;
+            
+
+            int lastorden = 0;
+            //System.Windows.Forms.MessageBox.Show("Nu" + lastorden);
+            lastorden = ordenes.getLastNoOrden(conectar.con);
+
+            lastorden++;
+            
+            tbOrden.Text = lastorden.ToString();
+
             //Cargamos Lista de Proveedores
             dtLista = proveedores.getProveedoresDG(conectar.con);
             cbProveedores.DataSource = dtLista;
-            cbProveedores.DisplayMember = "nombre";
-            cbProveedores.ValueMember = "id";
+            cbProveedores.DisplayMember = "Nombre";
+            cbProveedores.ValueMember = "Nombre";
+
+            //Cargamos Lista de Departamentos
+            dtLista = departamentos.getDepartamentosDG();
+            cbDepartamento.DataSource = dtLista;
+            cbDepartamento.DisplayMember = "nombre";
+            cbDepartamento.ValueMember = "id";
 
             //Cargamos Lista de Vehiculos
             dtLista = vehiculos.getVehiculosByClase("V");
@@ -55,6 +75,8 @@ namespace SistemaOrdenes
             dgDetallesOrden.Columns["Precio"].Width = 80;
             dgDetallesOrden.Columns["Costo"].DefaultCellStyle.Format = "c";
             dgDetallesOrden.Columns["Precio"].DefaultCellStyle.Format = "c";
+
+            isloaded = 1;
         }
 
         public void actualizartotales()
@@ -73,7 +95,7 @@ namespace SistemaOrdenes
                     if (row.Cells["Precio"].Value != null)
                     {
                         if (row.Cells["Precio"].Value.ToString().Equals("") == false)
-                        subtotal += Convert.ToInt32(row.Cells["Costo"].Value);
+                            subtotal += Convert.ToSingle(row.Cells["Costo"].Value);
                     }
                     
                 }
@@ -83,7 +105,7 @@ namespace SistemaOrdenes
             tbSubTotal.Text = subtotal.ToString("C");
             if (tbPIva.Text.Length == 0)
                 tbPIva.Text = "0";
-            civa = Convert.ToInt32(tbPIva.Text);
+            civa = Convert.ToSingle(tbPIva.Text);
             iva = subtotal * (civa / 100);
             tbIva.Text = iva.ToString("C");
             total = iva + subtotal;
@@ -99,7 +121,7 @@ namespace SistemaOrdenes
                     if (row.Cells["Precio"].Value!= null)
                     {
                         if (row.Cells["Precio"].Value.ToString().Equals("") == false)
-                            row.Cells["Costo"].Value = Convert.ToInt32(row.Cells["Cantidad"].Value.ToString()) * Convert.ToSingle(row.Cells["Precio"].Value.ToString());
+                            row.Cells["Costo"].Value = Convert.ToSingle(row.Cells["Cantidad"].Value.ToString()) * Convert.ToSingle(row.Cells["Precio"].Value.ToString());
                     }
                     
                 }
@@ -138,7 +160,7 @@ namespace SistemaOrdenes
                 Orden.id_proveedor = Proveedor.id;
                 Orden.orden = Convert.ToInt32(tbOrden.Text);
                 Orden.fecha = dtFecha.Value.ToShortDateString();
-                Orden.departamento = tbDepartamento.Text;
+                Orden.departamento = cbDepartamento.GetItemText(cbDepartamento.SelectedItem); ;
                 Orden.vehiculo = cbVehiculo.GetItemText(cbVehiculo.SelectedItem);
                 Orden.almacen = tbAlmacen.Text;
                 Orden.parauso = tbUso.Text;
@@ -164,6 +186,8 @@ namespace SistemaOrdenes
                             detalle.cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value.ToString());
                             detalle.descripcion = row.Cells["Descripcion"].Value.ToString();
                             detalle.punitario = Convert.ToSingle(row.Cells["Precio"].Value.ToString());
+                            detalle.moneda = tbMoneda.Text;
+                            //System.Windows.Forms.MessageBox.Show("dato: " + detalle.punitario);
 
                             //insertamos detalle
                             Orden.insertDetalle(detalle, conectar.con);
@@ -219,6 +243,66 @@ namespace SistemaOrdenes
             else
             {
                 e.Handled = true;
+            }
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbMoneda_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbVehiculo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isloaded == 1)
+            {
+                Conexion conectar = new Conexion();
+                Vehiculos vehiculos = new Vehiculos();
+                vehiculos.con = conectar.con;
+
+                String vehiculoSet = cbVehiculo.GetItemText(cbVehiculo.SelectedItem);
+                if (vehiculoSet != "")
+                {
+                    vehiculos.getVehiculoNoEcon(vehiculoSet);
+                    //String maquina = cbMaquina.GetItemText(cbMaquina.SelectedItem); ;
+
+                    //System.Windows.Forms.MessageBox.Show("Se cambio");
+                    tbUso.Text = vehiculos.marca + " " + vehiculos.modelo + " " + vehiculos.usuario + " # " + tbUso.Text;
+                }
+
+                
+            }
+            
+        }
+
+        private void tbUso_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbMaquina_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isloaded == 1)
+            {
+                Conexion conectar = new Conexion();
+                Vehiculos vehiculos = new Vehiculos();
+                vehiculos.con = conectar.con;
+
+                //String vehiculoSet = cbVehiculo.GetItemText(cbVehiculo.SelectedItem);
+                String maquinaSet = cbMaquina.GetItemText(cbMaquina.SelectedItem);
+                if (maquinaSet != "")
+                {
+
+                    vehiculos.getVehiculoNoEcon(maquinaSet);
+
+
+                    //System.Windows.Forms.MessageBox.Show("Se cambio");
+                    tbUso.Text = vehiculos.marca + " " + vehiculos.modelo + " " + vehiculos.usuario + " # " + tbUso.Text;
+                }
             }
         }
 

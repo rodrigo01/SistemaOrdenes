@@ -38,12 +38,15 @@ namespace SistemaOrdenes
 
             
             orden.getOrden(idver, conectar.con);
+            String moneda = orden.getDetallesMoneda(idver, conectar.con);
+            tbMoneda.Text = moneda;
             // si encontramos la orden
             if (orden.id != 0)
             {
                 _idorden = orden.id; //definimos id para reporte
                 //datos de Proveedor
                 proveedores.getProveedor(orden.id_proveedor, conectar.con);
+                
 
                 //cargamos informacion de orden
                 tbOrden.Text = orden.orden.ToString();
@@ -105,8 +108,18 @@ namespace SistemaOrdenes
                 cbMaquina.DisplayMember = "noecon";
                 cbMaquina.ValueMember = "id";
 
+
                 //definimos maquinaria
-                cbMaquina.SelectedIndex = cbMaquina.FindString(orden.maquina);
+                if (orden.maquina.Equals(""))
+                {
+                    cbMaquina.SelectedIndex = cbMaquina.FindString(orden.vehiculo);
+                }
+                else
+                {
+                    cbMaquina.SelectedIndex = cbMaquina.FindString(orden.maquina);
+                }
+                
+                
                 
             }
             else
@@ -130,7 +143,7 @@ namespace SistemaOrdenes
                 if (row.Cells["Cantidad"].Value != null)
                 {
                     if (row.Cells["Precio"].Value.ToString().Equals("") == false)
-                        subtotal += Convert.ToInt32(row.Cells["Costo"].Value);
+                        subtotal += Convert.ToSingle(row.Cells["Costo"].Value);
                 }
              
             }
@@ -139,7 +152,7 @@ namespace SistemaOrdenes
             _subtotal = subtotal;
             if (tbPIva.Text.Length==0)
                 tbPIva.Text = "0";
-            civa = Convert.ToInt32(tbPIva.Text);
+            civa = Convert.ToSingle(tbPIva.Text);
             iva = subtotal * (civa/100);
             _iva = iva;
             tbIva.Text = iva.ToString("C");
@@ -156,7 +169,7 @@ namespace SistemaOrdenes
                 if (row.Cells["Cantidad"].Value != null )
                 {
                     if(row.Cells["Precio"].Value.ToString().Equals("")==false)
-                    row.Cells["Costo"].Value = Convert.ToInt32(row.Cells["Cantidad"].Value.ToString()) * Convert.ToSingle(row.Cells["Precio"].Value.ToString());
+                        row.Cells["Costo"].Value = Convert.ToSingle(row.Cells["Cantidad"].Value.ToString()) * Convert.ToSingle(row.Cells["Precio"].Value.ToString());
                 }
 
             }
@@ -229,7 +242,7 @@ namespace SistemaOrdenes
                         detalle.cantidad = Convert.ToInt32(row.Cells["Cantidad"].Value.ToString());
                         detalle.descripcion = row.Cells["Descripcion"].Value.ToString();
                         detalle.punitario = Convert.ToSingle(row.Cells["Precio"].Value.ToString());
-
+                        detalle.moneda = tbMoneda.Text;
                         //insertamos detalle
                         Orden.insertDetalle(detalle,conectar.con);
                     }
@@ -253,10 +266,21 @@ namespace SistemaOrdenes
             printOrden._subtotal = _subtotal;
             printOrden._iva = _iva;
             printOrden._total = _total;
+
             Numalet let = new Numalet();
             //al uso en México (creo):
-            let.MascaraSalidaDecimal = "00/100 M.N.";
-            let.SeparadorDecimalSalida = "pesos";
+            
+            if (tbMoneda.Text.Equals("DOLARES"))
+            {
+                let.MascaraSalidaDecimal = "00/100";
+                let.SeparadorDecimalSalida = "dolares";
+            }
+            else
+            {
+                let.MascaraSalidaDecimal = "00/100 M.N.";
+                let.SeparadorDecimalSalida = "pesos";
+            }
+            
             //observar que sin esta propiedad queda "veintiuno pesos" en vez de "veintiún pesos":
             let.ApocoparUnoParteEntera = true;
             
@@ -264,11 +288,26 @@ namespace SistemaOrdenes
             //float fe = (float)Convert.ToDouble(tbTotal.Text);
             frmNuevaOrden frmNueva = new frmNuevaOrden();
             frmNueva.Show();
-            printOrden._conletra =  let.ToCustomCardinal(estetotal).ToUpper();
+            if (chbLetra.Checked)
+            {
+                printOrden._conletra = let.ToCustomCardinal(estetotal).ToUpper();
+            }
+            else
+            {
+                printOrden._conletra = "";
+            }
+            
             printOrden.Show();
             
             this.Close();
         }
+
+        private void tbMoneda_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
 
 
 

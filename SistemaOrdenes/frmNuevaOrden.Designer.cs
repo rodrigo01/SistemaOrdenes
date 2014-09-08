@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNuevaOrden));
             this.label14 = new System.Windows.Forms.Label();
             this.tbUso = new System.Windows.Forms.TextBox();
@@ -45,7 +45,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cbVehiculo = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.tbDepartamento = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tbTotal = new System.Windows.Forms.TextBox();
             this.tbIva = new System.Windows.Forms.TextBox();
@@ -67,6 +66,9 @@
             this.cbMaquina = new System.Windows.Forms.ComboBox();
             this.btGuardarOrden = new System.Windows.Forms.Button();
             this.btCancelar = new System.Windows.Forms.Button();
+            this.cbDepartamento = new System.Windows.Forms.ComboBox();
+            this.tbMoneda = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgDetallesOrden)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,6 +89,7 @@
             this.tbUso.Name = "tbUso";
             this.tbUso.Size = new System.Drawing.Size(460, 22);
             this.tbUso.TabIndex = 90;
+            this.tbUso.TextChanged += new System.EventHandler(this.tbUso_TextChanged);
             // 
             // label13
             // 
@@ -179,6 +182,7 @@
             this.cbVehiculo.Name = "cbVehiculo";
             this.cbVehiculo.Size = new System.Drawing.Size(139, 21);
             this.cbVehiculo.TabIndex = 76;
+            this.cbVehiculo.SelectedIndexChanged += new System.EventHandler(this.cbVehiculo_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -189,13 +193,6 @@
             this.label8.Size = new System.Drawing.Size(56, 13);
             this.label8.TabIndex = 75;
             this.label8.Text = "Vehiculo";
-            // 
-            // tbDepartamento
-            // 
-            this.tbDepartamento.Location = new System.Drawing.Point(12, 491);
-            this.tbDepartamento.Name = "tbDepartamento";
-            this.tbDepartamento.Size = new System.Drawing.Size(139, 20);
-            this.tbDepartamento.TabIndex = 74;
             // 
             // label7
             // 
@@ -267,38 +264,38 @@
             // 
             // dgDetallesOrden
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgDetallesOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgDetallesOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgDetallesOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgDetallesOrden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cantidad,
             this.Descripcion,
             this.Precio,
             this.Costo});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgDetallesOrden.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgDetallesOrden.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgDetallesOrden.Location = new System.Drawing.Point(9, 81);
             this.dgDetallesOrden.Name = "dgDetallesOrden";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgDetallesOrden.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgDetallesOrden.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgDetallesOrden.Size = new System.Drawing.Size(781, 339);
             this.dgDetallesOrden.TabIndex = 66;
             this.dgDetallesOrden.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgDetallesOrden_CellContentClick);
@@ -388,6 +385,7 @@
             this.cbMaquina.Name = "cbMaquina";
             this.cbMaquina.Size = new System.Drawing.Size(139, 21);
             this.cbMaquina.TabIndex = 92;
+            this.cbMaquina.SelectedIndexChanged += new System.EventHandler(this.cbMaquina_SelectedIndexChanged);
             // 
             // btGuardarOrden
             // 
@@ -415,11 +413,42 @@
             this.btCancelar.UseVisualStyleBackColor = true;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
+            // cbDepartamento
+            // 
+            this.cbDepartamento.FormattingEnabled = true;
+            this.cbDepartamento.Location = new System.Drawing.Point(13, 491);
+            this.cbDepartamento.Name = "cbDepartamento";
+            this.cbDepartamento.Size = new System.Drawing.Size(138, 21);
+            this.cbDepartamento.TabIndex = 93;
+            // 
+            // tbMoneda
+            // 
+            this.tbMoneda.Location = new System.Drawing.Point(481, 491);
+            this.tbMoneda.Name = "tbMoneda";
+            this.tbMoneda.Size = new System.Drawing.Size(90, 20);
+            this.tbMoneda.TabIndex = 94;
+            this.tbMoneda.Text = "PESOS";
+            this.tbMoneda.TextChanged += new System.EventHandler(this.tbMoneda_TextChanged);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(479, 472);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(52, 13);
+            this.label15.TabIndex = 95;
+            this.label15.Text = "Moneda";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+            // 
             // frmNuevaOrden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(798, 586);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.tbMoneda);
+            this.Controls.Add(this.cbDepartamento);
             this.Controls.Add(this.cbMaquina);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.tbUso);
@@ -436,7 +465,6 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.cbVehiculo);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.tbDepartamento);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tbTotal);
             this.Controls.Add(this.tbIva);
@@ -478,7 +506,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbVehiculo;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox tbDepartamento;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbTotal;
         private System.Windows.Forms.TextBox tbIva;
@@ -498,6 +525,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Costo;
         private System.Windows.Forms.ComboBox cbMaquina;
+        private System.Windows.Forms.ComboBox cbDepartamento;
+        private System.Windows.Forms.TextBox tbMoneda;
+        private System.Windows.Forms.Label label15;
 
     }
 }

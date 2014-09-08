@@ -57,6 +57,9 @@
             this.tbBaja = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.tbColor = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.cbDepartamentos = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // tbNoEconomico
@@ -198,7 +201,7 @@
             // 
             this.btGuardarOrden.Image = ((System.Drawing.Image)(resources.GetObject("btGuardarOrden.Image")));
             this.btGuardarOrden.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btGuardarOrden.Location = new System.Drawing.Point(236, 357);
+            this.btGuardarOrden.Location = new System.Drawing.Point(333, 357);
             this.btGuardarOrden.Name = "btGuardarOrden";
             this.btGuardarOrden.Size = new System.Drawing.Size(147, 34);
             this.btGuardarOrden.TabIndex = 90;
@@ -211,7 +214,7 @@
             // 
             this.btCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btCancelar.Image")));
             this.btCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btCancelar.Location = new System.Drawing.Point(459, 357);
+            this.btCancelar.Location = new System.Drawing.Point(504, 357);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(94, 34);
             this.btCancelar.TabIndex = 89;
@@ -319,11 +322,42 @@
             this.tbColor.Size = new System.Drawing.Size(104, 22);
             this.tbColor.TabIndex = 133;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.OliveDrab;
+            this.label14.Location = new System.Drawing.Point(19, 196);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(143, 13);
+            this.label14.TabIndex = 135;
+            this.label14.Text = "V : Vehiculo - M : Maquinaria";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(133, 336);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(94, 16);
+            this.label15.TabIndex = 137;
+            this.label15.Text = "Departamento";
+            // 
+            // cbDepartamentos
+            // 
+            this.cbDepartamentos.FormattingEnabled = true;
+            this.cbDepartamentos.Location = new System.Drawing.Point(133, 355);
+            this.cbDepartamentos.Name = "cbDepartamentos";
+            this.cbDepartamentos.Size = new System.Drawing.Size(183, 24);
+            this.cbDepartamentos.TabIndex = 136;
+            // 
             // frmEditarVehiculos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(586, 403);
+            this.ClientSize = new System.Drawing.Size(610, 436);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.cbDepartamentos);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.tbColor);
             this.Controls.Add(this.tbBaja);
@@ -393,5 +427,8 @@
         private System.Windows.Forms.TextBox tbBaja;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox tbColor;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox cbDepartamentos;
     }
 }

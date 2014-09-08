@@ -67,21 +67,21 @@
             // proveedoresToolStripMenuItem
             // 
             this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.proveedoresToolStripMenuItem.Text = "Proveedores";
             this.proveedoresToolStripMenuItem.Click += new System.EventHandler(this.proveedoresToolStripMenuItem_Click);
             // 
             // departamentosToolStripMenuItem
             // 
             this.departamentosToolStripMenuItem.Name = "departamentosToolStripMenuItem";
-            this.departamentosToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.departamentosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.departamentosToolStripMenuItem.Text = "Departamentos";
             this.departamentosToolStripMenuItem.Click += new System.EventHandler(this.departamentosToolStripMenuItem_Click);
             // 
             // vehiculosToolStripMenuItem
             // 
             this.vehiculosToolStripMenuItem.Name = "vehiculosToolStripMenuItem";
-            this.vehiculosToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.vehiculosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.vehiculosToolStripMenuItem.Text = "Vehiculos";
             this.vehiculosToolStripMenuItem.Click += new System.EventHandler(this.vehiculosToolStripMenuItem_Click);
             // 

@@ -34,7 +34,9 @@ namespace SistemaOrdenes
             
             int rowi = dgVehiculos.CurrentRow.Index;
             string valor = dgVehiculos[0, rowi].Value.ToString();
+            
             idedit = Convert.ToInt32(valor);
+            //MessageBox.Show("Valor es: " + idedit);
 
             frmEditarVehiculos frmEditVehi= new frmEditarVehiculos();
             frmEditVehi._idver = idedit;

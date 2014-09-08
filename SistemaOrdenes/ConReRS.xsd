@@ -27,6 +27,7 @@
               <Mapping SourceColumn="maquina" DataSetColumn="maquina" />
               <Mapping SourceColumn="Total" DataSetColumn="Total" />
               <Mapping SourceColumn="Fecha" DataSetColumn="Fecha" />
+              <Mapping SourceColumn="Proveedor" DataSetColumn="Proveedor" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -38,7 +39,7 @@
   <xs:element name="ConReRS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ConReRS" msprop:Generator_UserDSName="ConReRS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ConReporteTabla" msprop:Generator_TableClassName="ConReporteTablaDataTable" msprop:Generator_TableVarName="tableConReporteTabla" msprop:Generator_TablePropName="ConReporteTabla" msprop:Generator_RowDeletingName="ConReporteTablaRowDeleting" msprop:Generator_UserTableName="ConReporteTabla" msprop:Generator_RowChangingName="ConReporteTablaRowChanging" msprop:Generator_RowEvHandlerName="ConReporteTablaRowChangeEventHandler" msprop:Generator_RowDeletedName="ConReporteTablaRowDeleted" msprop:Generator_RowEvArgName="ConReporteTablaRowChangeEvent" msprop:Generator_RowChangedName="ConReporteTablaRowChanged" msprop:Generator_RowClassName="ConReporteTablaRow">
+        <xs:element name="ConReporteTabla" msprop:Generator_TableClassName="ConReporteTablaDataTable" msprop:Generator_TableVarName="tableConReporteTabla" msprop:Generator_RowChangedName="ConReporteTablaRowChanged" msprop:Generator_TablePropName="ConReporteTabla" msprop:Generator_RowDeletingName="ConReporteTablaRowDeleting" msprop:Generator_RowChangingName="ConReporteTablaRowChanging" msprop:Generator_RowEvHandlerName="ConReporteTablaRowChangeEventHandler" msprop:Generator_RowDeletedName="ConReporteTablaRowDeleted" msprop:Generator_RowClassName="ConReporteTablaRow" msprop:Generator_UserTableName="ConReporteTabla" msprop:Generator_RowEvArgName="ConReporteTablaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Orden" msprop:Generator_ColumnVarNameInTable="columnOrden" msprop:Generator_ColumnPropNameInRow="Orden" msprop:Generator_ColumnPropNameInTable="OrdenColumn" msprop:Generator_UserColumnName="Orden" type="xs:int" minOccurs="0" />
@@ -73,6 +74,13 @@
               </xs:element>
               <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:double" minOccurs="0" />
               <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Proveedor" msprop:Generator_ColumnVarNameInTable="columnProveedor" msprop:Generator_ColumnPropNameInRow="Proveedor" msprop:Generator_ColumnPropNameInTable="ProveedorColumn" msprop:Generator_UserColumnName="Proveedor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

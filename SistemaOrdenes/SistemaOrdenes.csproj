@@ -124,6 +124,10 @@
       <DependentUpon>BD_SistemaDataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="Conexion.cs" />
+    <Compile Include="ConReRS.cs">
+      <DependentUpon>ConReRS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ConReRS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -133,6 +137,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSVehiculos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteOrdenesVehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteOrdenesVehiculos.Designer.cs">
+      <DependentUpon>frmReporteOrdenesVehiculos.cs</DependentUpon>
     </Compile>
     <Compile Include="frmOrdenesSeleccion.cs">
       <SubType>Form</SubType>
@@ -146,11 +156,23 @@
     <Compile Include="frmReporteOrdenes.Designer.cs">
       <DependentUpon>frmReporteOrdenes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReportesPre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportesPre.Designer.cs">
+      <DependentUpon>frmReportesPre.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReporteVehDep.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmReporteVehDep.Designer.cs">
       <DependentUpon>frmReporteVehDep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteVehiculoAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteVehiculoAll.Designer.cs">
+      <DependentUpon>frmReporteVehiculoAll.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReporteVehiculos.cs">
       <SubType>Form</SubType>
@@ -272,6 +294,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VehiculosDS.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmReporteOrdenesVehiculos.resx">
+      <DependentUpon>frmReporteOrdenesVehiculos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report4Vehic.rdlc" />
     <EmbeddedResource Include="frmDepartamentosLista.resx">
       <DependentUpon>frmDepartamentosLista.cs</DependentUpon>
     </EmbeddedResource>
@@ -296,8 +322,14 @@
     <EmbeddedResource Include="frmReporteOrdenes.resx">
       <DependentUpon>frmReporteOrdenes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReportesPre.resx">
+      <DependentUpon>frmReportesPre.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReporteVehDep.resx">
       <DependentUpon>frmReporteVehDep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteVehiculoAll.resx">
+      <DependentUpon>frmReporteVehiculoAll.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteVehiculos.resx">
       <DependentUpon>frmReporteVehiculos.cs</DependentUpon>

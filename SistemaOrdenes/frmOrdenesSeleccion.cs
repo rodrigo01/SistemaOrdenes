@@ -44,6 +44,75 @@ namespace SistemaOrdenes
             cbProveedores.DataSource = dtLista;
             cbProveedores.DisplayMember = "nombre";
             cbProveedores.ValueMember = "id";
+
+            //Cargamos Lista de Vehiculos
+            dtLista = vehiculos.getVehiculosByClase("V");
+            cbVehiculo.DataSource = dtLista;
+            cbVehiculo.DisplayMember = "noecon";
+            cbVehiculo.ValueMember = "id";
+
+            //cargamos lista de maquinaria
+            dtLista = vehiculos.getVehiculosByClase("M");
+            cbMaquina.DataSource = dtLista;
+            cbMaquina.DisplayMember = "noecon";
+            cbMaquina.ValueMember = "id";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //reporte con vehiculos
+            Conexion conectar = new Conexion();
+            Ordenes Orden = new Ordenes();
+            Proveedores Proveedor = new Proveedores();
+            
+
+            if (chbTodosV.Checked)
+            {
+                frmReporteOrdenesVehiculos frmRepOrd = new frmReporteOrdenesVehiculos();
+                frmRepOrd._idver = 0;
+                String vehicuulosel = cbVehiculo.GetItemText(cbVehiculo.SelectedItem);
+                frmRepOrd._vehiculo = vehicuulosel;
+                frmRepOrd.Show();
+                
+            }
+            else
+            {
+                frmReporteOrdenes frmRepOrd = new frmReporteOrdenes();
+                //guardamos datos en Objeto
+                Proveedor.getProveedorByName(cbProveedores.GetItemText(cbProveedores.SelectedItem), conectar.con);                
+                frmRepOrd._idver = Proveedor.id;
+                String vehicuulosel = cbVehiculo.GetItemText(cbVehiculo.SelectedItem);
+                frmRepOrd._vehiculo = vehicuulosel;
+                frmRepOrd.Show();
+            }
+
+            
+            //Proveedor.id;
+        }
+
+        private void btnGenerarM_Click(object sender, EventArgs e)
+        {
+            //reporte con vehiculos
+            Conexion conectar = new Conexion();
+            Ordenes Orden = new Ordenes();
+            Proveedores Proveedor = new Proveedores();
+            frmReporteOrdenes frmRepOrd = new frmReporteOrdenes();
+
+            if (chbTodosM.Checked)
+            {
+                frmRepOrd._idver = 0;
+            }
+            else
+            {
+                //guardamos datos en Objeto
+                Proveedor.getProveedorByName(cbProveedores.GetItemText(cbProveedores.SelectedItem), conectar.con);
+                frmRepOrd._idver = Proveedor.id;
+            }
+
+            String vehicuulosel = cbMaquina.GetItemText(cbMaquina.SelectedItem);
+            frmRepOrd._vehiculo = vehicuulosel;
+            frmRepOrd.Show();
+            //Proveedor.id;
         }
     }
 }

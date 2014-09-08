@@ -1,6 +1,6 @@
 ﻿namespace SistemaOrdenes
 {
-    partial class frmReporteOrdenes
+    partial class frmReporteOrdenesVehiculos
     {
         /// <summary>
         /// Required designer variable.
@@ -31,38 +31,18 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.ProveedoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.BD_SistemaDataSet2 = new SistemaOrdenes.BD_SistemaDataSet2();
-            this.ConReporteTablaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ConReRS = new SistemaOrdenes.ConReRS();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.BD_SistemaDataSet2 = new SistemaOrdenes.BD_SistemaDataSet2();
+            this.ProveedoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ProveedoresTableAdapter = new SistemaOrdenes.BD_SistemaDataSet2TableAdapters.ProveedoresTableAdapter();
+            this.ConReRS = new SistemaOrdenes.ConReRS();
+            this.ConReporteTablaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ConReporteTablaTableAdapter = new SistemaOrdenes.ConReRSTableAdapters.ConReporteTablaTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.ProveedoresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BD_SistemaDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ConReporteTablaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProveedoresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConReRS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ConReporteTablaBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ProveedoresBindingSource
-            // 
-            this.ProveedoresBindingSource.DataMember = "Proveedores";
-            this.ProveedoresBindingSource.DataSource = this.BD_SistemaDataSet2;
-            // 
-            // BD_SistemaDataSet2
-            // 
-            this.BD_SistemaDataSet2.DataSetName = "BD_SistemaDataSet2";
-            this.BD_SistemaDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ConReporteTablaBindingSource
-            // 
-            this.ConReporteTablaBindingSource.DataMember = "ConReporteTabla";
-            this.ConReporteTablaBindingSource.DataSource = this.ConReRS;
-            // 
-            // ConReRS
-            // 
-            this.ConReRS.DataSetName = "ConReRS";
-            this.ConReRS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -73,33 +53,53 @@
             reportDataSource2.Value = this.ConReporteTablaBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "SistemaOrdenes.Report2.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "SistemaOrdenes.Report4Vehic.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(937, 667);
+            this.reportViewer1.Size = new System.Drawing.Size(718, 489);
             this.reportViewer1.TabIndex = 0;
+            // 
+            // BD_SistemaDataSet2
+            // 
+            this.BD_SistemaDataSet2.DataSetName = "BD_SistemaDataSet2";
+            this.BD_SistemaDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // ProveedoresBindingSource
+            // 
+            this.ProveedoresBindingSource.DataMember = "Proveedores";
+            this.ProveedoresBindingSource.DataSource = this.BD_SistemaDataSet2;
             // 
             // ProveedoresTableAdapter
             // 
             this.ProveedoresTableAdapter.ClearBeforeFill = true;
             // 
+            // ConReRS
+            // 
+            this.ConReRS.DataSetName = "ConReRS";
+            this.ConReRS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // ConReporteTablaBindingSource
+            // 
+            this.ConReporteTablaBindingSource.DataMember = "ConReporteTabla";
+            this.ConReporteTablaBindingSource.DataSource = this.ConReRS;
+            // 
             // ConReporteTablaTableAdapter
             // 
             this.ConReporteTablaTableAdapter.ClearBeforeFill = true;
             // 
-            // frmReporteOrdenes
+            // frmReporteOrdenesVehiculos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(937, 667);
+            this.ClientSize = new System.Drawing.Size(718, 489);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "frmReporteOrdenes";
-            this.Text = "frmReporteOrdenes";
-            this.Load += new System.EventHandler(this.frmReporteOrdenes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ProveedoresBindingSource)).EndInit();
+            this.Name = "frmReporteOrdenesVehiculos";
+            this.Text = "Reporte Ordenes Vehiculos";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BD_SistemaDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ConReporteTablaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProveedoresBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ConReRS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ConReporteTablaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

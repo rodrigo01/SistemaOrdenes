@@ -24,9 +24,19 @@ namespace SistemaOrdenes
 
         private void frmEditarVehiculos_Load(object sender, EventArgs e)
         {
+            Conexion conectar = new Conexion();
+            Departamentos departamentos = new Departamentos();
+            departamentos.con = conectar.con;
+            DataTable dtLista = new DataTable();
+
+            dtLista = departamentos.getDepartamentosDG();
+            cbDepartamentos.DataSource = dtLista;
+            cbDepartamentos.DisplayMember = "Nombre";
+            cbDepartamentos.ValueMember = "Id";
+            
             int ideditar = _idver;
             //System.Windows.Forms.MessageBox.Show("ID " + ideditar);
-            Conexion conectar = new Conexion();
+          
             Vehiculos vehiculo= new Vehiculos();
             vehiculo.con = conectar.con;
 
@@ -44,6 +54,7 @@ namespace SistemaOrdenes
             tbllantas.Text = vehiculo.llantas;
             tbBaja.Text = vehiculo.bajafecha;
             tbColor.Text = vehiculo.color;
+            cbDepartamentos.SelectedIndex = cbDepartamentos.FindString(vehiculo.departamento);
 
         }
 
@@ -72,9 +83,11 @@ namespace SistemaOrdenes
             vehiculo.llantas = tbllantas.Text;
             vehiculo.bajafecha = tbBaja.Text;
             vehiculo.color = tbColor.Text;
+            vehiculo.departamento = cbDepartamentos.GetItemText(cbDepartamentos.SelectedItem);
 
             vehiculo.updateVehiculo(vehiculo);
             System.Windows.Forms.MessageBox.Show("Vehiculo Actualizado");
+            this.Close();
 
         }
 

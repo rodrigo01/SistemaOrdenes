@@ -5,6 +5,7 @@ using System.Text;
 using System.Data.Odbc;
 using System.Data.OleDb;
 using System.Data;
+using System.Windows.Forms;
 
 namespace SistemaOrdenes
 {
@@ -40,7 +41,7 @@ namespace SistemaOrdenes
             con.Open();
 
             //sql de busqueda y realizamos consulta            
-            String consulta = "SELECT * FROM Proveedores Where Id = "+_id+"";
+            String consulta = "SELECT * FROM Proveedores Where Id = " + _id + " ORDER BY nombre ASC;";
             comand.CommandText = consulta;
             lectura = comand.ExecuteReader();
 
@@ -89,8 +90,8 @@ namespace SistemaOrdenes
         public DataTable getProveedoresDG(OleDbConnection con)
         {
             con.Open();
-            
-            String consulta = "SELECT * FROM Proveedores";
+
+            String consulta = "SELECT * FROM Proveedores ORDER BY nombre ASC;";
             OleDbCommand comand = new OleDbCommand();
             comand.Connection = con;
             comand.CommandText = consulta;
@@ -103,11 +104,34 @@ namespace SistemaOrdenes
             return proveedores;
         }
 
+        public AutoCompleteStringCollection getProveedoresAutoComplete(OleDbConnection con)
+        {
+            
+            OleDbCommand comand = new OleDbCommand();
+            OleDbDataReader lectura; //lecto de datos
+            AutoCompleteStringCollection namesCollection = new AutoCompleteStringCollection(); // listado de nombres
+            comand.Connection = con; //conectamos
+            con.Open();
+
+            //sql de busqueda y realizamos consulta            
+            String consulta = "SELECT * FROM Proveedores ORDER BY nombre ASC;";
+            comand.CommandText = consulta;
+            lectura = comand.ExecuteReader();
+
+            while (lectura.Read())
+            {
+                namesCollection.Add(lectura["nombre"].ToString());
+            }
+
+            con.Close();
+            return namesCollection;
+        }
+
         public DataTable getProveedoresByNameDG(String Nombre,OleDbConnection con)
         {
             con.Open();
 
-            String consulta = "SELECT * FROM Proveedores Where nombre LIKE '%" + Nombre + "%'";
+            String consulta = "SELECT * FROM Proveedores Where nombre LIKE '%" + Nombre + "%'" + " ORDER BY nombre ASC;";
             OleDbCommand comand = new OleDbCommand();
             comand.Connection = con;
             comand.CommandText = consulta;
