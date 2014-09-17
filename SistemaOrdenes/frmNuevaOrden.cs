@@ -114,8 +114,10 @@ namespace SistemaOrdenes
 
         public void actualizarmulti()
         {
+            int cantlim = 0;
             foreach (DataGridViewRow row in dgDetallesOrden.Rows)
             {
+                cantlim++;
                 if (row.Cells["Cantidad"].Value != null)
                 {
                     if (row.Cells["Precio"].Value!= null)
@@ -126,6 +128,10 @@ namespace SistemaOrdenes
                     
                 }
 
+            }
+            if (cantlim > 17)
+            {
+                System.Windows.Forms.MessageBox.Show("Solo se puede tener un maximo de 16 Conceptos por Orden");
             }
         }
 
@@ -143,71 +149,78 @@ namespace SistemaOrdenes
 
         private void btGuardarOrden_Click(object sender, EventArgs e)
         {
+            int cantlim = dgDetallesOrden.RowCount;
 
-            if (tbOrden.Text.CompareTo("")==0)
+            if (cantlim > 17)
             {
-                System.Windows.Forms.MessageBox.Show("No se puede dejar vacio el Numero de Orden");
+                System.Windows.Forms.MessageBox.Show("No se pueden insertar mas de 16 Conceptos en la Orden");
             }
             else
             {
-                Conexion conectar = new Conexion();
-                Ordenes Orden = new Ordenes();
-                Proveedores Proveedor = new Proveedores();
-
-                //guardamos datos en Objeto
-                Proveedor.getProveedorByName(cbProveedores.GetItemText(cbProveedores.SelectedItem), conectar.con);
-
-                Orden.id_proveedor = Proveedor.id;
-                Orden.orden = Convert.ToInt32(tbOrden.Text);
-                Orden.fecha = dtFecha.Value.ToShortDateString();
-                Orden.departamento = cbDepartamento.GetItemText(cbDepartamento.SelectedItem); ;
-                Orden.vehiculo = cbVehiculo.GetItemText(cbVehiculo.SelectedItem);
-                Orden.almacen = tbAlmacen.Text;
-                Orden.parauso = tbUso.Text;
-                Orden.maquina = cbMaquina.GetItemText(cbMaquina.SelectedItem); ;
-                Orden.obra = tbObra.Text;
-                Orden.unidad = tbUnidad.Text;
-                Orden.iva = Convert.ToInt32(tbPIva.Text);
-
-                // Insertamos Orden
-                int IDGEN = 0;
-                IDGEN = Orden.insertOrden(Orden, conectar.con);
-                //System.Windows.Forms.MessageBox.Show("Orden ID: " + IDGEN);
-
-                //Regeneramos Detalles Orden
-                Detalles detalle = new Detalles();
-                detalle.id_orden = IDGEN;
-                foreach (DataGridViewRow row in dgDetallesOrden.Rows)
+                if (tbOrden.Text.CompareTo("") == 0)
                 {
-                    if (row.Cells["Cantidad"].Value != null)
-                    {
-                        if (row.Cells["Precio"].Value.ToString().Equals("") == false)
-                        {
-                            detalle.cantidad = Convert.ToDouble(row.Cells["Cantidad"].Value.ToString());
-                            detalle.descripcion = row.Cells["Descripcion"].Value.ToString();
-                            detalle.punitario = Convert.ToSingle(row.Cells["Precio"].Value.ToString());
-                            detalle.moneda = tbMoneda.Text;
-                            //System.Windows.Forms.MessageBox.Show("dato: " + detalle.punitario);
+                    System.Windows.Forms.MessageBox.Show("No se puede dejar vacio el Numero de Orden");
+                }
+                else
+                {
+                    Conexion conectar = new Conexion();
+                    Ordenes Orden = new Ordenes();
+                    Proveedores Proveedor = new Proveedores();
 
-                            //insertamos detalle
-                            Orden.insertDetalle(detalle, conectar.con);
+                    //guardamos datos en Objeto
+                    Proveedor.getProveedorByName(cbProveedores.GetItemText(cbProveedores.SelectedItem), conectar.con);
+
+                    Orden.id_proveedor = Proveedor.id;
+                    Orden.orden = Convert.ToInt32(tbOrden.Text);
+                    Orden.fecha = dtFecha.Value.ToShortDateString();
+                    Orden.departamento = cbDepartamento.GetItemText(cbDepartamento.SelectedItem); ;
+                    Orden.vehiculo = cbVehiculo.GetItemText(cbVehiculo.SelectedItem);
+                    Orden.almacen = tbAlmacen.Text;
+                    Orden.parauso = tbUso.Text;
+                    Orden.maquina = cbMaquina.GetItemText(cbMaquina.SelectedItem); ;
+                    Orden.obra = tbObra.Text;
+                    Orden.unidad = tbUnidad.Text;
+                    Orden.iva = Convert.ToInt32(tbPIva.Text);
+
+                    // Insertamos Orden
+                    int IDGEN = 0;
+                    IDGEN = Orden.insertOrden(Orden, conectar.con);
+                    //System.Windows.Forms.MessageBox.Show("Orden ID: " + IDGEN);
+
+                    //Regeneramos Detalles Orden
+                    Detalles detalle = new Detalles();
+                    detalle.id_orden = IDGEN;
+                    foreach (DataGridViewRow row in dgDetallesOrden.Rows)
+                    {
+                        if (row.Cells["Cantidad"].Value != null)
+                        {
+                            if (row.Cells["Precio"].Value.ToString().Equals("") == false)
+                            {
+                                detalle.cantidad = Convert.ToDouble(row.Cells["Cantidad"].Value.ToString());
+                                detalle.descripcion = row.Cells["Descripcion"].Value.ToString();
+                                detalle.punitario = Convert.ToSingle(row.Cells["Precio"].Value.ToString());
+                                detalle.moneda = tbMoneda.Text;
+                                //System.Windows.Forms.MessageBox.Show("dato: " + detalle.punitario);
+
+                                //insertamos detalle
+                                Orden.insertDetalle(detalle, conectar.con);
+                            }
                         }
+
                     }
 
+                    //finalizado
+                    System.Windows.Forms.MessageBox.Show("Orden Insertada");
+
+                    frmVerOrden frmOrden = new frmVerOrden();
+                    frmOrden._idver = IDGEN;
+                    frmOrden.Show();
+
+                    this.Close();
                 }
 
-                //finalizado
-                System.Windows.Forms.MessageBox.Show("Orden Insertada");
 
-                frmVerOrden frmOrden = new frmVerOrden();
-                frmOrden._idver = IDGEN;
-                frmOrden.Show();
-
-                this.Close();
             }
-
-
-
            
         }
 
