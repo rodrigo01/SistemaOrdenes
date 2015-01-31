@@ -94,5 +94,64 @@ namespace SistemaOrdenes
             frmReporteVehDep frmVD = new frmReporteVehDep();
             frmVD.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Deseas ejecutar limpieza?", "Aviso!", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                //primero nos traemos todos los vehiculos ordenados por NoEconomico
+                Conexion conectar = new Conexion();
+                Conexion conectar2 = new Conexion();
+                Vehiculos vehiculos = new Vehiculos();
+                Vehiculos vehiculosTemDel = new Vehiculos();
+                vehiculos.con = conectar.con;
+                vehiculosTemDel.con =  conectar2.con;
+                System.Data.OleDb.OleDbDataReader lectura; //lecto de datos
+                lectura = vehiculos.getVehiculosSortBy("noecon","asc");
+                int id = 0;
+                int idnuevo = 0;
+                string noecon = "";
+                int veces = 0;
+                while (lectura.Read())
+                {
+                    if (noecon.CompareTo(lectura["noecon"].ToString()) != 0)
+                    {
+                        // osea que es diferente y no tiene relacion con el anterior
+                        id = Convert.ToInt32(lectura["Id"].ToString());
+                        noecon = lectura["noecon"].ToString();
+                    }
+                    else
+                    {
+                        //determina que el siguiente si es igual al guardado de modo que esta repetido
+                        //ya que encontramos el id
+
+                        idnuevo = Convert.ToInt32(lectura["Id"].ToString());
+                        if (idnuevo > id)
+                        {
+                            vehiculosTemDel.hardDeleteVehiculo(id);
+                            id = idnuevo;
+                            noecon = lectura["noecon"].ToString();
+                        }
+                        else
+                        {
+                            vehiculosTemDel.hardDeleteVehiculo(idnuevo);
+
+                        }
+                        
+                        veces++;
+                    }
+                }
+                vehiculos.con.Close();
+
+                MessageBox.Show("Se ha realizado un total de " + veces.ToString() + "cambios");
+               
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+
+            }
+        }
     }
 }

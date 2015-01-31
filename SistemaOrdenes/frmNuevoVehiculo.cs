@@ -20,31 +20,42 @@ namespace SistemaOrdenes
         {
             Conexion conectar = new Conexion();
             Vehiculos vehiculo = new Vehiculos();
+            Vehiculos vehiculoChk = new Vehiculos();
             vehiculo.con = conectar.con;
+            vehiculoChk.con = conectar.con;
 
-            if (tbModelo.Text.CompareTo("")==0)
+            vehiculoChk.getVehiculoByNoEcon(tbNoEconomico.Text);
+            if (vehiculoChk.id != 0)
             {
-                tbModelo.Text = "" + 0;
+                System.Windows.Forms.MessageBox.Show("Ya existe Numero Economico, ingresa uno diferente");
+                noEconomicoAlert.Text = "Ya existe Numero Economico";
             }
+            else
+            {
+                if (tbModelo.Text.CompareTo("") == 0)
+                {
+                    tbModelo.Text = "" + 0;
+                }
 
-            vehiculo.noecon = tbNoEconomico.Text;
-            vehiculo.marca = tbMarca.Text;
-            vehiculo.modelo = Convert.ToInt32(tbModelo.Text);
-            vehiculo.linea = tbLinea.Text;
-            vehiculo.tipo = tbTipo.Text;
-            vehiculo.clase = tbClase.Text;
-            vehiculo.usuario = tbUsuario.Text;
-            vehiculo.placas = tbPlacas.Text;
-            vehiculo.numserie = tbSerie.Text;
-            vehiculo.motor = tbMotor.Text;
-            vehiculo.llantas = tbllantas.Text;
-            vehiculo.bajafecha = tbBaja.Text;
-            vehiculo.color = tbColor.Text;
-            vehiculo.departamento = cbDepartamentos.GetItemText(cbDepartamentos.SelectedItem);
+                vehiculo.noecon = tbNoEconomico.Text;
+                vehiculo.marca = tbMarca.Text;
+                vehiculo.modelo = Convert.ToInt32(tbModelo.Text);
+                vehiculo.linea = tbLinea.Text;
+                vehiculo.tipo = tbTipo.Text;
+                vehiculo.clase = tbClase.Text;
+                vehiculo.usuario = tbUsuario.Text;
+                vehiculo.placas = tbPlacas.Text;
+                vehiculo.numserie = tbSerie.Text;
+                vehiculo.motor = tbMotor.Text;
+                vehiculo.llantas = tbllantas.Text;
+                vehiculo.bajafecha = tbBaja.Text;
+                vehiculo.color = tbColor.Text;
+                vehiculo.departamento = cbDepartamentos.GetItemText(cbDepartamentos.SelectedItem);
 
-            vehiculo.insertVehiculo(vehiculo);
-            System.Windows.Forms.MessageBox.Show("Vehiculo Agregado");
-            this.Close();
+                vehiculo.insertVehiculo(vehiculo);
+                System.Windows.Forms.MessageBox.Show("Vehiculo Agregado");
+                this.Close();
+            }  
         }
 
         private void btCancelar_Click(object sender, EventArgs e)
@@ -124,6 +135,26 @@ namespace SistemaOrdenes
 		    string selectedEmployee = (string) comboBox.SelectedItem;
             char let = selectedEmployee[0];
             tbClase.Text = let.ToString();
+        }
+
+        private void noEconomicoAlert_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbNoEconomico_TextChanged(object sender, EventArgs e)
+        {
+            Conexion conectar = new Conexion();
+            Vehiculos vehiculo = new Vehiculos();
+            vehiculo.con = conectar.con;
+
+            vehiculo.getVehiculoByNoEcon(tbNoEconomico.Text);
+            noEconomicoAlert.Text = "";
+            if (vehiculo.id != 0)
+            {
+                noEconomicoAlert.Text = "Ya existe Numero Economico";
+            }
+            
         }
     }
 }

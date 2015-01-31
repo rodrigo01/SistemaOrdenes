@@ -36,6 +36,7 @@
             this.tbBuscar = new System.Windows.Forms.TextBox();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btReporte = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgVehiculos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,11 +115,22 @@
             this.btReporte.UseVisualStyleBackColor = true;
             this.btReporte.Click += new System.EventHandler(this.btReporte_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 533);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(109, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Limpiar Repetidos";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmVehiculosLista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 569);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btReporte);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.tbBuscar);
@@ -146,5 +158,6 @@
         private System.Windows.Forms.TextBox tbBuscar;
         private System.Windows.Forms.Button btnBorrar;
         private System.Windows.Forms.Button btReporte;
+        private System.Windows.Forms.Button button1;
     }
 }

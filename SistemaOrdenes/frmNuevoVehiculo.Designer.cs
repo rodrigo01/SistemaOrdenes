@@ -61,6 +61,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.noEconomicoAlert = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btGuardarOrden
@@ -205,7 +206,7 @@
             this.tbClase.Location = new System.Drawing.Point(15, 399);
             this.tbClase.Margin = new System.Windows.Forms.Padding(4);
             this.tbClase.Name = "tbClase";
-            this.tbClase.Size = new System.Drawing.Size(104, 20);
+            this.tbClase.Size = new System.Drawing.Size(10, 20);
             this.tbClase.TabIndex = 117;
             this.tbClase.Visible = false;
             // 
@@ -305,6 +306,7 @@
             this.tbNoEconomico.Name = "tbNoEconomico";
             this.tbNoEconomico.Size = new System.Drawing.Size(209, 20);
             this.tbNoEconomico.TabIndex = 107;
+            this.tbNoEconomico.TextChanged += new System.EventHandler(this.tbNoEconomico_TextChanged);
             // 
             // label13
             // 
@@ -365,11 +367,23 @@
             this.label15.TabIndex = 136;
             this.label15.Text = "V : Vehiculo - M : Maquinaria";
             // 
+            // noEconomicoAlert
+            // 
+            this.noEconomicoAlert.AutoSize = true;
+            this.noEconomicoAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noEconomicoAlert.ForeColor = System.Drawing.Color.Crimson;
+            this.noEconomicoAlert.Location = new System.Drawing.Point(114, 21);
+            this.noEconomicoAlert.Name = "noEconomicoAlert";
+            this.noEconomicoAlert.Size = new System.Drawing.Size(0, 13);
+            this.noEconomicoAlert.TabIndex = 137;
+            this.noEconomicoAlert.Click += new System.EventHandler(this.noEconomicoAlert_Click);
+            // 
             // frmNuevoVehiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(585, 432);
+            this.Controls.Add(this.noEconomicoAlert);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label14);
@@ -445,5 +459,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label noEconomicoAlert;
     }
 }

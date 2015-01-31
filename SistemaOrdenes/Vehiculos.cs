@@ -49,6 +49,21 @@ namespace SistemaOrdenes
             departamento = "";
         }
 
+        public OleDbDataReader getVehiculosSortBy(String by, String flow){
+
+            OleDbCommand comand = new OleDbCommand();
+            OleDbDataReader lectura; //lecto de datos
+            comand.Connection = con; //conectamos
+            con.Open();
+
+            //sql de busqueda y realizamos consulta            
+            String consulta = "SELECT * FROM Vehiculos ORDER BY Vehiculos."+by+" "+flow;
+            comand.CommandText = consulta;
+            lectura = comand.ExecuteReader();
+            //con.Close();
+            return lectura;
+        }
+
         public int insertVehiculo(Vehiculos vehiculo)
         {
             OleDbCommand comand = new OleDbCommand();
@@ -195,6 +210,50 @@ namespace SistemaOrdenes
             con.Close();
         }
 
+        public void getVehiculoByNoEcon(String noEcon)
+        {
+            OleDbCommand comand = new OleDbCommand();
+            OleDbDataReader lectura; //lecto de datos
+            comand.Connection = con; //conectamos
+            con.Open();
+
+            //sql de busqueda y realizamos consulta            
+            String consulta = "SELECT * FROM Vehiculos Where noecon LIKE '" + noEcon + "'";
+            comand.CommandText = consulta;
+            lectura = comand.ExecuteReader();
+
+            while (lectura.Read())
+            {
+                this.id = Convert.ToInt32(lectura["Id"].ToString());
+                this.noecon = lectura["noecon"].ToString();
+                this.marca = lectura["marca"].ToString();
+                this.linea = lectura["linea"].ToString();
+                this.tipo = lectura["tipo"].ToString();
+                if (lectura["modelo"].ToString() != "")
+                {
+                    //System.Windows.Forms.MessageBox.Show("Entro todo ");
+                    this.modelo = Convert.ToInt32(lectura["modelo"].ToString());
+                }
+                else
+                {
+                    //System.Windows.Forms.MessageBox.Show("fue a Cero ");
+                    this.modelo = 0;
+                }
+
+                this.clase = lectura["clase"].ToString();
+                this.usuario = lectura["usuario"].ToString();
+                this.placas = lectura["placas"].ToString();
+                this.numserie = lectura["numserie"].ToString();
+                this.motor = lectura["motor"].ToString();
+                this.llantas = lectura["llantas"].ToString();
+                this.bajafecha = lectura["bajafecha"].ToString();
+                this.color = lectura["color"].ToString();
+                this.departamento = lectura["departamento"].ToString();
+            }
+
+            con.Close();
+        }
+
         public DataTable getVehiculosDG()
         {
             con.Open();
@@ -275,6 +334,17 @@ namespace SistemaOrdenes
             DateTime Hoy = DateTime.Today;
             string fecha_actual = Hoy.ToString("dd-MM-yyyy");
             String consulta = "UPDATE Vehiculos SET Vehiculos.bajafecha = '" + fecha_actual + "' Where Id = "+id+";";
+            comand.Connection = con;
+            comand.CommandText = consulta;
+            con.Open();
+            comand.ExecuteNonQuery();
+            con.Close();
+        }
+
+        public void hardDeleteVehiculo(int id)
+        {
+            OleDbCommand comand = new OleDbCommand();
+            String consulta = "Delete From Vehiculos Where Id = "+id+";";
             comand.Connection = con;
             comand.CommandText = consulta;
             con.Open();
