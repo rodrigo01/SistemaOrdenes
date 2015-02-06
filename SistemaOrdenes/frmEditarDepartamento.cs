@@ -52,7 +52,7 @@ namespace SistemaOrdenes
 
             departamento.updateDepartamento(departamento);
             System.Windows.Forms.MessageBox.Show("Departamento Actualizado");
-
+            this.Close();
         }
     }
 }
