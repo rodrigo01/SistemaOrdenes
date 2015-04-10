@@ -48,6 +48,7 @@ namespace SistemaOrdenes
             tbLinea.Text = vehiculo.linea;
             tbTipo.Text = vehiculo.tipo;
             tbClase.Text = vehiculo.clase;
+            tbUsuario.Text = vehiculo.usuario;
             tbPlacas.Text = vehiculo.placas;
             tbSerie.Text = vehiculo.numserie;
             tbMotor.Text = vehiculo.motor;
