@@ -33,25 +33,55 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImprimirOrden));
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.bD_SistemaDataSet = new SistemaOrdenes.BD_SistemaDataSet();
+            this.OrdenesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ReporteP = new SistemaOrdenes.ReporteP();
+            this.Detalles_OrdenBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.BD_SistemaDataSet2 = new SistemaOrdenes.BD_SistemaDataSet2();
             this.proveedoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bD_SistemaDataSet = new SistemaOrdenes.BD_SistemaDataSet();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.proveedoresTableAdapter = new SistemaOrdenes.BD_SistemaDataSetTableAdapters.ProveedoresTableAdapter();
             this.proveedoresBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.ReporteP = new SistemaOrdenes.ReporteP();
-            this.OrdenesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.OrdenesTableAdapter = new SistemaOrdenes.ReportePTableAdapters.OrdenesTableAdapter();
-            this.BD_SistemaDataSet2 = new SistemaOrdenes.BD_SistemaDataSet2();
-            this.Detalles_OrdenBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Detalles_OrdenTableAdapter = new SistemaOrdenes.BD_SistemaDataSet2TableAdapters.Detalles_OrdenTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.bD_SistemaDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ReporteP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrdenesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BD_SistemaDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ReporteP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Detalles_OrdenBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BD_SistemaDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bD_SistemaDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // OrdenesBindingSource
+            // 
+            this.OrdenesBindingSource.DataMember = "Ordenes";
+            this.OrdenesBindingSource.DataSource = this.ReporteP;
+            // 
+            // ReporteP
+            // 
+            this.ReporteP.DataSetName = "ReporteP";
+            this.ReporteP.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // Detalles_OrdenBindingSource
+            // 
+            this.Detalles_OrdenBindingSource.DataMember = "Detalles_Orden";
+            this.Detalles_OrdenBindingSource.DataSource = this.BD_SistemaDataSet2;
+            // 
+            // BD_SistemaDataSet2
+            // 
+            this.BD_SistemaDataSet2.DataSetName = "BD_SistemaDataSet2";
+            this.BD_SistemaDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // proveedoresBindingSource
+            // 
+            this.proveedoresBindingSource.DataMember = "Proveedores";
+            this.proveedoresBindingSource.DataSource = this.bD_SistemaDataSet;
+            // 
+            // bD_SistemaDataSet
+            // 
+            this.bD_SistemaDataSet.DataSetName = "BD_SistemaDataSet";
+            this.bD_SistemaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -72,16 +102,6 @@
             this.reportViewer1.TabIndex = 0;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
-            // bD_SistemaDataSet
-            // 
-            this.bD_SistemaDataSet.DataSetName = "BD_SistemaDataSet";
-            this.bD_SistemaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // proveedoresBindingSource
-            // 
-            this.proveedoresBindingSource.DataMember = "Proveedores";
-            this.proveedoresBindingSource.DataSource = this.bD_SistemaDataSet;
-            // 
             // proveedoresTableAdapter
             // 
             this.proveedoresTableAdapter.ClearBeforeFill = true;
@@ -91,29 +111,9 @@
             this.proveedoresBindingSource1.DataMember = "Proveedores";
             this.proveedoresBindingSource1.DataSource = this.bD_SistemaDataSet;
             // 
-            // ReporteP
-            // 
-            this.ReporteP.DataSetName = "ReporteP";
-            this.ReporteP.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // OrdenesBindingSource
-            // 
-            this.OrdenesBindingSource.DataMember = "Ordenes";
-            this.OrdenesBindingSource.DataSource = this.ReporteP;
-            // 
             // OrdenesTableAdapter
             // 
             this.OrdenesTableAdapter.ClearBeforeFill = true;
-            // 
-            // BD_SistemaDataSet2
-            // 
-            this.BD_SistemaDataSet2.DataSetName = "BD_SistemaDataSet2";
-            this.BD_SistemaDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // Detalles_OrdenBindingSource
-            // 
-            this.Detalles_OrdenBindingSource.DataMember = "Detalles_Orden";
-            this.Detalles_OrdenBindingSource.DataSource = this.BD_SistemaDataSet2;
             // 
             // Detalles_OrdenTableAdapter
             // 
@@ -121,21 +121,21 @@
             // 
             // ImprimirOrden
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(825, 506);
             this.Controls.Add(this.reportViewer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ImprimirOrden";
             this.Text = "Orden a Imprimir";
             this.Load += new System.EventHandler(this.ImprimirOrden_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bD_SistemaDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ReporteP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrdenesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BD_SistemaDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ReporteP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Detalles_OrdenBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BD_SistemaDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bD_SistemaDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proveedoresBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }

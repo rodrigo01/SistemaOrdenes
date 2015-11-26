@@ -28,6 +28,9 @@ namespace SistemaOrdenes
 
         private void ImprimirOrden_Load(object sender, EventArgs e)
         {
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             int iddetalles = _iddetalles;
             int idorden = _idorden;
             int idproveedor = _idproveedor;
@@ -84,8 +87,9 @@ namespace SistemaOrdenes
             parameters[3] = new ReportParameter("total", total.ToString());
             parameters[4] = new ReportParameter("detallevehiculo", detallevehiculo);
             this.reportViewer1.LocalReport.SetParameters(parameters);
-            
+
             this.reportViewer1.RefreshReport();
+            
         }
 
         private void reportViewer1_Load(object sender, EventArgs e)
